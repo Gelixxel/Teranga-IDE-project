@@ -4,4 +4,5 @@
 ping-back-end/target
 node_modules
 electron/node_modules
+electron/dist
 ping-front-end/node_modules
