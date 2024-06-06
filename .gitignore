@@ -1,1 +1,7 @@
 .vscode/
+.idea/
+.DS_Store
+ping-back-end/target
+node_modules
+electron/node_modules
+ping-front-end/node_modules

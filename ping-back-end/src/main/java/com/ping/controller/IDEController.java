@@ -1,12 +1,12 @@
 package com.ping.controller;
 
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api")
@@ -17,7 +17,7 @@ public class IDEController {
         return "Diop Bizarre IDE!";
     }
 
-    private final Path root = Paths.get("code");
+    private final Path root = Paths.get("../code");
 
     @PostMapping("/open")
     public String openFile(@RequestParam("filePath") String filePath) throws IOException {

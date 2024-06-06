@@ -1,0 +1,52 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"wait-on http://localhost:8081 && electron .\" \"java -jar ../target/PingProject-1.0-SNAPSHOT.jar\"",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^25.0.0-alpha.9"
+  },
+  "build": {
+    "appId": "com.ping.app",
+    "productName": "Ping",
+    "directories": {
+      "buildResources": "public",
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "public/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../ping-back-end/target/PingProject-1.0-SNAPSHOT.jar",
+        "to": "./"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": "nsis",
+      "artifactName": "Ping-Setup-${version}.exe"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Development"
+    }
+  }
+}
