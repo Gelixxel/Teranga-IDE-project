@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CodeMirrorEditor from './CodeMirrorEditor';
 
 const Editor: React.FC = () => {
   const [content, setContent] = useState<string>('');
   const [filePath, setFilePath] = useState<string>('');
-  const [language, setLanguage] = useState<'javascript' | 'python'>('javascript');
+  const [language, setLanguage] = useState<'python' | 'java'>('java');
+
+  const fileExtensionToLanguage = (filePath: string): 'python' | 'java' => {
+    const extension = filePath.split('.').pop()?.toLowerCase();
+    switch (extension) {
+      case 'py':
+        return 'python';
+      case 'java':
+        return 'java';
+      default:
+        return 'python'; // default language if extension is not recognized
+    }
+  };
 
   const openFile = async () => {
     try {
@@ -14,7 +26,10 @@ const Editor: React.FC = () => {
           filePath: filePath,
         },
       });
-      setContent(response.data);
+      const fileContent = response.data;
+      setContent(fileContent);
+      const detectedLanguage = fileExtensionToLanguage(filePath);
+      setLanguage(detectedLanguage);
     } catch (error) {
       console.error('Error opening file:', error);
     }
@@ -34,6 +49,11 @@ const Editor: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    const detectedLanguage = fileExtensionToLanguage(filePath);
+    setLanguage(detectedLanguage);
+  }, [filePath]);
+
   return (
     <div>
       <input
@@ -44,12 +64,8 @@ const Editor: React.FC = () => {
       />
       <button onClick={openFile}>Open</button>
       <button onClick={saveFile}>Save</button>
-      <select value={language} onChange={(e) => setLanguage(e.target.value as 'javascript' | 'python')}>
-        <option value="javascript">JavaScript</option>
-        <option value="python">Python</option>
-      </select>
       <CodeMirrorEditor
-        value={content}
+        initialValue={content}
         language={language}
         onChange={(value) => setContent(value)}
       />

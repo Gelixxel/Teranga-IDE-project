@@ -13,7 +13,9 @@ function createWindow() {
         height: 600,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false, // Allow shared context
+            enableRemoteModule: true, // Optional, if you need remote module
+            // webSecurity: false // Disable web security for testing purposes
         }
     });
 
@@ -24,6 +26,12 @@ function createWindow() {
     });
 
     mainWindow.webContents.openDevTools();
+
+    mainWindow.webContents.on('console-message', (event, level, message, line, sourceId) => {
+        if (message.includes('Autofill.enable failed')) {
+            event.preventDefault();
+        }
+    });
 
     mainWindow.on('closed', function () {
         mainWindow = null;
