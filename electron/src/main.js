@@ -2,6 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const { exec } = require('child_process');
 const waitOn = require('wait-on');
+const fs = require('fs');
 
 let mainWindow;
 let springBootProcess;
@@ -22,7 +23,6 @@ function createWindow() {
         console.error('Failed to load URL:', error);
     });
 
-    // Open the DevTools.
     mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', function () {
@@ -36,6 +36,7 @@ function createWindow() {
 app.on('ready', () => {
     console.log('App is ready');
     const jarPath = path.join(process.resourcesPath, 'PingProject-1.0-SNAPSHOT.jar');
+    console.log(`Starting Spring Boot application from JAR: ${jarPath}`);
 
     springBootProcess = exec(`java -jar ${jarPath}`, (error, stdout, stderr) => {
         if (error) {
@@ -46,9 +47,15 @@ app.on('ready', () => {
         console.error(`Spring Boot Error: ${stderr}`);
     });
 
-    // Wait for Spring Boot to start by checking the availability of the backend URL
+    // Log output and errors to files
+    const logStream = fs.createWriteStream('spring-boot-log.txt', { flags: 'a' });
+    const errorStream = fs.createWriteStream('spring-boot-error.txt', { flags: 'a' });
+    springBootProcess.stdout.pipe(logStream);
+    springBootProcess.stderr.pipe(errorStream);
+
+    // Increase the timeout to ensure enough time for Spring Boot to start
     const opts = {
-        resources: ['http://localhost:8081'],
+        resources: ['http://localhost:8081/api/message'],
         delay: 1000, // initial delay in ms, wait before checking resources
         interval: 100, // poll interval in ms, how often to poll
         timeout: 30000, // timeout in ms, how long to wait before giving up

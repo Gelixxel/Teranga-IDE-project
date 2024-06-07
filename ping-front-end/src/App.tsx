@@ -7,7 +7,8 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <Message/>
+        <Message />
+        <p>ceci est un message du front end: caca</p>
         <Editor />
       </header>
     </div>

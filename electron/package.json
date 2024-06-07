@@ -4,7 +4,7 @@
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"wait-on http://localhost:8081 && electron .\" \"java -jar ../target/PingProject-1.0-SNAPSHOT.jar\"",
+    "start": "concurrently \"wait-on http://localhost:8081 && electron .\" \"java -jar ../ping-back-end/target/PingProject-1.0-SNAPSHOT.jar\"",
     "dist": "electron-builder"
   },
   "keywords": [],
@@ -45,7 +45,10 @@
       "artifactName": "Ping-Setup-${version}.exe"
     },
     "linux": {
-      "target": ["AppImage", "deb"],
+      "target": [
+        "AppImage",
+        "deb"
+      ],
       "category": "Development"
     }
   }
