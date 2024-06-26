@@ -1134,3 +1134,26 @@ Spring Boot application has started.
 2024-06-26 21:36:36.962  INFO 76437 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-06-26 21:36:36.963  INFO 76437 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-06-26 21:36:36.963  INFO 76437 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-06-26 21:40:17.344  INFO 76803 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 76803 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-06-26 21:40:17.345  INFO 76803 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-06-26 21:40:17.762  INFO 76803 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-06-26 21:40:17.767  INFO 76803 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-26 21:40:17.767  INFO 76803 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-06-26 21:40:17.790  INFO 76803 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-26 21:40:17.790  INFO 76803 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 420 ms
+2024-06-26 21:40:17.916  INFO 76803 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-06-26 21:40:17.961  INFO 76803 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-06-26 21:40:17.966  INFO 76803 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.842 seconds (JVM running for 1.095)
+Spring Boot application has started.
+2024-06-26 21:40:18.094  INFO 76803 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-26 21:40:18.094  INFO 76803 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-26 21:40:18.095  INFO 76803 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
