@@ -6,6 +6,7 @@ const Editor: React.FC = () => {
   const [content, setContent] = useState<string>('');
   const [filePath, setFilePath] = useState<string>('');
   const [language, setLanguage] = useState<'python' | 'java'>('java');
+  const [output, setOutput] = useState<string>('');
 
   const fileExtensionToLanguage = (filePath: string): 'python' | 'java' => {
     const extension = filePath.split('.').pop()?.toLowerCase();
@@ -45,6 +46,19 @@ const Editor: React.FC = () => {
     }
   };
 
+  const executeFile = async () => {
+    try {
+      const response = await axios.post('/api/execute', {
+        filePath: filePath,
+        content: content,
+        language: language,
+      });
+      setOutput(response.data);
+    } catch (error) {
+      console.error('Error executing file:', error);
+    }
+  };
+
   useEffect(() => {
     const detectedLanguage = fileExtensionToLanguage(filePath);
     setLanguage(detectedLanguage);
@@ -60,11 +74,13 @@ const Editor: React.FC = () => {
       />
       <button onClick={openFile}>Open</button>
       <button onClick={saveFile}>Save</button>
+      <button onClick={executeFile}>Run</button>
       <CodeMirrorEditor
         initialValue={content}
         language={language}
         onChange={(value) => setContent(value)}
       />
+      <pre>{output}</pre>
     </div>
   );
 };
