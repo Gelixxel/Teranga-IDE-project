@@ -4,7 +4,7 @@
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"wait-on http://localhost:8081 && electron .\" \"java -jar ../ping-back-end/target/PingProject-1.0-SNAPSHOT.jar\"",
+    "start": "concurrently \"wait-on http://localhost:8081 && electron .\" \"java -jar ../ping-back-end/target/ping-back-end-1.0-SNAPSHOT.jar\"",
     "dist": "electron-builder"
   },
   "keywords": [],
@@ -33,7 +33,7 @@
     ],
     "extraResources": [
       {
-        "from": "../ping-back-end/target/PingProject-1.0-SNAPSHOT.jar",
+        "from": "../ping-back-end/target/ping-back-end-1.0-SNAPSHOT.jar",
         "to": "./"
       }
     ],

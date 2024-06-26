@@ -1,12 +1,15 @@
 package com.ping.controller;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
+import com.ping.controller.Requests.FilePathRequest;
+import com.ping.controller.Requests.FileSaveRequest;
 
 @RestController
 @RequestMapping("/api")
@@ -20,15 +23,15 @@ public class IDEController {
     private final Path root = Paths.get("../code");
 
     @PostMapping("/open")
-    public String openFile(@RequestParam("filePath") String filePath) throws IOException {
-        Path path = root.resolve(filePath);
-        return Files.readString(path);
+    public String openFile(@RequestBody FilePathRequest filePathRequest) throws IOException {
+        Path path = root.resolve(filePathRequest.getFilePath());
+        return Files.readString(path, StandardCharsets.UTF_8);
     }
 
     @PostMapping("/save")
-    public String saveFile(@RequestParam("file") MultipartFile file, @RequestParam("filePath") String filePath) throws IOException {
-        Path path = root.resolve(filePath);
-        Files.write(path, file.getBytes());
+    public String saveFile(@RequestBody FileSaveRequest fileSaveRequest) throws IOException {
+        Path path = root.resolve(fileSaveRequest.getFilePath());
+        Files.write(path, fileSaveRequest.getContent().getBytes(StandardCharsets.UTF_8));
         return "File saved successfully!";
     }
 }

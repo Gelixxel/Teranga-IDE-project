@@ -1,0 +1,1 @@
+Error: Unable to access jarfile /Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/PingProject-1.0-SNAPSHOT.jar

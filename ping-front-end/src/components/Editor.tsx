@@ -21,10 +21,8 @@ const Editor: React.FC = () => {
 
   const openFile = async () => {
     try {
-      const response = await axios.post('/api/open', null, {
-        params: {
-          filePath: filePath,
-        },
+      const response = await axios.post('/api/open', {
+        filePath: filePath,
       });
       const fileContent = response.data;
       setContent(fileContent);
@@ -37,12 +35,10 @@ const Editor: React.FC = () => {
 
   const saveFile = async () => {
     try {
-      const formData = new FormData();
-      const blob = new Blob([content], { type: 'text/plain' });
-      formData.append('file', blob);
-      formData.append('filePath', filePath);
-
-      await axios.post('/api/save', formData);
+      await axios.post('/api/save', {
+        filePath: filePath,
+        content: content,
+      });
       alert('File saved successfully!');
     } catch (error) {
       console.error('Error saving file:', error);
