@@ -48,12 +48,13 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
         parent: editorRef.current,
       });
 
+      // Cleanup on unmount
       return () => {
         viewRef.current?.destroy();
         viewRef.current = null;
       };
     }
-  }, [language, initialValue, onChange]);
+  }, [language, onChange]);
 
   useEffect(() => {
     if (viewRef.current) {
@@ -61,19 +62,8 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
       const currentValue = state.doc.toString();
 
       if (currentValue !== initialValue) {
-        const currentSelection = state.selection.main;
-        const validAnchor = Math.min(
-          currentSelection.anchor,
-          initialValue.length
-        );
-        const validHead = Math.min(currentSelection.head, initialValue.length);
-
         const transaction = state.update({
           changes: { from: 0, to: currentValue.length, insert: initialValue },
-          selection: {
-            anchor: validAnchor,
-            head: validHead,
-          },
         });
         viewRef.current.dispatch(transaction);
       }

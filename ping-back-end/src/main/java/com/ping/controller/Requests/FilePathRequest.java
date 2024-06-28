@@ -9,4 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FilePathRequest {
     private String filePath;
+    private boolean isDirectory;
 }

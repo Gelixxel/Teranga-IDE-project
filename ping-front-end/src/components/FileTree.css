@@ -1,0 +1,57 @@
+/* Custom styles for the file tree */
+.tree-view {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .tree-view .node {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+  }
+  
+  .tree-view .node:hover {
+    background-color: #e6f7ff;
+    color: #0056b3;
+  }
+  
+  .tree-view .node-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .tree-view .node-label .icon {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+  
+  .tree-view .node-label .folder {
+    color: #007bff;
+  }
+  
+  .tree-view .node-label .file {
+    color: #555;
+  }
+  
+  .tree-view .children {
+    margin-left: 20px;
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
+  }
+  
+  .node-collapsed .icon i::before {
+    content: "▶";
+  }
+  
+  .node-expanded .icon i::before {
+    content: "▼";
+  }
+  
