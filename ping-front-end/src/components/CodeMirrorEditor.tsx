@@ -53,7 +53,7 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
         viewRef.current = null;
       };
     }
-  }, [language]);
+  }, [language, initialValue, onChange]);
 
   useEffect(() => {
     if (viewRef.current) {
@@ -71,8 +71,8 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
         const transaction = state.update({
           changes: { from: 0, to: currentValue.length, insert: initialValue },
           selection: {
-            anchor: validAnchor, // currentSelection.anchor,
-            head: validHead, // currentSelection.head
+            anchor: validAnchor,
+            head: validHead,
           },
         });
         viewRef.current.dispatch(transaction);
