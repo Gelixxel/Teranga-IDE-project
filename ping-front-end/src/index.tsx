@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // Create a root.
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);

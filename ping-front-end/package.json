@@ -22,7 +22,10 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "axios": "^1.7.2",
+    "clsx": "^2.1.1",
     "codemirror": "^5.65.16",
+    "framer-motion": "^11.2.12",
+    "is-hotkey": "^0.2.0",
     "react": "^18.3.1",
     "react-codemirror2": "^8.0.0",
     "react-dnd": "^16.0.1",
@@ -33,6 +36,7 @@
     "react-tabs": "^6.0.2",
     "react-treebeard": "^3.2.4",
     "react-treeview": "^0.4.7",
+    "tailwind": "^4.0.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -63,6 +67,7 @@
   "proxy": "http://localhost:8081",
   "devDependencies": {
     "@types/codemirror": "^5.60.15",
+    "@types/is-hotkey": "^0.1.10",
     "@types/react-treeview": "^0.4.6"
   }
 }
