@@ -8,7 +8,10 @@
     "dist": "electron-builder"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Placeholder",
+    "email": "placeholder@example.com"
+  },
   "license": "ISC",
   "description": "",
   "dependencies": {
@@ -38,10 +41,17 @@
       }
     ],
     "mac": {
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "win": {
-      "target": "nsis",
+      "target": [
+        "nsis",
+        "zip"
+      ],
       "artifactName": "Ping-Setup-${version}.exe"
     },
     "linux": {
@@ -49,7 +59,8 @@
         "AppImage",
         "deb"
       ],
-      "category": "Development"
+      "category": "Development",
+      "maintainer": "placeholder@example.com"
     }
   }
 }
