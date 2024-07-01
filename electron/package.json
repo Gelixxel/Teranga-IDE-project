@@ -2,6 +2,7 @@
   "name": "electron",
   "version": "1.0.0",
   "main": "src/main.js",
+  "homepage": "https://localhost:3000",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"wait-on http://localhost:8081 && electron .\" \"java -jar ../ping-back-end/target/ping-back-end-1.0-SNAPSHOT.jar\"",
@@ -19,7 +20,8 @@
     "wait-on": "^7.2.0"
   },
   "devDependencies": {
-    "electron-builder": "^25.0.0-alpha.9"
+    "electron-builder": "^25.0.0-alpha.9",
+    "electron": "^6.0.7"
   },
   "build": {
     "appId": "com.ping.app",

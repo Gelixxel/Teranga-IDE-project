@@ -38,6 +38,12 @@ public class IDEController {
         logger.info("Root directory set to: " + root.toString());
     }
 
+    @GetMapping("/hello")
+    public String getHello() {
+        return "Hello world!";
+    }
+
+
     @GetMapping("/message")
     public String getMessage() {
         return "Diop Bizarre IDE!";
