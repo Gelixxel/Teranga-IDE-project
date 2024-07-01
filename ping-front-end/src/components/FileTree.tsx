@@ -188,7 +188,7 @@ export const Node = function TreeNode({
                 });
             }
         }
-    }, [id, isOpen, nodeState.children, fetchChildren]);
+    }, [id, isOpen, nodeState.children, fetchChildren, dispatch]);
 
     return (
         <li
@@ -240,8 +240,8 @@ export const Node = function TreeNode({
                     }
                     nextItemToFocus?.element.focus();
                 },
-                ['aria-expanded']: hasChildren ? Boolean(isOpen) : undefined,
-                ['aria-selected']: selectedId === id,
+                'aria-expanded': hasChildren ? Boolean(isOpen) : undefined,
+                'aria-selected': selectedId === id,
                 role: 'treeitem',
             })}
         >

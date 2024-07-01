@@ -1,4 +1,35 @@
 /* CodeMirrorEditor.css */
-.cm-content {
-    text-align: left;
-  }  
+.editor-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.editor-container {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  overflow: auto;
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.zoom-controls label {
+  margin-right: 5px;
+}
+
+.zoom-input {
+  width: 60px;
+  margin-right: 5px;
+  padding: 2px;
+}
+
+.status-bar {
+  padding: 5px;
+  background-color: #414141;
+  text-align: right;
+}

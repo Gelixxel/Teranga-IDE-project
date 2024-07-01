@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CodeMirrorEditor from "./CodeMirrorEditor";
-import { Treeview, TreeNodeType } from "./FileTree";
 import "./Editor.css"; // Ensure this line is present to import styles
+import { TreeNodeType, Treeview } from "./FileTree";
 
 const Editor: React.FC = () => {
   const [content, setContent] = useState<string>("");
@@ -11,35 +11,42 @@ const Editor: React.FC = () => {
   const [output, setOutput] = useState<string>("");
   const [treeData, setTreeData] = useState<TreeNodeType[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
+  const [fontFamily, setFontFamily] = useState<string>("monospace"); // Default font family
 
   useEffect(() => {
-    // Load content, file path, and selected node from localStorage
+    // Load content, file path, selected node, and font family from localStorage
     const savedContent = localStorage.getItem("content");
     const savedFilePath = localStorage.getItem("filePath");
     const savedSelected = localStorage.getItem("selected");
+    const savedFontFamily = localStorage.getItem("fontFamily");
     if (savedContent) setContent(savedContent);
     if (savedFilePath) setFilePath(savedFilePath);
     if (savedSelected) setSelected(savedSelected);
+    if (savedFontFamily) setFontFamily(savedFontFamily);
   }, []);
 
   useEffect(() => {
-    // Save content, file path, and selected node to localStorage whenever they change
+    // Save content, file path, selected node, and font family to localStorage whenever they change
     localStorage.setItem("content", content);
     localStorage.setItem("filePath", filePath);
     localStorage.setItem("selected", selected || "");
-  }, [content, filePath, selected]);
+    localStorage.setItem("fontFamily", fontFamily);
+  }, [content, filePath, selected, fontFamily]);
 
-  const fileExtensionToLanguage = useCallback((filePath: string): "python" | "java" => {
-    const extension = filePath.split(".").pop()?.toLowerCase();
-    switch (extension) {
-      case "py":
-        return "python";
-      case "java":
-        return "java";
-      default:
-        return "python"; // default language if extension is not recognized
-    }
-  }, []);
+  const fileExtensionToLanguage = useCallback(
+    (filePath: string): "python" | "java" => {
+      const extension = filePath.split(".").pop()?.toLowerCase();
+      switch (extension) {
+        case "py":
+          return "python";
+        case "java":
+          return "java";
+        default:
+          return "python"; // default language if extension is not recognized
+      }
+    },
+    []
+  );
 
   const fetchFiles = useCallback(async (directoryPath: string) => {
     try {
@@ -47,11 +54,14 @@ const Editor: React.FC = () => {
       const response = await axios.post("/api/explore", { directoryPath });
       console.log("Fetched files:", response.data);
 
-      return response.data.map((file: { name: string; directory: boolean }) => ({
-        id: directoryPath ? `${directoryPath}/${file.name}` : file.name,
-        name: file.name,
-        children: file.directory ? [] : [],
-      }));
+      return response.data.map(
+        (file: { name: string; directory: boolean }) => ({
+          id: directoryPath ? `${directoryPath}/${file.name}` : file.name,
+          name: file.name,
+          children: file.directory ? [] : undefined,
+          directory: file.directory,
+        })
+      );
     } catch (error) {
       console.error("Error fetching files:", error);
       alert("Error fetching files: " + error);
@@ -59,9 +69,12 @@ const Editor: React.FC = () => {
     }
   }, []);
 
-  const fetchChildren = useCallback(async (id: string): Promise<TreeNodeType[]> => {
-    return fetchFiles(id);
-  }, [fetchFiles]);
+  const fetchChildren = useCallback(
+    async (id: string): Promise<TreeNodeType[]> => {
+      return fetchFiles(id);
+    },
+    [fetchFiles]
+  );
 
   useEffect(() => {
     const initializeTree = async () => {
@@ -72,26 +85,35 @@ const Editor: React.FC = () => {
     initializeTree();
   }, [fetchFiles]);
 
-  const openFile = useCallback(async (path: string) => {
-    try {
-      const response = await axios.post("/api/open", { filePath: path });
-      if (response.data.startsWith("Error: Path is a directory")) {
-        // Handle directory case if needed
-      } else if (response.data.startsWith("Error")) {
-        alert(response.data); // Display backend error message
-      } else {
-        const fileContent = response.data;
-        setContent(fileContent);
-        const detectedLanguage = fileExtensionToLanguage(path);
-        setLanguage(detectedLanguage);
-        setFilePath(path);
-        setSelected(path);
+  const openFile = useCallback(
+    async (path: string) => {
+      try {
+        const response = await axios.post("/api/open", { filePath: path });
+        if (response.data.startsWith("Error: Path is a directory")) {
+          // Handle directory case by expanding it in the tree
+          const fetchedChildren = await fetchFiles(path);
+          setTreeData((prevData) =>
+            prevData.map((node) =>
+              node.id === path ? { ...node, children: fetchedChildren } : node
+            )
+          );
+        } else if (response.data.startsWith("Error")) {
+          alert(response.data); // Display backend error message
+        } else {
+          const fileContent = response.data;
+          setContent(fileContent);
+          const detectedLanguage = fileExtensionToLanguage(path);
+          setLanguage(detectedLanguage);
+          setFilePath(path);
+          setSelected(path);
+        }
+      } catch (error) {
+        console.error("Error opening file:", error);
+        alert("Error opening file: " + error);
       }
-    } catch (error) {
-      console.error("Error opening file:", error);
-      alert("Error opening file: " + error);
-    }
-  }, [fileExtensionToLanguage]);
+    },
+    [fileExtensionToLanguage, fetchFiles]
+  );
 
   const saveFile = useCallback(async () => {
     try {
@@ -133,7 +155,7 @@ const Editor: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex">
+    <div className="flex h-full">
       <Treeview.Root
         value={selected}
         onChange={(id: string) => openFile(id)}
@@ -141,11 +163,11 @@ const Editor: React.FC = () => {
         className="w-72 h-full border-[1.5px] border-slate-200 m-4"
         fetchChildren={fetchChildren}
       >
-        {treeData.map(node => (
+        {treeData.map((node) => (
           <Treeview.Node node={node} key={node.id} />
         ))}
       </Treeview.Root>
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col flex-grow m-4">
         <input
           type="text"
           placeholder="File path"
@@ -154,15 +176,39 @@ const Editor: React.FC = () => {
           className="p-2 border-b"
         />
         <div className="flex space-x-2 p-2">
-          <button onClick={() => openFile(filePath)} className="btn">Open</button>
-          <button onClick={saveFile} className="btn">Save</button>
-          <button onClick={executeFile} className="btn">Run</button>
+          <button onClick={() => openFile(filePath)} className="btn">
+            Open
+          </button>
+          <button onClick={saveFile} className="btn">
+            Save
+          </button>
+          <button onClick={executeFile} className="btn">
+            Run
+          </button>
         </div>
-        <CodeMirrorEditor
-          initialValue={content}
-          language={language}
-          onChange={handleChange}
-        />
+        <div className="flex space-x-2 p-2">
+          <label htmlFor="fontSelector">Select Font: </label>
+          <select
+            id="fontSelector"
+            value={fontFamily}
+            onChange={(e) => setFontFamily(e.target.value)}
+          >
+            <option value="monospace">Monospace</option>
+            <option value="Arial">Arial</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Verdana">Verdana</option>
+          </select>
+        </div>
+        <div>
+          <CodeMirrorEditor
+            initialValue={content}
+            language={language}
+            onChange={handleChange}
+            fontFamily={fontFamily}
+          />
+        </div>
         <pre className="output p-2">{output}</pre>
       </div>
     </div>

@@ -15,7 +15,7 @@ export type RovingTabindexItem = {
     element: HTMLElement;
 };
 
-type RovingTabindexContext = {
+type RovingTabindexContextType = {
     focusableId: string | null;
     setFocusableId: (id: string) => void;
     onShiftTab: () => void;
@@ -23,7 +23,7 @@ type RovingTabindexContext = {
     elements: MutableRefObject<Map<string, HTMLElement>>;
 };
 
-const RovingTabindexContext = createContext<RovingTabindexContext>({
+const RovingTabindexContext = createContext<RovingTabindexContextType>({
     focusableId: null,
     setFocusableId: () => {},
     onShiftTab: () => {},
@@ -72,7 +72,7 @@ export function useRovingTabindex(id: string) {
                 if (e.target !== e.currentTarget) return;
                 setFocusableId(id);
             },
-            ['data-item']: true,
+            'data-item': true,
             tabIndex: focusableId === id ? 0 : -1,
         }),
     };

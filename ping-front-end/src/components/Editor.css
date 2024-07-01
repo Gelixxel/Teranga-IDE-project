@@ -1,21 +1,63 @@
-/* Styles for the editor */
+/* Editor.css */
+.flex {
+  display: flex;
+}
+
+.w-72 {
+  width: 18rem; /* Tailwind width class */
+}
+
+.h-full {
+  height: 100%;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-slate-200 {
+  border-color: #e2e8f0; /* Tailwind slate color */
+}
+
+.m-4 {
+  margin: 1rem; /* Tailwind margin class */
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.space-x-2 > :not(:last-child) {
+  margin-right: 0.5rem; /* Tailwind spacing class */
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
 .btn {
+  background-color: #4a90e2;
+  color: white;
   padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #f9f9f9;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  border-radius: 4px;
 }
 
 .btn:hover {
-  background-color: #e6f7ff;
-  color: #0056b3;
+  background-color: #357ab8;
 }
 
 .output {
   background-color: #000000;
-  border: 1px solid #373737;
   border-radius: 4px;
   padding: 10px;
   margin-top: 10px;

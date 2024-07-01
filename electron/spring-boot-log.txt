@@ -23388,3 +23388,1514 @@ java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/aled.py
 2024-06-29 08:25:15.471  INFO 43820 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random
 2024-06-29 08:25:15.472 ERROR 43820 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/dossier_random
 2024-06-29 08:25:16.639  INFO 43820 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-06-30 20:54:25.410  INFO 56584 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 56584 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-06-30 20:54:25.411  INFO 56584 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-06-30 20:54:25.828  INFO 56584 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-06-30 20:54:25.834  INFO 56584 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-30 20:54:25.834  INFO 56584 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-06-30 20:54:25.863  INFO 56584 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-30 20:54:25.863  INFO 56584 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 428 ms
+2024-06-30 20:54:25.889  INFO 56584 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-06-30 20:54:25.996  INFO 56584 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-06-30 20:54:26.046  INFO 56584 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-06-30 20:54:26.050  INFO 56584 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.869 seconds (JVM running for 1.131)
+Spring Boot application has started.
+2024-06-30 20:54:26.130  INFO 56584 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-30 20:54:26.130  INFO 56584 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-30 20:54:26.131  INFO 56584 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-30 20:54:26.605  INFO 56584 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-06-30 20:54:28.314  INFO 56584 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random
+2024-06-30 20:54:28.323  INFO 56584 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random
+2024-06-30 20:54:28.324 ERROR 56584 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/dossier_random
+2024-06-30 20:54:29.631  INFO 56584 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-06-30 20:54:29.631  INFO 56584 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-06-30 20:54:29.632 ERROR 56584 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-06-30 20:54:29.639 ERROR 56584 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-06-30 20:54:32.048  INFO 56584 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src
+2024-06-30 20:54:32.048  INFO 56584 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-06-30 20:54:32.048 ERROR 56584 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src
+2024-06-30 20:54:32.997  INFO 56584 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-06-30 20:54:32.998  INFO 56584 --- [io-8081-exec-10] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test
+2024-06-30 20:54:32.998 ERROR 56584 --- [io-8081-exec-10] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test
+2024-06-30 20:54:33.779  INFO 56584 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-06-30 20:54:33.781  INFO 56584 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-06-30 20:54:33.781 ERROR 56584 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test/resources
+2024-06-30 20:54:40.396  INFO 56584 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-06-30 20:54:41.664  INFO 56584 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-01 23:10:28.835  INFO 72395 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 72395 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-01 23:10:28.836  INFO 72395 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-01 23:10:29.241  INFO 72395 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-01 23:10:29.247  INFO 72395 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-01 23:10:29.247  INFO 72395 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-01 23:10:29.272  INFO 72395 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-01 23:10:29.272  INFO 72395 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 411 ms
+2024-07-01 23:10:29.300  INFO 72395 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-01 23:10:29.397  INFO 72395 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-01 23:10:29.451  INFO 72395 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-01 23:10:29.455  INFO 72395 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.83 seconds (JVM running for 1.115)
+Spring Boot application has started.
+2024-07-01 23:10:29.548  INFO 72395 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-01 23:10:29.548  INFO 72395 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-01 23:10:29.549  INFO 72395 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-01 23:10:30.087  INFO 72395 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-01 23:10:43.860  INFO 72395 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-01 23:10:49.913  INFO 72395 --- [io-8081-exec-10] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-01 23:16:28.641  INFO 72970 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 72970 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-01 23:16:28.642  INFO 72970 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-01 23:16:29.070  INFO 72970 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-01 23:16:29.076  INFO 72970 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-01 23:16:29.076  INFO 72970 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-01 23:16:29.101  INFO 72970 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-01 23:16:29.101  INFO 72970 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 431 ms
+2024-07-01 23:16:29.127  INFO 72970 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-01 23:16:29.235  INFO 72970 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-01 23:16:29.281  INFO 72970 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-01 23:16:29.286  INFO 72970 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.864 seconds (JVM running for 1.151)
+Spring Boot application has started.
+2024-07-01 23:16:29.340  INFO 72970 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-01 23:16:29.340  INFO 72970 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-01 23:16:29.340  INFO 72970 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-01 23:16:29.819  INFO 72970 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-01 23:19:43.766  INFO 72970 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-01 23:23:45.013  INFO 73544 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 73544 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-01 23:23:45.016  INFO 73544 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-01 23:23:45.452  INFO 73544 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-01 23:23:45.461  INFO 73544 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-01 23:23:45.461  INFO 73544 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-01 23:23:45.492  INFO 73544 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-01 23:23:45.492  INFO 73544 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 447 ms
+2024-07-01 23:23:45.520  INFO 73544 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-01 23:23:45.624  INFO 73544 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-01 23:23:45.673  INFO 73544 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-01 23:23:45.680  INFO 73544 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.87 seconds (JVM running for 1.131)
+Spring Boot application has started.
+2024-07-01 23:23:45.756  INFO 73544 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-01 23:23:45.756  INFO 73544 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-01 23:23:45.756  INFO 73544 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-01 23:23:46.243  INFO 73544 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-01 23:24:09.817  INFO 73544 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-01 23:24:15.773  INFO 73544 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-01 23:24:32.917  INFO 73544 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/test.py
+2024-07-01 23:24:32.917 ERROR 73544 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/test.py
+2024-07-01 23:24:32.922 ERROR 73544 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/test.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/test.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-01 23:24:32.923  INFO 73544 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/test.py
+2024-07-01 23:24:35.185  INFO 73544 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/test.py
+2024-07-01 23:25:15.258  INFO 73544 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-01 23:25:15.258  INFO 73544 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-01 23:25:15.262 ERROR 73544 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/dossier_random
+2024-07-01 23:25:16.018  INFO 73544 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-01 23:25:16.018  INFO 73544 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-01 23:25:16.019 ERROR 73544 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-01 23:25:16.020 ERROR 73544 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-01 23:32:43.522  INFO 74258 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 74258 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-01 23:32:43.523  INFO 74258 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-01 23:32:43.968  INFO 74258 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-01 23:32:43.974  INFO 74258 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-01 23:32:43.974  INFO 74258 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-01 23:32:43.998  INFO 74258 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-01 23:32:43.998  INFO 74258 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 446 ms
+2024-07-01 23:32:44.028  INFO 74258 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-01 23:32:44.131  INFO 74258 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-01 23:32:44.177  INFO 74258 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-01 23:32:44.182  INFO 74258 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.973 seconds (JVM running for 1.255)
+Spring Boot application has started.
+2024-07-01 23:32:44.230  INFO 74258 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-01 23:32:44.230  INFO 74258 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-01 23:32:44.230  INFO 74258 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-01 23:32:44.716  INFO 74258 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-01 23:35:27.183  INFO 74697 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 74697 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-01 23:35:27.185  INFO 74697 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-01 23:35:27.599  INFO 74697 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-01 23:35:27.606  INFO 74697 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-01 23:35:27.606  INFO 74697 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-01 23:35:27.634  INFO 74697 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-01 23:35:27.634  INFO 74697 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 424 ms
+2024-07-01 23:35:27.662  INFO 74697 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-01 23:35:27.759  INFO 74697 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-01 23:35:27.812  INFO 74697 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-01 23:35:27.817  INFO 74697 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.842 seconds (JVM running for 1.111)
+Spring Boot application has started.
+2024-07-01 23:35:27.909  INFO 74697 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-01 23:35:27.909  INFO 74697 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-01 23:35:27.910  INFO 74697 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-01 23:35:28.360  INFO 74697 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-01 23:37:23.498  INFO 75077 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 75077 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-01 23:37:23.499  INFO 75077 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-01 23:37:23.922  INFO 75077 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-01 23:37:23.928  INFO 75077 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-01 23:37:23.928  INFO 75077 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-01 23:37:23.963  INFO 75077 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-01 23:37:23.963  INFO 75077 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 438 ms
+2024-07-01 23:37:23.994  INFO 75077 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-01 23:37:24.091  INFO 75077 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-01 23:37:24.139  INFO 75077 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-01 23:37:24.144  INFO 75077 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.858 seconds (JVM running for 1.127)
+Spring Boot application has started.
+2024-07-01 23:37:24.225  INFO 75077 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-01 23:37:24.225  INFO 75077 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-01 23:37:24.226  INFO 75077 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-01 23:37:24.628  INFO 75077 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-01 23:40:15.812  INFO 75077 --- [io-8081-exec-10] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-01 23:41:49.289  INFO 75588 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 75588 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-01 23:41:49.290  INFO 75588 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-01 23:41:49.721  INFO 75588 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-01 23:41:49.727  INFO 75588 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-01 23:41:49.727  INFO 75588 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-01 23:41:49.755  INFO 75588 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-01 23:41:49.755  INFO 75588 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 439 ms
+2024-07-01 23:41:49.780  INFO 75588 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-01 23:41:49.883  INFO 75588 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-01 23:41:49.930  INFO 75588 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-01 23:41:49.934  INFO 75588 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.85 seconds (JVM running for 1.109)
+Spring Boot application has started.
+2024-07-01 23:41:50.037  INFO 75588 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-01 23:41:50.037  INFO 75588 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-01 23:41:50.037  INFO 75588 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-01 23:41:50.449  INFO 75588 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-01 23:53:09.374  INFO 76209 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 76209 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-01 23:53:09.375  INFO 76209 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-01 23:53:09.799  INFO 76209 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-01 23:53:09.805  INFO 76209 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-01 23:53:09.805  INFO 76209 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-01 23:53:09.832  INFO 76209 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-01 23:53:09.832  INFO 76209 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 432 ms
+2024-07-01 23:53:09.863  INFO 76209 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-01 23:53:09.967  INFO 76209 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-01 23:53:10.013  INFO 76209 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-01 23:53:10.017  INFO 76209 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.847 seconds (JVM running for 1.109)
+Spring Boot application has started.
+2024-07-01 23:53:10.119  INFO 76209 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-01 23:53:10.119  INFO 76209 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-01 23:53:10.119  INFO 76209 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-01 23:53:10.575  INFO 76209 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-01 23:55:33.628  INFO 76291 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 76291 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-01 23:55:33.629  INFO 76291 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-01 23:55:34.069  INFO 76291 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-01 23:55:34.076  INFO 76291 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-01 23:55:34.077  INFO 76291 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-01 23:55:34.101  INFO 76291 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-01 23:55:34.101  INFO 76291 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 446 ms
+2024-07-01 23:55:34.126  INFO 76291 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-01 23:55:34.232  INFO 76291 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-01 23:55:34.278  INFO 76291 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-01 23:55:34.283  INFO 76291 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.865 seconds (JVM running for 1.122)
+Spring Boot application has started.
+2024-07-01 23:55:34.365  INFO 76291 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-01 23:55:34.365  INFO 76291 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-01 23:55:34.366  INFO 76291 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-01 23:55:34.795  INFO 76291 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:00:06.951  INFO 76835 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 76835 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:00:06.952  INFO 76835 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:00:07.444  INFO 76835 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:00:07.450  INFO 76835 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:00:07.450  INFO 76835 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:00:07.475  INFO 76835 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:00:07.475  INFO 76835 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 498 ms
+2024-07-02 00:00:07.499  INFO 76835 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:00:07.608  INFO 76835 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:00:07.654  INFO 76835 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:00:07.659  INFO 76835 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.928 seconds (JVM running for 1.286)
+Spring Boot application has started.
+2024-07-02 00:00:07.684  INFO 76835 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:00:07.684  INFO 76835 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:00:07.684  INFO 76835 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 00:00:08.171  INFO 76835 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:01:31.083  INFO 76946 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 76946 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:01:31.084  INFO 76946 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:01:31.528  INFO 76946 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:01:31.534  INFO 76946 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:01:31.534  INFO 76946 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:01:31.560  INFO 76946 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:01:31.560  INFO 76946 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 448 ms
+2024-07-02 00:01:31.591  INFO 76946 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:01:31.696  INFO 76946 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:01:31.743  INFO 76946 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:01:31.748  INFO 76946 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.885 seconds (JVM running for 1.136)
+Spring Boot application has started.
+2024-07-02 00:01:31.832  INFO 76946 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:01:31.832  INFO 76946 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:01:31.832  INFO 76946 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 00:01:32.248  INFO 76946 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:08:49.908  INFO 77569 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 77569 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:08:49.909  INFO 77569 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:08:50.343  INFO 77569 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:08:50.349  INFO 77569 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:08:50.349  INFO 77569 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:08:50.373  INFO 77569 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:08:50.374  INFO 77569 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 438 ms
+2024-07-02 00:08:50.402  INFO 77569 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:08:50.500  INFO 77569 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:08:50.548  INFO 77569 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:08:50.553  INFO 77569 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.853 seconds (JVM running for 1.11)
+Spring Boot application has started.
+2024-07-02 00:08:50.652  INFO 77569 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:08:50.652  INFO 77569 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:08:50.653  INFO 77569 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-02 00:08:51.106  INFO 77569 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:10:52.870  INFO 77678 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 77678 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:10:52.871  INFO 77678 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:10:53.320  INFO 77678 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:10:53.326  INFO 77678 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:10:53.326  INFO 77678 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:10:53.353  INFO 77678 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:10:53.353  INFO 77678 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 455 ms
+2024-07-02 00:10:53.379  INFO 77678 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:10:53.484  INFO 77678 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:10:53.529  INFO 77678 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:10:53.534  INFO 77678 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.881 seconds (JVM running for 1.147)
+Spring Boot application has started.
+2024-07-02 00:10:53.596  INFO 77678 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:10:53.596  INFO 77678 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:10:53.596  INFO 77678 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 00:10:54.292  INFO 77678 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:12:13.308  INFO 78121 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 78121 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:12:13.309  INFO 78121 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:12:13.736  INFO 78121 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:12:13.741  INFO 78121 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:12:13.741  INFO 78121 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:12:13.767  INFO 78121 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:12:13.767  INFO 78121 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 430 ms
+2024-07-02 00:12:13.793  INFO 78121 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:12:13.905  INFO 78121 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:12:13.959  INFO 78121 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:12:13.964  INFO 78121 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.863 seconds (JVM running for 1.127)
+Spring Boot application has started.
+2024-07-02 00:12:14.046  INFO 78121 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:12:14.046  INFO 78121 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:12:14.047  INFO 78121 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-02 00:12:14.583  INFO 78121 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 00:12:22.623  INFO 78121 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:15:51.506  INFO 78712 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 78712 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:15:51.507  INFO 78712 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:15:51.933  INFO 78712 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:15:51.940  INFO 78712 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:15:51.940  INFO 78712 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:15:51.968  INFO 78712 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:15:51.968  INFO 78712 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 435 ms
+2024-07-02 00:15:51.998  INFO 78712 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:15:52.095  INFO 78712 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:15:52.141  INFO 78712 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:15:52.146  INFO 78712 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.846 seconds (JVM running for 1.117)
+Spring Boot application has started.
+2024-07-02 00:15:52.238  INFO 78712 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:15:52.238  INFO 78712 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:15:52.238  INFO 78712 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 00:15:52.670  INFO 78712 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 00:15:58.854  INFO 78712 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:16:01.534  INFO 78712 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:16:01.783  INFO 78712 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:16:01.945  INFO 78712 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:16:02.114  INFO 78712 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:16:07.730  INFO 78712 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:16:10.215  INFO 78712 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/aled.py
+2024-07-02 00:16:10.216 ERROR 78712 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/aled.py
+2024-07-02 00:16:10.218 ERROR 78712 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/aled.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/aled.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-02 00:16:10.224  INFO 78712 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/aled.py
+2024-07-02 00:16:11.731  INFO 78712 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/aled.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:19:48.904  INFO 79175 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 79175 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:19:48.905  INFO 79175 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:19:49.330  INFO 79175 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:19:49.335  INFO 79175 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:19:49.335  INFO 79175 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:19:49.360  INFO 79175 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:19:49.360  INFO 79175 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 430 ms
+2024-07-02 00:19:49.385  INFO 79175 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:19:49.488  INFO 79175 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:19:49.538  INFO 79175 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:19:49.543  INFO 79175 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.847 seconds (JVM running for 1.1)
+Spring Boot application has started.
+2024-07-02 00:19:49.667  INFO 79175 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:19:49.667  INFO 79175 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:19:49.667  INFO 79175 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 00:19:50.108  INFO 79175 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 00:19:58.752  INFO 79175 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/aled.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:27:58.378  INFO 79752 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 79752 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:27:58.379  INFO 79752 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:27:58.794  INFO 79752 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:27:58.800  INFO 79752 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:27:58.800  INFO 79752 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:27:58.827  INFO 79752 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:27:58.828  INFO 79752 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 425 ms
+2024-07-02 00:27:58.853  INFO 79752 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:27:58.958  INFO 79752 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:27:59.007  INFO 79752 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:27:59.012  INFO 79752 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.83 seconds (JVM running for 1.091)
+Spring Boot application has started.
+2024-07-02 00:27:59.118  INFO 79752 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:27:59.119  INFO 79752 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:27:59.119  INFO 79752 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 00:27:59.617  INFO 79752 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 00:28:09.235  INFO 79752 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/aled.py
+2024-07-02 00:28:11.383  INFO 79752 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:28:11.392  INFO 79752 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:28:11.392 ERROR 79752 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src
+2024-07-02 00:28:14.749  INFO 79752 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:28:14.749  INFO 79752 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:28:14.750 ERROR 79752 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:28:17.533  INFO 79752 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:28:17.534  INFO 79752 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:28:17.534 ERROR 79752 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:28:32.149  INFO 79752 --- [io-8081-exec-10] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:28:32.149 ERROR 79752 --- [io-8081-exec-10] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:28:34.417  INFO 79752 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:28:34.417  INFO 79752 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:28:34.418 ERROR 79752 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:28:36.766  INFO 79752 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:28:36.766  INFO 79752 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:28:36.767 ERROR 79752 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:28:36.775 ERROR 79752 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-02 00:28:38.167  INFO 79752 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:32:04.385  INFO 80198 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 80198 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:32:04.387  INFO 80198 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:32:04.799  INFO 80198 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:32:04.804  INFO 80198 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:32:04.805  INFO 80198 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:32:04.832  INFO 80198 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:32:04.832  INFO 80198 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 416 ms
+2024-07-02 00:32:04.860  INFO 80198 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:32:04.957  INFO 80198 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:32:05.006  INFO 80198 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:32:05.011  INFO 80198 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.824 seconds (JVM running for 1.07)
+Spring Boot application has started.
+2024-07-02 00:32:05.038  INFO 80198 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:32:05.039  INFO 80198 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:32:05.039  INFO 80198 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 00:32:05.513  INFO 80198 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 00:32:07.464  INFO 80198 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:32:07.472  INFO 80198 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:32:07.473 ERROR 80198 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:32:07.482  INFO 80198 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:32:08.394  INFO 80198 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:32:08.394  INFO 80198 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:32:08.395 ERROR 80198 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:32:08.402 ERROR 80198 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-02 00:32:11.540  INFO 80198 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:32:12.360  INFO 80198 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:32:13.711  INFO 80198 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:32:13.711  INFO 80198 --- [io-8081-exec-10] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:32:13.712 ERROR 80198 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src
+2024-07-02 00:32:13.720  INFO 80198 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:32:14.577  INFO 80198 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:32:14.577  INFO 80198 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:32:14.578 ERROR 80198 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:32:14.587  INFO 80198 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:32:15.426  INFO 80198 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:32:15.427  INFO 80198 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:32:15.428 ERROR 80198 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:32:15.437  INFO 80198 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:32:16.816  INFO 80198 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/aled.py
+2024-07-02 00:32:16.817  INFO 80198 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/aled.py
+2024-07-02 00:32:16.817 ERROR 80198 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/aled.py
+2024-07-02 00:32:16.822 ERROR 80198 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/aled.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/aled.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-02 00:32:18.542  INFO 80198 --- [io-8081-exec-10] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/aled.py
+2024-07-02 00:32:28.207  INFO 80198 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:32:28.208  INFO 80198 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:32:28.208 ERROR 80198 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:32:28.209 ERROR 80198 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-02 00:32:31.076  INFO 80198 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:35:58.938  INFO 80632 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 80632 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:35:58.939  INFO 80632 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:35:59.371  INFO 80632 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:35:59.377  INFO 80632 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:35:59.377  INFO 80632 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:35:59.405  INFO 80632 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:35:59.405  INFO 80632 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 437 ms
+2024-07-02 00:35:59.429  INFO 80632 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:35:59.533  INFO 80632 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:35:59.581  INFO 80632 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:35:59.586  INFO 80632 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.856 seconds (JVM running for 1.121)
+Spring Boot application has started.
+2024-07-02 00:35:59.671  INFO 80632 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:35:59.671  INFO 80632 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:35:59.672  INFO 80632 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-02 00:36:00.120  INFO 80632 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 00:36:31.960  INFO 80632 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:36:31.979  INFO 80632 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:36:31.980 ERROR 80632 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src
+2024-07-02 00:36:31.987  INFO 80632 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:36:32.796  INFO 80632 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:36:32.796  INFO 80632 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:36:32.796 ERROR 80632 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:36:32.805  INFO 80632 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:36:33.996  INFO 80632 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:36:33.997  INFO 80632 --- [io-8081-exec-10] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:36:33.997 ERROR 80632 --- [io-8081-exec-10] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:36:34.006  INFO 80632 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:36:36.226  INFO 80632 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:36:36.226  INFO 80632 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:36:36.227 ERROR 80632 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:36:36.235  INFO 80632 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:36:37.077  INFO 80632 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:36:37.078 ERROR 80632 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:36:37.078  INFO 80632 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:36:37.087 ERROR 80632 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-02 00:36:43.563  INFO 80632 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:39:02.739  INFO 81086 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 81086 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:39:02.740  INFO 81086 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:39:03.151  INFO 81086 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:39:03.158  INFO 81086 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:39:03.158  INFO 81086 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:39:03.186  INFO 81086 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:39:03.186  INFO 81086 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 423 ms
+2024-07-02 00:39:03.215  INFO 81086 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:39:03.324  INFO 81086 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:39:03.372  INFO 81086 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:39:03.377  INFO 81086 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.84 seconds (JVM running for 1.089)
+Spring Boot application has started.
+2024-07-02 00:39:03.397  INFO 81086 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:39:03.397  INFO 81086 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:39:03.398  INFO 81086 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-02 00:39:03.860  INFO 81086 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 00:39:15.706  INFO 81086 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:39:16.698  INFO 81086 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:39:16.874  INFO 81086 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:39:17.040  INFO 81086 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:39:18.530  INFO 81086 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:39:19.561  INFO 81086 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Saving file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:39:22.378  INFO 81086 --- [io-8081-exec-10] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/test.py
+2024-07-02 00:39:22.378  INFO 81086 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/test.py
+2024-07-02 00:39:22.379 ERROR 81086 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/test.py
+2024-07-02 00:39:22.387 ERROR 81086 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/test.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/test.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-02 00:39:24.225  INFO 81086 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/test.py
+2024-07-02 00:39:32.171  INFO 81086 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:39:32.171  INFO 81086 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:39:32.183 ERROR 81086 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src
+2024-07-02 00:39:32.194  INFO 81086 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:39:32.927  INFO 81086 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:39:32.927  INFO 81086 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:39:32.928 ERROR 81086 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:39:32.933  INFO 81086 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:39:33.711  INFO 81086 --- [io-8081-exec-10] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:39:33.711  INFO 81086 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:39:33.711 ERROR 81086 --- [io-8081-exec-10] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:39:33.716  INFO 81086 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:46:14.079  INFO 81762 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 81762 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:46:14.080  INFO 81762 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:46:14.513  INFO 81762 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:46:14.519  INFO 81762 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:46:14.520  INFO 81762 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:46:14.546  INFO 81762 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:46:14.546  INFO 81762 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 439 ms
+2024-07-02 00:46:14.570  INFO 81762 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:46:14.674  INFO 81762 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:46:14.722  INFO 81762 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:46:14.726  INFO 81762 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.859 seconds (JVM running for 1.123)
+Spring Boot application has started.
+2024-07-02 00:46:14.817  INFO 81762 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:46:14.818  INFO 81762 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:46:14.818  INFO 81762 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 00:46:15.369  INFO 81762 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:53:06.934  INFO 82804 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 82804 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:53:06.935  INFO 82804 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:53:07.380  INFO 82804 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:53:07.388  INFO 82804 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:53:07.388  INFO 82804 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:53:07.415  INFO 82804 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:53:07.415  INFO 82804 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 452 ms
+2024-07-02 00:53:07.446  INFO 82804 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:53:07.544  INFO 82804 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:53:07.600  INFO 82804 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:53:07.605  INFO 82804 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.878 seconds (JVM running for 1.167)
+Spring Boot application has started.
+2024-07-02 00:53:07.645  INFO 82804 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:53:07.645  INFO 82804 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:53:07.646  INFO 82804 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-02 00:53:08.145  INFO 82804 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 00:53:56.763  INFO 82804 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/test.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 00:58:41.602  INFO 83509 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 83509 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 00:58:41.603  INFO 83509 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 00:58:42.032  INFO 83509 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 00:58:42.038  INFO 83509 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 00:58:42.038  INFO 83509 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 00:58:42.067  INFO 83509 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 00:58:42.067  INFO 83509 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 440 ms
+2024-07-02 00:58:42.099  INFO 83509 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 00:58:42.197  INFO 83509 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 00:58:42.246  INFO 83509 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 00:58:42.250  INFO 83509 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.853 seconds (JVM running for 1.128)
+Spring Boot application has started.
+2024-07-02 00:58:42.329  INFO 83509 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 00:58:42.329  INFO 83509 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 00:58:42.330  INFO 83509 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-02 00:58:42.884  INFO 83509 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 00:59:27.809  INFO 83509 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:59:27.836  INFO 83509 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:59:27.837 ERROR 83509 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src
+2024-07-02 00:59:28.549  INFO 83509 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:59:28.549  INFO 83509 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:59:28.549 ERROR 83509 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/dossier_random
+2024-07-02 00:59:29.329  INFO 83509 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:59:29.329  INFO 83509 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:59:29.330 ERROR 83509 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+2024-07-02 00:59:29.341 ERROR 83509 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/dossier_random/bonjour.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-02 00:59:30.462  INFO 83509 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:59:30.463 ERROR 83509 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src
+2024-07-02 00:59:31.278  INFO 83509 --- [io-8081-exec-10] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src
+2024-07-02 00:59:31.279 ERROR 83509 --- [io-8081-exec-10] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src
+2024-07-02 00:59:32.467  INFO 83509 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:59:32.467  INFO 83509 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:59:32.467 ERROR 83509 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test
+2024-07-02 00:59:33.049  INFO 83509 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:59:33.049  INFO 83509 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 00:59:33.050 ERROR 83509 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test/resources
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 01:00:59.109  INFO 83946 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 83946 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 01:00:59.110  INFO 83946 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 01:00:59.549  INFO 83946 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 01:00:59.555  INFO 83946 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 01:00:59.555  INFO 83946 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 01:00:59.583  INFO 83946 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 01:00:59.583  INFO 83946 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 448 ms
+2024-07-02 01:00:59.613  INFO 83946 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 01:00:59.711  INFO 83946 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 01:00:59.758  INFO 83946 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 01:00:59.764  INFO 83946 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.867 seconds (JVM running for 1.135)
+Spring Boot application has started.
+2024-07-02 01:00:59.837  INFO 83946 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 01:00:59.837  INFO 83946 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 01:00:59.837  INFO 83946 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 01:01:00.687  INFO 83946 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 01:01:03.103  INFO 83946 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/test.py
+2024-07-02 01:01:03.103 ERROR 83946 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Directory not found: /Users/schmietta/myIDE/code/test.py
+2024-07-02 01:01:03.110 ERROR 83946 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Error exploring directory at path: /Users/schmietta/myIDE/code/test.py
+
+java.io.IOException: Directory not found: /Users/schmietta/myIDE/code/test.py
+	at com.ping.controller.IDEController.exploreDirectory(IDEController.java:132) ~[classes!/:1.0-SNAPSHOT]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.14.jar!/:5.3.14]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.14.jar!/:5.3.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.56.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+
+2024-07-02 01:01:03.110  INFO 83946 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/test.py
+2024-07-02 01:01:04.483  INFO 83946 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/test.py
+2024-07-02 01:06:44.803  INFO 83946 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/test.py
+2024-07-02 01:07:28.938  INFO 83946 --- [io-8081-exec-10] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/test.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 01:13:58.689  INFO 84760 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 84760 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 01:13:58.690  INFO 84760 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 01:13:59.112  INFO 84760 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 01:13:59.119  INFO 84760 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 01:13:59.119  INFO 84760 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 01:13:59.144  INFO 84760 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 01:13:59.144  INFO 84760 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 430 ms
+2024-07-02 01:13:59.174  INFO 84760 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 01:13:59.275  INFO 84760 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 01:13:59.321  INFO 84760 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 01:13:59.326  INFO 84760 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.841 seconds (JVM running for 1.104)
+Spring Boot application has started.
+2024-07-02 01:13:59.437  INFO 84760 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 01:13:59.437  INFO 84760 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 01:13:59.438  INFO 84760 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-02 01:13:59.908  INFO 84760 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 01:14:12.307  INFO 84760 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/test.py
+2024-07-02 01:14:13.319  INFO 84760 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/test.py
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2024-07-02 01:16:24.016  INFO 85187 --- [           main] com.ping.PingProjectApplication          : Starting PingProjectApplication v1.0-SNAPSHOT using Java 17.0.10 on thomass-mbp.home with PID 85187 (/Users/schmietta/Documents/ping/PING-Lyon17/electron/dist/mac-arm64/Ping.app/Contents/Resources/ping-back-end-1.0-SNAPSHOT.jar started by schmietta in /Users/schmietta/Documents/ping/PING-Lyon17/electron)
+2024-07-02 01:16:24.017  INFO 85187 --- [           main] com.ping.PingProjectApplication          : No active profile set, falling back to default profiles: default
+2024-07-02 01:16:24.426  INFO 85187 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-07-02 01:16:24.432  INFO 85187 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-02 01:16:24.433  INFO 85187 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2024-07-02 01:16:24.461  INFO 85187 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-02 01:16:24.461  INFO 85187 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 419 ms
+2024-07-02 01:16:24.485  INFO 85187 --- [           main] com.ping.controller.IDEController        : Root directory set to: /Users/schmietta/myIDE/code
+2024-07-02 01:16:24.588  INFO 85187 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-07-02 01:16:24.635  INFO 85187 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-07-02 01:16:24.640  INFO 85187 --- [           main] com.ping.PingProjectApplication          : Started PingProjectApplication in 0.827 seconds (JVM running for 1.08)
+Spring Boot application has started.
+2024-07-02 01:16:24.668  INFO 85187 --- [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-02 01:16:24.668  INFO 85187 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-02 01:16:24.668  INFO 85187 --- [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-07-02 01:16:25.127  INFO 85187 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code
+2024-07-02 01:16:52.305  INFO 85187 --- [nio-8081-exec-2] com.ping.controller.IDEController        : Executing file at path: /Users/schmietta/myIDE/code/test.py
+2024-07-02 01:16:56.068  INFO 85187 --- [nio-8081-exec-4] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 01:16:56.081  INFO 85187 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src
+2024-07-02 01:16:56.081 ERROR 85187 --- [nio-8081-exec-3] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src
+2024-07-02 01:16:56.091  INFO 85187 --- [nio-8081-exec-5] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src
+2024-07-02 01:16:56.938  INFO 85187 --- [nio-8081-exec-6] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 01:16:56.938  INFO 85187 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 01:16:56.938 ERROR 85187 --- [nio-8081-exec-7] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test
+2024-07-02 01:16:56.947  INFO 85187 --- [nio-8081-exec-8] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test
+2024-07-02 01:16:57.768  INFO 85187 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Opening file at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 01:16:57.768  INFO 85187 --- [io-8081-exec-10] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 01:16:57.769 ERROR 85187 --- [nio-8081-exec-9] com.ping.controller.IDEController        : Path is a directory, not a file: /Users/schmietta/myIDE/code/src/test/resources
+2024-07-02 01:16:57.777  INFO 85187 --- [nio-8081-exec-1] com.ping.controller.IDEController        : Exploring directory at path: /Users/schmietta/myIDE/code/src/test/resources
