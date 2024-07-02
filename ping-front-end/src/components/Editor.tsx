@@ -20,6 +20,7 @@ const Editor: React.FC = () => {
   const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isCiphered, setIsCiphered] = useState(false);
 
   const toggleParam = () => {
     setIsOpen(!isOpen);
@@ -167,18 +168,26 @@ const Editor: React.FC = () => {
     }
   }, [fetchFiles]);
 
+  const toggleCipher = () => {
+    if (isCiphered) {
+      setShowPasswordModal(true);
+    } else {
+      cipherContent();
+      setIsCiphered(true);
+    }
+  };
+
   const cipherContent = () => {
     const ciphered = content.split('\n').map(() => emojiArray[Math.floor(Math.random() * emojiArray.length)]).join('\n');
     setContent(ciphered);
   };
 
-  const decipherContent = (password: string) => {
-    // Replace "superadminPass" with the actual password logic you need
-    if (password === "superadminPass") {
-      setContent(originalContent);
-    } else {
-      alert("Incorrect password");
-    }
+  const decipherContent = () => {
+    setContent(originalContent);
+  };
+
+  const validatePassword = (password: string) => {
+    return password === "superadminPass";
   };
 
   return (
@@ -207,11 +216,10 @@ const Editor: React.FC = () => {
           />
           <button onClick={() => openFile(filePath)} className="button open">Open</button>
           <button onClick={saveFile} className="button save">Save</button>
-          <button onClick={executeFile} className="button run">Run</button>
-          <div className="cipher-buttons">
-            <button onClick={cipherContent} className="button cipher">Cipher with Emojis</button>
-            <button onClick={() => setShowPasswordModal(true)} className="button decipher">Decipher</button>
-          </div>
+          <button onClick={executeFile} className="button run button-spacing">Run</button>
+          <button onClick={toggleCipher} className="button cipher-decipher">
+            {isCiphered ? 'Decipher' : 'Cipher'}
+          </button>
           <button onClick={toggleParam} className="button parameters">Parameters</button>{isOpen && <PopupParam onClosePopup={toggleParam} />}
         </div>
         <div className="settings-bar">
@@ -257,12 +265,17 @@ const Editor: React.FC = () => {
       </main>
       {showPasswordModal && (
         <PasswordModal
-          onSubmit={(password) => {
-            decipherContent(password);
+        onSubmit={(password) => {
+          if (validatePassword(password)) {
+            decipherContent();
+            setIsCiphered(false);
             setShowPasswordModal(false);
-          }}
-          onClose={() => setShowPasswordModal(false)}
-        />
+          } else {
+            alert("Incorrect password");
+          }
+        }}
+        onClose={() => setShowPasswordModal(false)}
+      />
       )}
     </div>
   );
