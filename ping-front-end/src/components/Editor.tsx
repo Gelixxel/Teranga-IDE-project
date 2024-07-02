@@ -203,6 +203,10 @@ const Editor: React.FC = () => {
           <button onClick={executeFile} className="button run">Run</button>
         </div>
         <div className="settings-bar">
+          <div className="cipher-buttons">
+            <button onClick={cipherContent} className="button cipher">Cipher with Emojis</button>
+            <button onClick={() => setShowPasswordModal(true)} className="button decipher">Decipher</button>
+          </div>
           <div>
             <label htmlFor="fontSelector">Select Font:</label>
             <select
@@ -215,10 +219,6 @@ const Editor: React.FC = () => {
                 <option key={font} value={font}>{font}</option>
               ))}
             </select>
-          </div>
-          <div>
-            <label className="zoom-label">Zoom:</label>
-            <input type="text" value="100%" readOnly />
           </div>
           <input
             type="text"
@@ -246,10 +246,6 @@ const Editor: React.FC = () => {
           />
         </div>
         <pre className="output">{output}</pre>
-        <div className="cipher-buttons">
-          <button onClick={cipherContent} className="button cipher">Cipher with Emojis</button>
-          <button onClick={() => setShowPasswordModal(true)} className="button decipher">Decipher</button>
-        </div>
       </main>
       {showPasswordModal && (
         <PasswordModal

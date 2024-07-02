@@ -58,7 +58,6 @@
     },
     "linux": {
       "target": [
-        "tar.gz"
       ],
       "category": "Development",
       "maintainer": "placeholder@example.com"

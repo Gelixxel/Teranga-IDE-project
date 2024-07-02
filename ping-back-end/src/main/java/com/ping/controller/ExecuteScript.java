@@ -11,7 +11,8 @@ public class ExecuteScript {
 
     public String executePythonScript(String filePath) throws IOException, InterruptedException {
         ProcessBuilder processBuilder = new ProcessBuilder("python3", filePath);
-        Path root = Paths.get("../code");
+        String userHome = System.getProperty("user.home");
+        Path root = Paths.get(userHome, "myIDE", "code").normalize().toAbsolutePath();
         processBuilder.directory(new File(root.toString()));
         processBuilder.redirectErrorStream(true);
 
@@ -30,7 +31,8 @@ public class ExecuteScript {
 
     public String executeJavaProgram(String filePath) throws IOException, InterruptedException {
         String className = new File(filePath).getName().replace(".java", "");
-        Path root = Paths.get("../code");
+        String userHome = System.getProperty("user.home");
+        Path root = Paths.get(userHome, "myIDE", "code").normalize().toAbsolutePath();
         ProcessBuilder compileProcessBuilder = new ProcessBuilder("javac", filePath);
         compileProcessBuilder.directory(new File(root.toString()));
         compileProcessBuilder.redirectErrorStream(true);
