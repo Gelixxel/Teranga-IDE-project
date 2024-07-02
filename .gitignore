@@ -8,8 +8,3 @@ electron/dist
 ping-front-end/node_modules
 electron/public/static
 ping-back-end/src/main/resources/static
-
-electron/public/static/asset-manifest.json
-electron/public/static/index.html
-ping-back-end/src/main/resources/static/asset-manifest.json
-ping-back-end/src/main/resources/static/index.html
