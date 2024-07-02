@@ -22,9 +22,14 @@ const Editor: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCiphered, setIsCiphered] = useState(false);
 
-  const toggleParam = () => {
-    setIsOpen(!isOpen);
+  const openParamPopup = () => {
+    setIsOpen(true);
   };
+
+  const closeParamPopup = () => {
+    setIsOpen(false);
+  };
+
 
   useEffect(() => {
     // Load content, file path, selected node, and font family from localStorage
@@ -220,7 +225,10 @@ const Editor: React.FC = () => {
           <button onClick={toggleCipher} className="button cipher-decipher">
             {isCiphered ? 'Decipher' : 'Cipher'}
           </button>
-          <button onClick={toggleParam} className="button parameters">Parameters</button>{isOpen && <PopupParam onClosePopup={toggleParam} />}
+          <PopupParam
+                onClosePopup={closeParamPopup}
+                trigger={<button onClick={openParamPopup}>Parameters</button>}
+            />
         </div>
         <div className="settings-bar">
           <div>
@@ -265,17 +273,17 @@ const Editor: React.FC = () => {
       </main>
       {showPasswordModal && (
         <PasswordModal
-        onSubmit={(password) => {
-          if (validatePassword(password)) {
-            decipherContent();
-            setIsCiphered(false);
-            setShowPasswordModal(false);
-          } else {
-            alert("Incorrect password");
-          }
-        }}
-        onClose={() => setShowPasswordModal(false)}
-      />
+          onSubmit={(password) => {
+            if (validatePassword(password)) {
+              decipherContent();
+              setIsCiphered(false);
+              setShowPasswordModal(false);
+            } else {
+              alert("Incorrect password");
+            }
+          }}
+          onClose={() => setShowPasswordModal(false)}
+        />
       )}
     </div>
   );
