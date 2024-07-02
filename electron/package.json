@@ -58,8 +58,7 @@
     },
     "linux": {
       "target": [
-        "AppImage",
-        "deb"
+        "tar.gz"
       ],
       "category": "Development",
       "maintainer": "placeholder@example.com"

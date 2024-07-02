@@ -183,17 +183,23 @@ const Editor: React.FC = () => {
           <button onClick={executeFile} className="button run">Run</button>
         </div>
         <div className="settings-bar">
-          <label htmlFor="fontSelector">Select Font:</label>
-          <select
-            id="fontSelector"
-            value={fontFamily}
-            onChange={(e) => setFontFamily(e.target.value)}
-            className="font-selector"
-          >
-            {['Monospace', 'Arial', 'Courier New', 'Georgia', 'Tahoma', 'Verdana', 'JetBrains Mono'].map(font => (
-              <option value={font}>{font}</option>
-            ))}
-          </select>
+          <div>
+            <label htmlFor="fontSelector">Select Font:</label>
+            <select
+              id="fontSelector"
+              value={fontFamily}
+              onChange={(e) => setFontFamily(e.target.value)}
+              className="font-selector"
+            >
+              {['Monospace', 'Arial', 'Courier New', 'Georgia', 'Tahoma', 'Verdana', 'JetBrains Mono'].map(font => (
+                <option value={font}>{font}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="zoom-label">Zoom:</label>
+            <input type="text" value="100%" readOnly />
+          </div>
           <input
             type="text"
             placeholder="New file name"
