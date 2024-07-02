@@ -3,6 +3,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import CodeMirrorEditor from "./CodeMirrorEditor";
 import { Treeview, TreeNodeType } from "./FileTree";
 import "./Editor.css"; // Ensure this line is present to import styles
+import PopupParam from './PopupParam';
 import PasswordModal from "./PasswordModal"; // Import the PasswordModal component
 
 const emojiArray = ["😀", "😂", "🥲", "😊", "😍", "🤩", "😎", "🤔", "🤗", "🥳", "😜", "🧐", "😇", "🥺", "🤯", "🤠", "🤓", "🤑", "🤡", "🥶"];
@@ -17,6 +18,12 @@ const Editor: React.FC = () => {
   const [selected, setSelected] = useState<string | null>(null);
   const [fontFamily, setFontFamily] = useState<string>("monospace"); // Default font family
   const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleParam = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     // Load content, file path, selected node, and font family from localStorage
@@ -201,12 +208,13 @@ const Editor: React.FC = () => {
           <button onClick={() => openFile(filePath)} className="button open">Open</button>
           <button onClick={saveFile} className="button save">Save</button>
           <button onClick={executeFile} className="button run">Run</button>
-        </div>
-        <div className="settings-bar">
           <div className="cipher-buttons">
             <button onClick={cipherContent} className="button cipher">Cipher with Emojis</button>
             <button onClick={() => setShowPasswordModal(true)} className="button decipher">Decipher</button>
           </div>
+          <button onClick={toggleParam} className="button parameters">Parameters</button>{isOpen && <PopupParam onClosePopup={toggleParam} />}
+        </div>
+        <div className="settings-bar">
           <div>
             <label htmlFor="fontSelector">Select Font:</label>
             <select

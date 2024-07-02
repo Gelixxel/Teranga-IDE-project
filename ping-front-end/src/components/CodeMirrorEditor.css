@@ -8,6 +8,7 @@
 
 .editor-container {
   flex-grow: 1;
+  text-align: left;
   border: 1px solid #ddd;
   overflow: auto;
 }
