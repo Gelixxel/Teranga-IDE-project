@@ -33,16 +33,9 @@ const Editor: React.FC = () => {
     localStorage.setItem("fontFamily", fontFamily);
   }, [content, filePath, selected, fontFamily]);
 
-  const fileExtensionToLanguage = useCallback((filePath: string): "python" | "java" => {
-    const extension = filePath.split(".").pop()?.toLowerCase();
-    switch (extension) {
-      case "py":
-        return "python";
-      case "java":
-        return "java";
-      default:
-        return "python"; // default language if extension is not recognized
-    }
+  const fileExtensionToLanguage = useCallback((path: string): 'python' | 'java' => {
+    const extension = path.split('.').pop()?.toLowerCase();
+    return extension === 'py' ? 'python' : extension === 'java' ? 'java' : 'python';
   }, []);
 
   const fetchFiles = useCallback(async (directoryPath: string) => {
@@ -162,72 +155,72 @@ const Editor: React.FC = () => {
   }, [fetchFiles]);
 
   return (
-    <div className="flex h-full">
-      <Treeview.Root
-        value={selected}
-        onChange={(id: string) => openFile(id)}
-        label="File Explorer"
-        className="w-72 h-full border-[1.5px] border-slate-200 m-4"
-        fetchChildren={fetchChildren}
-      >
-        {treeData.map(node => (
-          <Treeview.Node node={node} key={node.id} />
-        ))}
-      </Treeview.Root>
-      <div className="flex flex-col flex-grow m-4">
-        <input
-          type="text"
-          placeholder="File path"
-          value={filePath}
-          onChange={(e) => setFilePath(e.target.value)}
-          className="p-2 border-b"
-        />
-        <div className="flex space-x-2 p-2">
-          <button onClick={() => openFile(filePath)} className="btn">Open</button>
-          <button onClick={saveFile} className="btn">Save</button>
-          <button onClick={executeFile} className="btn">Run</button>
+    <div className="editor-container">
+      <aside className="file-explorer">
+        <Treeview.Root
+          value={selected}
+          onChange={(id: string) => openFile(id)}
+          label="File Explorer"
+          className="file-tree"
+          fetchChildren={fetchChildren}
+        >
+          {treeData.map(node => (
+            <Treeview.Node node={node} key={node.id} />
+          ))}
+        </Treeview.Root>
+      </aside>
+      <main className="editor-main">
+        <div className="toolbar">
+          <input
+            type="text"
+            placeholder="File path"
+            value={filePath}
+            onChange={(e) => setFilePath(e.target.value)}
+            className="file-path-input"
+          />
+          <button onClick={() => openFile(filePath)} className="button open">Open</button>
+          <button onClick={saveFile} className="button save">Save</button>
+          <button onClick={executeFile} className="button run">Run</button>
         </div>
-        <div className="flex space-x-2 p-2">
-          <label htmlFor="fontSelector">Select Font: </label>
+        <div className="settings-bar">
+          <label htmlFor="fontSelector">Select Font:</label>
           <select
             id="fontSelector"
             value={fontFamily}
             onChange={(e) => setFontFamily(e.target.value)}
+            className="font-selector"
           >
-            <option value="monospace">Monospace</option>
-            <option value="Arial">Arial</option>
-            <option value="Courier New">Courier New</option>
-            <option value="Georgia">Georgia</option>
-            <option value="Tahoma">Tahoma</option>
-            <option value="Verdana">Verdana</option>
-            <option value="JetBrains Mono">JetBrains Mono</option>
+            {['Monospace', 'Arial', 'Courier New', 'Georgia', 'Tahoma', 'Verdana', 'JetBrains Mono'].map(font => (
+              <option value={font}>{font}</option>
+            ))}
           </select>
-        </div>
-        <div className="flex space-x-2 p-2">
           <input
             type="text"
             placeholder="New file name"
-            className="p-2 border"
+            className="new-file-input"
             id="newFileName"
+            onKeyDown={(e) => e.key === 'Enter' && createNewFile((document.getElementById("newFileName") as HTMLInputElement).value)}
           />
           <button
             onClick={() => {
               const newFileName = (document.getElementById("newFileName") as HTMLInputElement).value;
               createNewFile(newFileName);
             }}
-            className="btn"
+            className="button new-file"
           >
             New File
           </button>
         </div>
-        <CodeMirrorEditor
-          initialValue={content}
-          language={language}
-          onChange={handleChange}
-          fontFamily={fontFamily}
-        />
-        <pre className="output p-2">{output}</pre>
-      </div>
+        <div className="code-editor">
+          <CodeMirrorEditor
+            initialValue={content}
+            language={language}
+            onChange={handleChange}
+            fontFamily={fontFamily}
+          />
+        </div>
+        <pre className="output">{output}</pre>
+      </main>
     </div>
   );
 };
