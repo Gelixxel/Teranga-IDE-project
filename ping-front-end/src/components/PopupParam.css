@@ -11,9 +11,11 @@
 .popup {
     background-color: #B0B0B0;
     border-radius: 10px;
-    width: 80%;
-    max-width: 900px;
+    width: 100%;
+    max-width: 1920px;
     padding: 20px;
+    height: 100%; 
+    max-height: 1080px; 
 }
 
 .popup-header {
@@ -48,6 +50,7 @@ h1 {
 h2 {
     text-align: center;
     background-color: #9E9E9E;
+    color: white;
     padding: 10px;
     border-radius: 5px;
     margin-top: 0;
@@ -82,17 +85,20 @@ h2 {
 }
 
 .info-button, .logout-button, .option-button {
-    background-color: #8E8E8E;
-    border: none;
+    background-color: #606060;
+    border-color: #303031;
+    border-radius: 5px;
     padding: 10px;
     width: 100%;
     margin: 5px 0;
     border-radius: 5px;
     cursor: pointer;
+    color: white;
+    flex-grow: 1;
 }
 
 .info-value {
-    background-color: #606060;
+    background-color: #8E8E8E;
     padding: 10px;
     border-radius: 5px;
     flex-grow: 1;
@@ -102,6 +108,43 @@ h2 {
 }
 
 .logout-button {
-    background-color: #707070;
     color: white;
+}
+
+.popup-inner {
+    background-color: #B0B0B0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.popup-inner h2 {
+    background-color: #9E9E9E;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.popup-inner input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #8E8E8E;
+}
+
+.popup-inner button {
+    background-color: #606060;
+    border-color: #303031;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+}
+
+.popup-inner button:last-of-type {
+    background-color: #D9534F;
 }

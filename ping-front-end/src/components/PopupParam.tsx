@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import './PopupParam.css';
+import PopupPerm from './PopupPerm';
+import PopupBreak from './PopupBreak';
+import UserName from './Username';
 
 interface PopupParamProps {
     onClosePopup: () => void;
-    trigger: JSX.Element; 
+    trigger: JSX.Element;
 }
 
-const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, trigger}) => {
+const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, trigger }) => {
+    const [isPermOpen, setIsPermOpen] = useState(false);
+    const [isBreakOpen, setIsBreakOpen] = useState(false);
+    const [seen, setSeen] = useState(false)
+    const [username, setUsername] = useState('JAVArcanist'); // Initial username
+
+    function togglePop() {
+        setSeen(!seen);
+    };
+
+    const openPermPopup = () => {
+        setIsPermOpen(true);
+    };
+    const closePermPopup = () => {
+        setIsPermOpen(false);
+    };
+    const openBreakPopup = () => {
+        setIsBreakOpen(true);
+    };
+    const closeBreakPopup = () => {
+        setIsBreakOpen(false);
+    };
+
     return (
         <Popup
             trigger={trigger}
@@ -28,31 +53,39 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, trigger}) => {
                             <button className="edit-button">✎</button>
                         </div>
                         <div className="info-section">
-                            <button className="info-button">User name</button>
-                            <div className="info-value">JAVArcanist</div>
+                            <div className="info-value">User name</div>
+                            <button onClick={togglePop} className="info-button">{username}</button>
+                            {seen ? <UserName toggle={togglePop} username={username} setUsername={setUsername}/> : null}
                         </div>
                         <div className="info-section">
-                            <button className="info-button">Super Admin Account</button>
+                            <div className="info-value">Super Admin Account</div>
+
                         </div>
                         <div className="info-section">
-                            <button className="info-button">Email</button>
-                            <div className="info-value">terribleCoder@epita.fr</div>
+                            <div className="info-value">Email</div>
+                            <button className="info-button">terribleCoder@epita.fr</button>
                         </div>
                         <div className="info-section">
-                            <button className="info-button">Phone number</button>
-                            <div className="info-value">09 99 88 77 66</div>
+                            <div className="info-value">Phone number</div>
+                            <button className="info-button">09 99 88 77 66</button>
                         </div>
                         <button className="logout-button">Disconnect</button>
                     </div>
                     <div className="right-column">
-                        <h2>customization</h2>
+                        <h2>Customization</h2>
                         <button className="option-button">Background and theme</button>
                         <button className="option-button">Fonts and Emojis</button>
                         <h2>Other</h2>
                         <button className="option-button">Documentation</button>
                         <h2>Administration</h2>
-                        <button className="option-button">Break parameters</button>
-                        <button className="option-button">Change permissions</button>
+                        <PopupBreak
+                            onClosePopup={closeBreakPopup}
+                            trigger={<button onClick={openBreakPopup} className="option-button">Break parameters</button>}
+                        />
+                        <PopupPerm
+                            onClosePopup={closePermPopup}
+                            trigger={<button onClick={openPermPopup} className="option-button">Change permissions</button>}
+                        />
                         <button className="option-button">Name and logo of the IDE</button>
                     </div>
                 </div>

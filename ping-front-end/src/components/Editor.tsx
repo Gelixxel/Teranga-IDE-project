@@ -228,7 +228,7 @@ const Editor: React.FC = () => {
           {/* <button>
             <PopupParam
                 onClosePopup={closeParamPopup}
-                trigger={<button onClick={openParamPopup}>Parameters</button>}
+                trigger={<button onClick={openParamPopup} className="button cipher-decipher">Parameters</button>}
             />
           </button> */}
         </div>
