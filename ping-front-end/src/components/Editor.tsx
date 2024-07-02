@@ -225,10 +225,12 @@ const Editor: React.FC = () => {
           <button onClick={toggleCipher} className="button cipher-decipher">
             {isCiphered ? 'Decipher' : 'Cipher'}
           </button>
-          <PopupParam
+          {/* <button>
+            <PopupParam
                 onClosePopup={closeParamPopup}
                 trigger={<button onClick={openParamPopup}>Parameters</button>}
             />
+          </button> */}
         </div>
         <div className="settings-bar">
           <div>
