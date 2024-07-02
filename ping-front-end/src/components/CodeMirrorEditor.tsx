@@ -2,7 +2,8 @@ import { java } from "@codemirror/lang-java";
 import { python } from "@codemirror/lang-python";
 import { EditorState, Extension } from "@codemirror/state";
 import { oneDark } from "@codemirror/theme-one-dark";
-import { EditorView, lineNumbers } from "@codemirror/view";
+import { EditorView, lineNumbers, keymap } from "@codemirror/view";
+import { defaultKeymap } from "@codemirror/commands"; // Import default keymap
 import React, { useEffect, useRef, useState } from "react";
 import "./CodeMirrorEditor.css";
 import { zoomExtension } from "./zoomExtension"; // Import the zoom extension
@@ -25,14 +26,10 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
   const [zoomPercentage, setZoomPercentage] = useState(100);
   const [cursorPosition, setCursorPosition] = useState({ line: 1, column: 1 });
 
+  // Initialize the EditorView once
   useEffect(() => {
     if (editorRef.current && !viewRef.current) {
-      const languageExtension: Extension =
-        language === "java"
-          ? java()
-          : language === "python"
-          ? python()
-          : java();
+      const languageExtension: Extension = language === "java" ? java() : python();
 
       const startState = EditorState.create({
         doc: initialValue,
@@ -40,6 +37,25 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
           languageExtension,
           oneDark,
           lineNumbers(),
+          keymap.of([
+            ...defaultKeymap,
+            {
+              key: "Tab",
+              run: (view) => {
+                const transaction = view.state.update({
+                  changes: {
+                    from: view.state.selection.main.from,
+                    insert: "\t",
+                  },
+                  selection: {
+                    anchor: view.state.selection.main.from + 1,
+                  },
+                });
+                view.dispatch(transaction);
+                return true;
+              },
+            },
+          ]), // Add default keymap
           zoomExtension(24 * (zoomPercentage / 100)), // Apply the zoom extension
           EditorView.updateListener.of((update) => {
             if (update.docChanged) {
@@ -66,23 +82,19 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
         viewRef.current = null;
       };
     }
-  }, [language, onChange, zoomPercentage, initialValue]);
+  }, [language, onChange, zoomPercentage]);
 
+  // Update the doc content without losing focus
   useEffect(() => {
-    if (viewRef.current) {
-      const state = viewRef.current.state;
-      const currentValue = state.doc.toString();
-
-      if (currentValue !== initialValue) {
-        const transaction = state.update({
-          changes: { from: 0, to: currentValue.length, insert: initialValue },
-        });
-        viewRef.current.dispatch(transaction);
-      }
+    if (viewRef.current && initialValue !== viewRef.current.state.doc.toString()) {
+      const transaction = viewRef.current.state.update({
+        changes: { from: 0, to: viewRef.current.state.doc.length, insert: initialValue },
+      });
+      viewRef.current.dispatch(transaction);
     }
   }, [initialValue]);
 
-  // Apply font family changes
+  // Handle font family changes
   useEffect(() => {
     if (viewRef.current) {
       const contentElement = viewRef.current.dom.querySelector('.cm-content') as HTMLElement;
@@ -91,6 +103,14 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
       }
     }
   }, [fontFamily]);
+
+  // Handle zoom changes
+  useEffect(() => {
+    if (viewRef.current) {
+      const zoomFactor = 24 * (zoomPercentage / 100);
+      viewRef.current.dom.style.fontSize = `${zoomFactor}px`;
+    }
+  }, [zoomPercentage]);
 
   return (
     <div className="editor-wrapper">
