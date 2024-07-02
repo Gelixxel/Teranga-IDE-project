@@ -14,7 +14,7 @@
   border-radius: 3px;
   transition: background-color 0.3s, color 0.3s;
   display: flex;
-  align-items: center;
+  align-items: left;
 }
 
 .node:hover {
@@ -24,7 +24,7 @@
 
 .node-label {
   display: flex;
-  align-items: center;
+  align-items: left;
   font-size: 14px;
 }
 
