@@ -24,6 +24,7 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ onSubmit, onClose }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="password-input"
+          autoFocus
         />
         <div className="modal-buttons">
           <button onClick={handleSubmit} className="btn">Submit</button>
