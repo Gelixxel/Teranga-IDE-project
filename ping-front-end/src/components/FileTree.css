@@ -31,6 +31,11 @@
 .icon {
   margin-right: 8px;
   font-size: 16px;
+  vertical-align: middle;
+}
+
+.tree-arrow {
+  font-size: 16px;
 }
 
 .folder {
@@ -42,7 +47,7 @@
 }
 
 .children {
-  margin-left: 20px;
+  margin-left: 10px;
   border-left: 1px solid #ddd;
   padding-left: 10px;
 }

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import isHotkey from 'is-hotkey';
-import {
+import React, {
     createContext,
     Dispatch,
     KeyboardEvent,
@@ -138,9 +138,9 @@ export type TreeNodeType = {
     directory?: boolean;
 };
 
-type IconProps = { open?: boolean; className?: string };
+type IconProps = { open?: boolean; className?: string; style?: React.CSSProperties };
 
-export function Arrow({ open, className }: IconProps) {
+export function Arrow({ open, className, style }: IconProps) {
     return (
         <motion.svg
             xmlns="http://www.w3.org/2000/svg"
@@ -149,6 +149,7 @@ export function Arrow({ open, className }: IconProps) {
             strokeWidth={2}
             stroke="currentColor"
             className={clsx('origin-center', className)}
+            style={style}
             animate={{ rotate: open ? 90 : 0 }}
         >
             <path
@@ -263,7 +264,7 @@ export const Node = function TreeNode({
                     }}
                 >
                     {hasChildren ? (
-                        <Arrow className="icon h-4 w-4 shrink-0" open={isOpen} />
+                        <Arrow className="icon h-4 w-4 shrink-0" style={{ height: '12px', width: '12px' }} open={isOpen} />
                     ) : (
                         <span className="icon h-4 w-4" />
                     )}
