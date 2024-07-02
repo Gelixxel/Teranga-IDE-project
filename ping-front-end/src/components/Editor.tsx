@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import CodeMirrorEditor from "./CodeMirrorEditor";
+import { Treeview, TreeNodeType } from "./FileTree";
 import "./Editor.css"; // Ensure this line is present to import styles
-import { TreeNodeType, Treeview } from "./FileTree";
 
 const Editor: React.FC = () => {
   const [content, setContent] = useState<string>("");
@@ -33,20 +33,17 @@ const Editor: React.FC = () => {
     localStorage.setItem("fontFamily", fontFamily);
   }, [content, filePath, selected, fontFamily]);
 
-  const fileExtensionToLanguage = useCallback(
-    (filePath: string): "python" | "java" => {
-      const extension = filePath.split(".").pop()?.toLowerCase();
-      switch (extension) {
-        case "py":
-          return "python";
-        case "java":
-          return "java";
-        default:
-          return "python"; // default language if extension is not recognized
-      }
-    },
-    []
-  );
+  const fileExtensionToLanguage = useCallback((filePath: string): "python" | "java" => {
+    const extension = filePath.split(".").pop()?.toLowerCase();
+    switch (extension) {
+      case "py":
+        return "python";
+      case "java":
+        return "java";
+      default:
+        return "python"; // default language if extension is not recognized
+    }
+  }, []);
 
   const fetchFiles = useCallback(async (directoryPath: string) => {
     try {
@@ -54,14 +51,12 @@ const Editor: React.FC = () => {
       const response = await axios.post("/api/explore", { directoryPath });
       console.log("Fetched files:", response.data);
 
-      return response.data.map(
-        (file: { name: string; directory: boolean }) => ({
-          id: directoryPath ? `${directoryPath}/${file.name}` : file.name,
-          name: file.name,
-          children: file.directory ? [] : undefined,
-          directory: file.directory,
-        })
-      );
+      return response.data.map((file: { name: string; directory: boolean }) => ({
+        id: directoryPath ? `${directoryPath}/${file.name}` : file.name,
+        name: file.name,
+        children: file.directory ? [] : undefined,
+        directory: file.directory,
+      }));
     } catch (error) {
       console.error("Error fetching files:", error);
       alert("Error fetching files: " + error);
@@ -69,12 +64,9 @@ const Editor: React.FC = () => {
     }
   }, []);
 
-  const fetchChildren = useCallback(
-    async (id: string): Promise<TreeNodeType[]> => {
-      return fetchFiles(id);
-    },
-    [fetchFiles]
-  );
+  const fetchChildren = useCallback(async (id: string): Promise<TreeNodeType[]> => {
+    return fetchFiles(id);
+  }, [fetchFiles]);
 
   useEffect(() => {
     const initializeTree = async () => {
@@ -85,35 +77,32 @@ const Editor: React.FC = () => {
     initializeTree();
   }, [fetchFiles]);
 
-  const openFile = useCallback(
-    async (path: string) => {
-      try {
-        const response = await axios.post("/api/open", { filePath: path });
-        if (response.data.startsWith("Error: Path is a directory")) {
-          // Handle directory case by expanding it in the tree
-          const fetchedChildren = await fetchFiles(path);
-          setTreeData((prevData) =>
-            prevData.map((node) =>
-              node.id === path ? { ...node, children: fetchedChildren } : node
-            )
-          );
-        } else if (response.data.startsWith("Error")) {
-          alert(response.data); // Display backend error message
-        } else {
-          const fileContent = response.data;
-          setContent(fileContent);
-          const detectedLanguage = fileExtensionToLanguage(path);
-          setLanguage(detectedLanguage);
-          setFilePath(path);
-          setSelected(path);
-        }
-      } catch (error) {
-        console.error("Error opening file:", error);
-        alert("Error opening file: " + error);
+  const openFile = useCallback(async (path: string) => {
+    try {
+      const response = await axios.post("/api/open", { filePath: path });
+      if (response.data.startsWith("Error: Path is a directory")) {
+        // Handle directory case by expanding it in the tree
+        const fetchedChildren = await fetchFiles(path);
+        setTreeData((prevData) =>
+          prevData.map((node) =>
+            node.id === path ? { ...node, children: fetchedChildren } : node
+          )
+        );
+      } else if (response.data.startsWith("Error")) {
+        alert(response.data); // Display backend error message
+      } else {
+        const fileContent = response.data;
+        setContent(fileContent);
+        const detectedLanguage = fileExtensionToLanguage(path);
+        setLanguage(detectedLanguage);
+        setFilePath(path);
+        setSelected(path);
       }
-    },
-    [fileExtensionToLanguage, fetchFiles]
-  );
+    } catch (error) {
+      console.error("Error opening file:", error);
+      alert("Error opening file: " + error);
+    }
+  }, [fileExtensionToLanguage, fetchFiles]);
 
   const saveFile = useCallback(async () => {
     try {
@@ -154,6 +143,24 @@ const Editor: React.FC = () => {
     setContent(value);
   }, []);
 
+  const createNewFile = useCallback(async (fileName: string) => {
+    try {
+      const response = await axios.post("/api/create", {
+        filePath: fileName,
+        isDirectory: false,
+      });
+      if (response.data.startsWith("Error")) {
+        alert(response.data); // Display backend error message
+      } else {
+        alert("File created successfully!");
+        setTreeData(await fetchFiles("")); // Refresh file tree
+      }
+    } catch (error) {
+      console.error("Error creating file:", error);
+      alert("Error creating file: " + error);
+    }
+  }, [fetchFiles]);
+
   return (
     <div className="flex h-full">
       <Treeview.Root
@@ -163,7 +170,7 @@ const Editor: React.FC = () => {
         className="w-72 h-full border-[1.5px] border-slate-200 m-4"
         fetchChildren={fetchChildren}
       >
-        {treeData.map((node) => (
+        {treeData.map(node => (
           <Treeview.Node node={node} key={node.id} />
         ))}
       </Treeview.Root>
@@ -176,15 +183,9 @@ const Editor: React.FC = () => {
           className="p-2 border-b"
         />
         <div className="flex space-x-2 p-2">
-          <button onClick={() => openFile(filePath)} className="btn">
-            Open
-          </button>
-          <button onClick={saveFile} className="btn">
-            Save
-          </button>
-          <button onClick={executeFile} className="btn">
-            Run
-          </button>
+          <button onClick={() => openFile(filePath)} className="btn">Open</button>
+          <button onClick={saveFile} className="btn">Save</button>
+          <button onClick={executeFile} className="btn">Run</button>
         </div>
         <div className="flex space-x-2 p-2">
           <label htmlFor="fontSelector">Select Font: </label>
@@ -199,16 +200,32 @@ const Editor: React.FC = () => {
             <option value="Georgia">Georgia</option>
             <option value="Tahoma">Tahoma</option>
             <option value="Verdana">Verdana</option>
+            <option value="JetBrains Mono">JetBrains Mono</option>
           </select>
         </div>
-        <div>
-          <CodeMirrorEditor
-            initialValue={content}
-            language={language}
-            onChange={handleChange}
-            fontFamily={fontFamily}
+        <div className="flex space-x-2 p-2">
+          <input
+            type="text"
+            placeholder="New file name"
+            className="p-2 border"
+            id="newFileName"
           />
+          <button
+            onClick={() => {
+              const newFileName = (document.getElementById("newFileName") as HTMLInputElement).value;
+              createNewFile(newFileName);
+            }}
+            className="btn"
+          >
+            New File
+          </button>
         </div>
+        <CodeMirrorEditor
+          initialValue={content}
+          language={language}
+          onChange={handleChange}
+          fontFamily={fontFamily}
+        />
         <pre className="output p-2">{output}</pre>
       </div>
     </div>
@@ -216,3 +233,4 @@ const Editor: React.FC = () => {
 };
 
 export default Editor;
+

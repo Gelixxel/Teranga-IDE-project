@@ -2,21 +2,14 @@ package com.ping.controller;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+import java.nio.file.*;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ping.controller.Requests.ExecuteRequest;
 import com.ping.controller.Requests.FileExplorerRequest;
@@ -35,14 +28,8 @@ public class IDEController {
     public IDEController() {
         String userHome = System.getProperty("user.home");
         root = Paths.get(userHome, "myIDE", "code").normalize().toAbsolutePath();
-        logger.info("Root directory set to: " + root.toString());
+        logger.info("Root directory set to: {}", root);
     }
-
-    @GetMapping("/hello")
-    public String getHello() {
-        return "Hello world!";
-    }
-
 
     @GetMapping("/message")
     public String getMessage() {
@@ -52,19 +39,21 @@ public class IDEController {
     @PostMapping("/open")
     public String openFile(@RequestBody FilePathRequest filePathRequest) {
         Path path = root.resolve(filePathRequest.getFilePath()).normalize();
-        logger.info("Opening file at path: " + path.toString());
+        logger.info("Opening file at path: {}", path);
         try {
             if (Files.isDirectory(path)) {
-                logger.error("Path is a directory, not a file: " + path.toString());
-                return "Error: Path is a directory, not a file: " + path.toString();
+                logger.error("Path is a directory, not a file: {}", path);
+                return "Error: Path is a directory, not a file: " + path;
             }
             if (!Files.exists(path)) {
-                logger.error("File not found: " + path.toString());
-                return "Error: File not found: " + path.toString();
+                logger.error("File not found: {}", path);
+                return "Error: File not found: " + path;
             }
-            return Files.readString(path, StandardCharsets.UTF_8);
+            String content = Files.readString(path, StandardCharsets.UTF_8);
+            logger.debug("File content read successfully");
+            return content;
         } catch (IOException e) {
-            logger.error("Error opening file at path: " + path.toString(), e);
+            logger.error("Error opening file at path: {}", path, e);
             return "Error opening file: " + e.getMessage();
         }
     }
@@ -72,18 +61,20 @@ public class IDEController {
     @PostMapping("/openDirectory")
     public List<FileInfo> openDirectory(@RequestBody FilePathRequest filePathRequest) {
         Path directoryPath = root.resolve(filePathRequest.getFilePath()).normalize();
-        logger.info("Exploring directory at path: " + directoryPath.toString());
+        logger.info("Exploring directory at path: {}", directoryPath);
         try {
             if (!Files.exists(directoryPath) || !Files.isDirectory(directoryPath)) {
-                logger.error("Directory not found: " + directoryPath.toString());
-                throw new IOException("Directory not found: " + directoryPath.toString());
+                logger.error("Directory not found: {}", directoryPath);
+                throw new IOException("Directory not found: " + directoryPath);
             }
 
-            return Files.list(directoryPath)
+            List<FileInfo> fileList = Files.list(directoryPath)
                     .map(path -> new FileInfo(path.getFileName().toString(), Files.isDirectory(path)))
                     .collect(Collectors.toList());
+            logger.debug("Directory content: {}", fileList);
+            return fileList;
         } catch (IOException e) {
-            logger.error("Error exploring directory at path: " + directoryPath.toString(), e);
+            logger.error("Error exploring directory at path: {}", directoryPath, e);
             return List.of(); // Return an empty list in case of an error
         }
     }
@@ -91,20 +82,21 @@ public class IDEController {
     @PostMapping("/save")
     public String saveFile(@RequestBody FileSaveRequest fileSaveRequest) {
         Path path = root.resolve(fileSaveRequest.getFilePath()).normalize();
-        logger.info("Saving file at path: " + path.toString());
+        logger.info("Saving file at path: {}", path);
         try {
             // Ensure parent directories exist
             if (path.getParent() != null) {
                 Files.createDirectories(path.getParent());
+                logger.debug("Parent directories created for path: {}", path);
             }
 
             // Write content to file with safe options
             Files.write(path, fileSaveRequest.getContent().getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE,
                     StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE);
-
+            logger.debug("File saved successfully at path: {}", path);
             return "File saved successfully!";
         } catch (IOException e) {
-            logger.error("Error saving file at path: " + path.toString(), e);
+            logger.error("Error saving file at path: {}", path, e);
             return "Error saving file: " + e.getMessage();
         }
     }
@@ -112,18 +104,23 @@ public class IDEController {
     @PostMapping("/execute")
     public String execute(@RequestBody ExecuteRequest executeRequest) {
         Path path = root.resolve(executeRequest.getFilePath()).normalize();
-        logger.info("Executing file at path: " + path.toString());
+        logger.info("Executing file at path: {}", path);
         try {
             Files.write(path, executeRequest.getContent().getBytes(StandardCharsets.UTF_8));
+            logger.debug("File content written for execution at path: {}", path);
 
+            String result;
             if ("python".equalsIgnoreCase(executeRequest.getLanguage())) {
-                return executeScript.executePythonScript(path.toString());
+                result = executeScript.executePythonScript(path.toString());
             } else if ("java".equalsIgnoreCase(executeRequest.getLanguage())) {
-                return executeScript.executeJavaProgram(path.toString());
+                result = executeScript.executeJavaProgram(path.toString());
+            } else {
+                result = "Unsupported language!";
             }
-            return "Unsupported language!";
+            logger.debug("Execution result: {}", result);
+            return result;
         } catch (IOException | InterruptedException e) {
-            logger.error("Error executing file at path: " + path.toString(), e);
+            logger.error("Error executing file at path: {}", path, e);
             return "Error executing file: " + e.getMessage();
         }
     }
@@ -131,18 +128,20 @@ public class IDEController {
     @PostMapping("/explore")
     public List<FileInfo> exploreDirectory(@RequestBody FileExplorerRequest fileExplorerRequest) {
         Path directoryPath = root.resolve(fileExplorerRequest.getDirectoryPath()).normalize();
-        logger.info("Exploring directory at path: " + directoryPath.toString());
+        logger.info("Exploring directory at path: {}", directoryPath);
         try {
             if (!Files.exists(directoryPath) || !Files.isDirectory(directoryPath)) {
-                logger.error("Directory not found: " + directoryPath.toString());
-                throw new IOException("Directory not found: " + directoryPath.toString());
+                logger.error("Directory not found: {}", directoryPath);
+                throw new IOException("Directory not found: " + directoryPath);
             }
-    
-            return Files.list(directoryPath)
-                        .map(path -> new FileInfo(path.getFileName().toString(), Files.isDirectory(path)))
-                        .collect(Collectors.toList());
+
+            List<FileInfo> fileList = Files.list(directoryPath)
+                    .map(path -> new FileInfo(path.getFileName().toString(), Files.isDirectory(path)))
+                    .collect(Collectors.toList());
+            logger.debug("Directory content: {}", fileList);
+            return fileList;
         } catch (IOException e) {
-            logger.error("Error exploring directory at path: " + directoryPath.toString(), e);
+            logger.error("Error exploring directory at path: {}", directoryPath, e);
             return List.of(); // Return an empty list in case of an error
         }
     }
@@ -150,19 +149,21 @@ public class IDEController {
     @PostMapping("/create")
     public String createFileOrDirectory(@RequestBody FilePathRequest filePathRequest) {
         Path path = root.resolve(filePathRequest.getFilePath()).normalize();
-        logger.info("Creating file or directory at path: " + path.toString());
+        logger.info("Creating file or directory at path: {}", path);
         try {
             if (Files.exists(path)) {
-                throw new IOException("File or directory already exists: " + path.toString());
+                throw new IOException("File or directory already exists: " + path);
             }
             if (filePathRequest.isDirectory()) {
                 Files.createDirectories(path);
+                logger.debug("Directory created at path: {}", path);
             } else {
                 Files.createFile(path);
+                logger.debug("File created at path: {}", path);
             }
             return "Created successfully!";
         } catch (IOException e) {
-            logger.error("Error creating file or directory at path: " + path.toString(), e);
+            logger.error("Error creating file or directory at path: {}", path, e);
             return "Error creating file or directory: " + e.getMessage();
         }
     }
@@ -170,21 +171,22 @@ public class IDEController {
     @PostMapping("/delete")
     public String deleteFileOrDirectory(@RequestBody FilePathRequest filePathRequest) {
         Path path = root.resolve(filePathRequest.getFilePath()).normalize();
-        logger.info("Deleting file or directory at path: " + path.toString());
+        logger.info("Deleting file or directory at path: {}", path);
         try {
             if (!Files.exists(path)) {
-                throw new IOException("File or directory does not exist: " + path.toString());
+                throw new IOException("File or directory does not exist: " + path);
             }
             Files.walk(path).sorted(Comparator.reverseOrder()).forEach(p -> {
                 try {
                     Files.delete(p);
+                    logger.debug("Deleted path: {}", p);
                 } catch (IOException e) {
-                    logger.error("Error deleting file or directory at path: " + p.toString(), e);
+                    logger.error("Error deleting file or directory at path: {}", p, e);
                 }
             });
             return "Deleted successfully!";
         } catch (IOException e) {
-            logger.error("Error deleting file or directory at path: " + path.toString(), e);
+            logger.error("Error deleting file or directory at path: {}", path, e);
             return "Error deleting file or directory: " + e.getMessage();
         }
     }
