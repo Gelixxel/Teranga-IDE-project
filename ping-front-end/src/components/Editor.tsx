@@ -3,15 +3,20 @@ import React, { useCallback, useState, useEffect } from "react";
 import CodeMirrorEditor from "./CodeMirrorEditor";
 import { Treeview, TreeNodeType } from "./FileTree";
 import "./Editor.css"; // Ensure this line is present to import styles
+import PasswordModal from "./PasswordModal"; // Import the PasswordModal component
+
+const emojiArray = ["😀", "😂", "🥲", "😊", "😍", "🤩", "😎", "🤔", "🤗", "🥳", "😜", "🧐", "😇", "🥺", "🤯", "🤠", "🤓", "🤑", "🤡", "🥶"];
 
 const Editor: React.FC = () => {
   const [content, setContent] = useState<string>("");
+  const [originalContent, setOriginalContent] = useState<string>(""); // To store original content
   const [filePath, setFilePath] = useState<string>("");
   const [language, setLanguage] = useState<"python" | "java">("python");
   const [output, setOutput] = useState<string>("");
   const [treeData, setTreeData] = useState<TreeNodeType[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [fontFamily, setFontFamily] = useState<string>("monospace"); // Default font family
+  const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
 
   useEffect(() => {
     // Load content, file path, selected node, and font family from localStorage
@@ -86,6 +91,7 @@ const Editor: React.FC = () => {
       } else {
         const fileContent = response.data;
         setContent(fileContent);
+        setOriginalContent(fileContent); // Store original content
         const detectedLanguage = fileExtensionToLanguage(path);
         setLanguage(detectedLanguage);
         setFilePath(path);
@@ -154,6 +160,20 @@ const Editor: React.FC = () => {
     }
   }, [fetchFiles]);
 
+  const cipherContent = () => {
+    const ciphered = content.split('\n').map(() => emojiArray[Math.floor(Math.random() * emojiArray.length)]).join('\n');
+    setContent(ciphered);
+  };
+
+  const decipherContent = (password: string) => {
+    // Replace "superadminPass" with the actual password logic you need
+    if (password === "superadminPass") {
+      setContent(originalContent);
+    } else {
+      alert("Incorrect password");
+    }
+  };
+
   return (
     <div className="editor-container">
       <aside className="file-explorer">
@@ -192,7 +212,7 @@ const Editor: React.FC = () => {
               className="font-selector"
             >
               {['Monospace', 'Arial', 'Courier New', 'Georgia', 'Tahoma', 'Verdana', 'JetBrains Mono'].map(font => (
-                <option value={font}>{font}</option>
+                <option key={font} value={font}>{font}</option>
               ))}
             </select>
           </div>
@@ -226,7 +246,20 @@ const Editor: React.FC = () => {
           />
         </div>
         <pre className="output">{output}</pre>
+        <div className="cipher-buttons">
+          <button onClick={cipherContent} className="button cipher">Cipher with Emojis</button>
+          <button onClick={() => setShowPasswordModal(true)} className="button decipher">Decipher</button>
+        </div>
       </main>
+      {showPasswordModal && (
+        <PasswordModal
+          onSubmit={(password) => {
+            decipherContent(password);
+            setShowPasswordModal(false);
+          }}
+          onClose={() => setShowPasswordModal(false)}
+        />
+      )}
     </div>
   );
 };
