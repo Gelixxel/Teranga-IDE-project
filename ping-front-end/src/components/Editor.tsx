@@ -237,6 +237,17 @@ const Editor: React.FC = () => {
     }
   };
 
+  const handleKeyPress = async () => {
+    await checkBreakTimeAndRedirect();
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
+
   return (
     <div className="editor-container">
       <aside className="file-explorer">
@@ -336,3 +347,4 @@ const Editor: React.FC = () => {
 };
 
 export default Editor;
+

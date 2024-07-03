@@ -3,7 +3,8 @@ import { python } from "@codemirror/lang-python";
 import { EditorState, Extension } from "@codemirror/state";
 import { oneDark } from "@codemirror/theme-one-dark";
 import { EditorView, lineNumbers, keymap } from "@codemirror/view";
-import { defaultKeymap } from "@codemirror/commands"; // Import default keymap
+import { defaultKeymap, indentWithTab } from "@codemirror/commands";
+import { autocompletion } from "@codemirror/autocomplete"; // Import autocompletion
 import React, { useEffect, useRef, useState } from "react";
 import "./CodeMirrorEditor.css";
 import { zoomExtension } from "./zoomExtension"; // Import the zoom extension
@@ -39,6 +40,7 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
           lineNumbers(),
           keymap.of([
             ...defaultKeymap,
+            indentWithTab, // Enable tab for indentation
             {
               key: "Tab",
               run: (view) => {
@@ -56,6 +58,7 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
               },
             },
           ]), // Add default keymap
+          autocompletion(), // Enable autocompletion
           zoomExtension(24 * (zoomPercentage / 100)), // Apply the zoom extension
           EditorView.updateListener.of((update) => {
             if (update.docChanged) {
@@ -82,7 +85,7 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
         viewRef.current = null;
       };
     }
-  }, [language, onChange, zoomPercentage]);
+  }, [language, onChange, zoomPercentage]); // Initialize EditorView
 
   // Update the doc content without losing focus
   useEffect(() => {
@@ -92,7 +95,7 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
       });
       viewRef.current.dispatch(transaction);
     }
-  }, [initialValue]);
+  }, [initialValue]); // Update document content when initialValue changes
 
   // Handle font family changes
   useEffect(() => {
@@ -102,7 +105,7 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
         contentElement.style.fontFamily = fontFamily;
       }
     }
-  }, [fontFamily]);
+  }, [fontFamily]); // Update font family when fontFamily prop changes
 
   // Handle zoom changes
   useEffect(() => {
@@ -110,7 +113,7 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
       const zoomFactor = 24 * (zoomPercentage / 100);
       viewRef.current.dom.style.fontSize = `${zoomFactor}px`;
     }
-  }, [zoomPercentage]);
+  }, [zoomPercentage]); // Update font size when zoomPercentage changes
 
   return (
     <div className="editor-wrapper">

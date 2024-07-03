@@ -44,6 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
             .logout()
+                .logoutUrl("/api/logout") // Define the logout URL
+                .logoutSuccessUrl("/login") // Redirect to login page after logout
                 .permitAll()
                 .and()
             .exceptionHandling()
