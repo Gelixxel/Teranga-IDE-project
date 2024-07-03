@@ -154,8 +154,19 @@
   background: #555;
 }
 
+.button-lilspacing {
+  margin-right: 20px; 
+}
+
 .button-spacing {
-  margin-right: 160px; 
+  margin-right: 120px; 
+}
+
+.button.delete {
+  background-color: #ff6347;
+}
+.button.delete:hover {
+  background-color: #ff4500;
 }
 
 .font-selector {

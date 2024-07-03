@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect} from "react";
 import CodeMirrorEditor from "./CodeMirrorEditor";
 import { Treeview, TreeNodeType } from "./FileTree";
 import "./Editor.css";
@@ -8,7 +8,7 @@ import PasswordModal from "./PasswordModal";
 import BreakTimeSettings from "./BreakTimeSettings";
 import { useNavigate } from 'react-router-dom';
 
-const emojiArray = ["😀😀😀😀😀😀😀😀😀😀", "😂😂😂😂😂😂😂😂😂😂", "🥲🥲🥲🥲🥲🥲🥲🥲🥲🥲", "😊😊😊😊😊😊😊😊😊😊", "😍😍😍😍😍😍😍😍😍😍", "🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩", "😎😎😎😎😎😎😎😎😎😎", "🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔", "🤗🤗🤗🤗🤗🤗🤗🤗🤗🤗", "🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳", "😜😜😜😜😜😜😜😜😜😜", "🧐🧐🧐🧐🧐🧐🧐🧐🧐🧐", "😇😇😇😇😇😇😇😇😇😇", "🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺", "🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯", "🤠🤠🤠🤠🤠🤠🤠🤠🤠🤠", "🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓", "🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑", "🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡", "🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶"];
+const emojiArray = ["😀", "😂", "😊", "😍", "🤩", "😎", "🤔", "🤗", "🥳", "😜", "🧐", "😇", "🥺", "🤯", "🤠", "🤓", "🤑", "🤡", "🥶"];
 
 const Editor: React.FC = () => {
   const [content, setContent] = useState<string>("");
@@ -156,6 +156,25 @@ const Editor: React.FC = () => {
     }
   }, [filePath, content]);
 
+  const deleteFile = useCallback(async () => {
+    if (!selected) {
+      alert("No file selected!");
+      return;
+    }
+  
+    try {
+      const response = await axios.post("/api/delete", { filePath: selected });
+      alert("File deleted successfully!");
+      setTreeData(prev => prev.filter(node => node.id !== selected));
+      setSelected(null);
+      setContent("");
+      setOriginalContent("");
+    } catch (error) {
+      console.error("Error deleting file:", error);
+      alert("Error deleting file: " + error);
+    }
+  }, [selected]);
+
   const executeFile = useCallback(async () => {
     try {
       const response = await axios.post("/api/execute", {
@@ -206,7 +225,10 @@ const Editor: React.FC = () => {
   };
 
   const cipherContent = () => {
-    const ciphered = content.split('\n').map(() => emojiArray[Math.floor(Math.random() * emojiArray.length)]).join('\n');
+    const ciphered = content.split('\n').map(() => {
+      const rand = Math.floor(Math.random() * emojiArray.length)
+      return Array.from({ length: 20 }, () => emojiArray[rand]).join('');
+  }).join('\n');
     setContent(ciphered);
   };
 
@@ -270,10 +292,18 @@ const Editor: React.FC = () => {
             placeholder="File path"
             value={filePath}
             onChange={(e) => setFilePath(e.target.value)}
-            className="file-path-input"
+            className="file-path-input new-file-input"
+            id="newFileName"
+            onKeyDown={(e) => e.key === 'Enter' && createNewFile((document.getElementById("newFileName") as HTMLInputElement).value)}
           />
+          <button
+            onClick={() => {
+              const newFileName = (document.getElementById("newFileName") as HTMLInputElement).value;
+              createNewFile(newFileName);
+            }} className="button new-file">New File</button>
           <button onClick={() => openFile(filePath)} className="button open">Open</button>
           <button onClick={saveFile} className="button save">Save</button>
+          <button onClick={deleteFile} className="button delete button-lilspacing">Delete</button>
           <button onClick={executeFile} className="button run button-spacing">Run</button>
           <button onClick={toggleCipher} className="button cipher-decipher">
             {isCiphered ? 'Decipher' : 'Cipher'}
@@ -298,22 +328,6 @@ const Editor: React.FC = () => {
               ))}
             </select>
           </div>
-          <input
-            type="text"
-            placeholder="New file name"
-            className="new-file-input"
-            id="newFileName"
-            onKeyDown={(e) => e.key === 'Enter' && createNewFile((document.getElementById("newFileName") as HTMLInputElement).value)}
-          />
-          <button
-            onClick={() => {
-              const newFileName = (document.getElementById("newFileName") as HTMLInputElement).value;
-              createNewFile(newFileName);
-            }}
-            className="button new-file"
-          >
-            New File
-          </button>
         </div>
         <div className="code-editor">
           <CodeMirrorEditor
