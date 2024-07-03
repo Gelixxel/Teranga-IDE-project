@@ -400,10 +400,14 @@ const Editor: React.FC = () => {
                 "Tahoma",
                 "Verdana",
                 "JetBrains Mono",
-                "Noto Sans Symbols 2",
                 "Pixelify Sans",
                 "Monofett",
-                "Noto Sans Anatolian Hieroglyphs",
+                "Dancing Script",
+                "Redacted Script",
+                "Honk",
+                "Pirata One",
+                "Rye",
+                "Rubik Glitch Pop",
               ].map((font) => (
                 <option key={font} value={font}>
                   {font}
