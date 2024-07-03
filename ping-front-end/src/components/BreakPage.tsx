@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Sound from 'react-sound';
-import music from path_to_music;
+// import Sound from 'react-sound';
+// import music from path_to_music;
 
 const BreakPage: React.FC = () => {
   const navigate = useNavigate();
@@ -53,13 +53,13 @@ const BreakPage: React.FC = () => {
       <h1>Break Time</h1>
       <p>The IDE is currently unavailable. Please come back after the break time.</p>
       {breakEnded && <p>Press any key to resume</p>}
-      {isPlaying && (
+      {/* {isPlaying && (
         <Sound
           url={music}
           playStatus={Sound.status.PLAYING}
           loop={true}
         />
-      )}
+      )} */}
     </div>
   );
 };
