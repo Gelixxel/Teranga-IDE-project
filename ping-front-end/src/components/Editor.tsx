@@ -45,11 +45,11 @@ const Editor: React.FC = () => {
   const navigate = useNavigate();
 
   const openParamPopup = () => {
-    setIsOpen(true);
+    setIsParamOpen(true);
   };
 
   const closeParamPopup = () => {
-    setIsOpen(false);
+    setIsParamOpen(false);
   };
 
   const checkBreakTimeAndRedirect = async () => {
