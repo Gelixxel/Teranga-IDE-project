@@ -1,14 +1,35 @@
 import axios from "axios";
-import React, { useCallback, useState, useEffect} from "react";
-import CodeMirrorEditor from "./CodeMirrorEditor";
-import { Treeview, TreeNodeType } from "./FileTree";
-import "./Editor.css";
-import PopupParam from './PopupParam';
-import PasswordModal from "./PasswordModal";
+import React, { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BreakTimeSettings from "./BreakTimeSettings";
-import { useNavigate } from 'react-router-dom';
+import CodeMirrorEditor from "./CodeMirrorEditor";
+import "./Editor.css";
+import { TreeNodeType, Treeview } from "./FileTree";
+import PasswordModal from "./PasswordModal";
+import PopupParam from "./PopupParam";
 
-const emojiArray = ["😀", "😂", "😊", "😍", "🤩", "😎", "🤔", "🤗", "🥳", "😜", "🧐", "😇", "🥺", "🤯", "🤠", "🤓", "🤑", "🤡", "🥶"];
+const emojiArray = [
+  "😀😀😀😀😀😀😀😀😀😀",
+  "😂😂😂😂😂😂😂😂😂😂",
+  "🥲🥲🥲🥲🥲🥲🥲🥲🥲🥲",
+  "😊😊😊😊😊😊😊😊😊😊",
+  "😍😍😍😍😍😍😍😍😍😍",
+  "🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩",
+  "😎😎😎😎😎😎😎😎😎😎",
+  "🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔",
+  "🤗🤗🤗🤗🤗🤗🤗🤗🤗🤗",
+  "🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳",
+  "😜😜😜😜😜😜😜😜😜😜",
+  "🧐🧐🧐🧐🧐🧐🧐🧐🧐🧐",
+  "😇😇😇😇😇😇😇😇😇😇",
+  "🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺",
+  "🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯",
+  "🤠🤠🤠🤠🤠🤠🤠🤠🤠🤠",
+  "🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓",
+  "🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑",
+  "🤡",
+  "🥶",
+];
 
 const Editor: React.FC = () => {
   const [content, setContent] = useState<string>("");
@@ -20,17 +41,18 @@ const Editor: React.FC = () => {
   const [selected, setSelected] = useState<string | null>(null);
   const [fontFamily, setFontFamily] = useState<string>("monospace");
   const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
-
-  const [isParamOpen, setIsParamOpen] = useState(false);
+  const [isParamOpen, setIsParamOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isCiphered, setIsCiphered] = useState(false);
   const [username, setUsername] = useState<string>("");
   const navigate = useNavigate();
 
   const openParamPopup = () => {
-    setIsParamOpen(true);
+    setIsOpen(true);
   };
+
   const closeParamPopup = () => {
-    setIsParamOpen(false);
+    setIsOpen(false);
   };
 
   const checkBreakTimeAndRedirect = async () => {
@@ -78,20 +100,29 @@ const Editor: React.FC = () => {
     localStorage.setItem("fontFamily", fontFamily);
   }, [content, filePath, selected, fontFamily]);
 
-  const fileExtensionToLanguage = useCallback((path: string): 'python' | 'java' => {
-    const extension = path.split('.').pop()?.toLowerCase();
-    return extension === 'py' ? 'python' : extension === 'java' ? 'java' : 'python';
-  }, []);
+  const fileExtensionToLanguage = useCallback(
+    (path: string): "python" | "java" => {
+      const extension = path.split(".").pop()?.toLowerCase();
+      return extension === "py"
+        ? "python"
+        : extension === "java"
+        ? "java"
+        : "python";
+    },
+    []
+  );
 
   const fetchFiles = useCallback(async (directoryPath: string) => {
     try {
       const response = await axios.post("/api/explore", { directoryPath });
-      return response.data.map((file: { name: string; directory: boolean }) => ({
-        id: directoryPath ? `${directoryPath}/${file.name}` : file.name,
-        name: file.name,
-        children: file.directory ? [] : undefined,
-        directory: file.directory,
-      }));
+      return response.data.map(
+        (file: { name: string; directory: boolean }) => ({
+          id: directoryPath ? `${directoryPath}/${file.name}` : file.name,
+          name: file.name,
+          children: file.directory ? [] : undefined,
+          directory: file.directory,
+        })
+      );
     } catch (error) {
       console.error("Error fetching files:", error);
       alert("Error fetching files: " + error);
@@ -99,9 +130,12 @@ const Editor: React.FC = () => {
     }
   }, []);
 
-  const fetchChildren = useCallback(async (id: string): Promise<TreeNodeType[]> => {
-    return fetchFiles(id);
-  }, [fetchFiles]);
+  const fetchChildren = useCallback(
+    async (id: string): Promise<TreeNodeType[]> => {
+      return fetchFiles(id);
+    },
+    [fetchFiles]
+  );
 
   useEffect(() => {
     const initializeTree = async () => {
@@ -112,32 +146,35 @@ const Editor: React.FC = () => {
     initializeTree();
   }, [fetchFiles]);
 
-  const openFile = useCallback(async (path: string) => {
-    try {
-      const response = await axios.post("/api/open", { filePath: path });
-      if (response.data.startsWith("Error: Path is a directory")) {
-        const fetchedChildren = await fetchFiles(path);
-        setTreeData((prevData) =>
-          prevData.map((node) =>
-            node.id === path ? { ...node, children: fetchedChildren } : node
-          )
-        );
-      } else if (response.data.startsWith("Error")) {
-        alert(response.data);
-      } else {
-        const fileContent = response.data;
-        setContent(fileContent);
-        setOriginalContent(fileContent);
-        const detectedLanguage = fileExtensionToLanguage(path);
-        setLanguage(detectedLanguage);
-        setFilePath(path);
-        setSelected(path);
+  const openFile = useCallback(
+    async (path: string) => {
+      try {
+        const response = await axios.post("/api/open", { filePath: path });
+        if (response.data.startsWith("Error: Path is a directory")) {
+          const fetchedChildren = await fetchFiles(path);
+          setTreeData((prevData) =>
+            prevData.map((node) =>
+              node.id === path ? { ...node, children: fetchedChildren } : node
+            )
+          );
+        } else if (response.data.startsWith("Error")) {
+          alert(response.data);
+        } else {
+          const fileContent = response.data;
+          setContent(fileContent);
+          setOriginalContent(fileContent);
+          const detectedLanguage = fileExtensionToLanguage(path);
+          setLanguage(detectedLanguage);
+          setFilePath(path);
+          setSelected(path);
+        }
+      } catch (error) {
+        console.error("Error opening file:", error);
+        alert("Error opening file: " + error);
       }
-    } catch (error) {
-      console.error("Error opening file:", error);
-      alert("Error opening file: " + error);
-    }
-  }, [fileExtensionToLanguage, fetchFiles]);
+    },
+    [fileExtensionToLanguage, fetchFiles]
+  );
 
   const saveFile = useCallback(async () => {
     try {
@@ -161,11 +198,11 @@ const Editor: React.FC = () => {
       alert("No file selected!");
       return;
     }
-  
+
     try {
       const response = await axios.post("/api/delete", { filePath: selected });
       alert("File deleted successfully!");
-      setTreeData(prev => prev.filter(node => node.id !== selected));
+      setTreeData((prev) => prev.filter((node) => node.id !== selected));
       setSelected(null);
       setContent("");
       setOriginalContent("");
@@ -197,23 +234,26 @@ const Editor: React.FC = () => {
     setContent(value);
   }, []);
 
-  const createNewFile = useCallback(async (fileName: string) => {
-    try {
-      const response = await axios.post("/api/create", {
-        filePath: fileName,
-        isDirectory: false,
-      });
-      if (response.data.startsWith("Error")) {
-        alert(response.data);
-      } else {
-        alert("File created successfully!");
-        setTreeData(await fetchFiles(""));
+  const createNewFile = useCallback(
+    async (fileName: string) => {
+      try {
+        const response = await axios.post("/api/create", {
+          filePath: fileName,
+          isDirectory: false,
+        });
+        if (response.data.startsWith("Error")) {
+          alert(response.data);
+        } else {
+          alert("File created successfully!");
+          setTreeData(await fetchFiles(""));
+        }
+      } catch (error) {
+        console.error("Error creating file:", error);
+        alert("Error creating file: " + error);
       }
-    } catch (error) {
-      console.error("Error creating file:", error);
-      alert("Error creating file: " + error);
-    }
-  }, [fetchFiles]);
+    },
+    [fetchFiles]
+  );
 
   const toggleCipher = () => {
     if (isCiphered) {
@@ -225,10 +265,13 @@ const Editor: React.FC = () => {
   };
 
   const cipherContent = () => {
-    const ciphered = content.split('\n').map(() => {
-      const rand = Math.floor(Math.random() * emojiArray.length)
-      return Array.from({ length: 20 }, () => emojiArray[rand]).join('');
-  }).join('\n');
+    const ciphered = content
+      .split("\n")
+      .map(() => {
+        const rand = Math.floor(Math.random() * emojiArray.length);
+        return Array.from({ length: 20 }, () => emojiArray[rand]).join("");
+      })
+      .join("\n");
     setContent(ciphered);
   };
 
@@ -280,7 +323,7 @@ const Editor: React.FC = () => {
           className="file-tree"
           fetchChildren={fetchChildren}
         >
-          {treeData.map(node => (
+          {treeData.map((node) => (
             <Treeview.Node node={node} key={node.id} />
           ))}
         </Treeview.Root>
@@ -294,16 +337,37 @@ const Editor: React.FC = () => {
             onChange={(e) => setFilePath(e.target.value)}
             className="file-path-input new-file-input"
             id="newFileName"
-            onKeyDown={(e) => e.key === 'Enter' && createNewFile((document.getElementById("newFileName") as HTMLInputElement).value)}
+            onKeyDown={(e) =>
+              e.key === "Enter" &&
+              createNewFile(
+                (document.getElementById("newFileName") as HTMLInputElement)
+                  .value
+              )
+            }
           />
           <button
             onClick={() => {
-              const newFileName = (document.getElementById("newFileName") as HTMLInputElement).value;
+              const newFileName = (
+                document.getElementById("newFileName") as HTMLInputElement
+              ).value;
               createNewFile(newFileName);
-            }} className="button new-file">New File</button>
-          <button onClick={() => openFile(filePath)} className="button open">Open</button>
-          <button onClick={saveFile} className="button save">Save</button>
-          <button onClick={deleteFile} className="button delete button-lilspacing">Delete</button>
+            }}
+            className="button new-file"
+          >
+            New File
+          </button>
+          <button onClick={() => openFile(filePath)} className="button open">
+            Open
+          </button>
+          <button onClick={saveFile} className="button save">
+            Save
+          </button>
+          <button
+            onClick={deleteFile}
+            className="button delete button-lilspacing"
+          >
+            Delete
+          </button>
           <button onClick={executeFile} className="button run button-spacing">
             Run
             <div className="triangle-container">
@@ -311,13 +375,16 @@ const Editor: React.FC = () => {
             </div>
           </button>
           <button onClick={toggleCipher} className="button cipher-decipher">
-            {isCiphered ? 'Decipher' : 'Cipher'}
+            {isCiphered ? "Decipher" : "Cipher"}
           </button>
-          <button onClick={openParamPopup} className="button cipher-decipher">Parameters</button>
-          <PopupParam
-            onClosePopup={closeParamPopup}
-            isOpen={isParamOpen}
-          />
+          <button onClick={openParamPopup} className="button cipher-decipher">
+            Parameters
+          </button>
+          <BreakTimeSettings />
+          <button onClick={logout} className="button logout">
+            Logout
+          </button>
+          <PopupParam onClosePopup={closeParamPopup} isOpen={isParamOpen} />
         </div>
         <div className="settings-bar">
           <div>
@@ -328,8 +395,18 @@ const Editor: React.FC = () => {
               onChange={(e) => setFontFamily(e.target.value)}
               className="font-selector"
             >
-              {['Monospace', 'Arial', 'Courier New', 'Georgia', 'Tahoma', 'Verdana', 'JetBrains Mono'].map(font => (
-                <option key={font} value={font}>{font}</option>
+              {[
+                "Monospace",
+                "Arial",
+                "Courier New",
+                "Georgia",
+                "Tahoma",
+                "Verdana",
+                "JetBrains Mono",
+              ].map((font) => (
+                <option key={font} value={font}>
+                  {font}
+                </option>
               ))}
             </select>
           </div>
@@ -363,4 +440,3 @@ const Editor: React.FC = () => {
 };
 
 export default Editor;
-
