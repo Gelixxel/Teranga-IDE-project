@@ -17,6 +17,10 @@
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    width: 100%;
+    max-width: 1920px;
+    height: 100%; 
+    max-height: 1080px;
     /*background-color: #B0B0B0;
     border-radius: 10px;
     width: 100%;

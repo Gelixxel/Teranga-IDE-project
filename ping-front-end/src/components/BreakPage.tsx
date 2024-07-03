@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Sound from 'react-sound';
+import music from path_to_music;
 
 const BreakPage: React.FC = () => {
   const navigate = useNavigate();
   const [breakEnded, setBreakEnded] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playMusic = () => {}
 
   const checkBreakStatus = async () => {
     try {
@@ -14,8 +19,11 @@ const BreakPage: React.FC = () => {
       const currentTime = `${now.getHours()}:${now.getMinutes()}`;
       if (currentTime < startTime || currentTime > endTime) {
         setBreakEnded(true);
+        setIsPlaying(false);
       } else {
         setBreakEnded(false);
+        setIsPlaying(true);
+
       }
     } catch (error) {
       console.error("Error fetching break time:", error);
@@ -45,6 +53,13 @@ const BreakPage: React.FC = () => {
       <h1>Break Time</h1>
       <p>The IDE is currently unavailable. Please come back after the break time.</p>
       {breakEnded && <p>Press any key to resume</p>}
+      {isPlaying && (
+        <Sound
+          url={music}
+          playStatus={Sound.status.PLAYING}
+          loop={true}
+        />
+      )}
     </div>
   );
 };
