@@ -1,0 +1,122 @@
+/*.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #B0B0B0;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    /*
+    background-color: #B0B0B0;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    height: 100%;
+    max-height: 600px;
+}
+*/
+.popup-inner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #B0B0B0;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 100%;
+    max-width: 800px;
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/*
+.back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+*/
+.cyclic-break, .planned-breaks {
+    margin-bottom: 20px;
+}
+/*
+.toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-container label {
+    margin-left: 10px;
+}
+
+.cyclic-options .option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.cyclic-options .option label {
+    flex-grow: 1;
+}
+
+.cyclic-options .option input {
+    width: 60px;
+    text-align: right;
+}
+
+.cyclic-options .option span {
+    margin-left: 5px;
+}
+*/
+.planned-breaks h2 {
+    margin-bottom: 10px;
+}
+
+.planned-break {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.planned-break input {
+    width: 60px;
+    text-align: center;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+}
+
+.add-button {
+    background-color: #606060;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    color: rgb(255, 253, 253);
+    font-size: 24px;
+    display: block;
+    margin: 0 auto;
+}

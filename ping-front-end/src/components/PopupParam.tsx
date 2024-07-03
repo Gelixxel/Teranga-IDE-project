@@ -15,18 +15,12 @@ interface PopupParamProps {
 const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
     const [isPermOpen, setIsPermOpen] = useState(false);
     const [isBreakOpen, setIsBreakOpen] = useState(false);
-    const [seen, setSeen] = useState(false)
     const [isUserNameOpen, setIsUserNameOpen] = useState(false);
     const [isUserEmailOpen, setIsUserEmailOpen] = useState(false);
     const [isUserPhoneOpen, setIsUserPhoneOpen] = useState(false);
     const [username, setUsername] = useState('JAVArcanist'); // Initial username
     const [email, setEmail] = useState('terribleCoder@epita.fr');
     const [phone, setPhone] = useState('09 99 88 77 66');
-
-
-    /*function togglePop() {
-        setSeen(!seen);
-    };*/
 
     const openPermPopup = () => {
         setIsPermOpen(true);
