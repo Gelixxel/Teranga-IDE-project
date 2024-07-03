@@ -174,8 +174,12 @@ const Editor: React.FC = () => {
     [fileExtensionToLanguage, fetchFiles]
   );
 
-  const saveFile = useCallback(async () => {
+  const saveFile = useCallback(async (fileName: string) => {
     try {
+      if (fileName === null || fileName === '') {
+        alert("Error empty fileName");
+        return;
+      }
       const response = await axios.post("/api/save", {
         filePath: filePath,
         content: content,
@@ -210,8 +214,12 @@ const Editor: React.FC = () => {
     }
   }, [selected]);
 
-  const executeFile = useCallback(async () => {
+  const executeFile = useCallback(async (fileName: string) => {
     try {
+      if (fileName === null || fileName === '') {
+        alert("Error empty fileName");
+        return;
+      }
       const response = await axios.post("/api/execute", {
         filePath: filePath,
         content: content,
@@ -235,6 +243,10 @@ const Editor: React.FC = () => {
   const createNewFile = useCallback(
     async (fileName: string) => {
       try {
+        if (fileName === null || fileName === '') {
+          alert("Error empty fileName");
+          return;
+        }
         const response = await axios.post("/api/create", {
           filePath: fileName,
           isDirectory: false,
@@ -348,7 +360,8 @@ const Editor: React.FC = () => {
               const newFileName = (
                 document.getElementById("newFileName") as HTMLInputElement
               ).value;
-              createNewFile(newFileName);
+              if (newFileName !== '' && newFileName !== null)
+                createNewFile(newFileName);
             }}
             className="button new-file"
           >
@@ -357,7 +370,16 @@ const Editor: React.FC = () => {
           <button onClick={() => openFile(filePath)} className="button open">
             Open
           </button>
-          <button onClick={saveFile} className="button save">
+          <button
+            onClick={() => {
+              const newFileName = (
+                document.getElementById("newFileName") as HTMLInputElement
+              ).value;
+              if (newFileName !== '' && newFileName !== null)
+                saveFile(newFileName);
+            }}
+            className="button save"
+          >
             Save
           </button>
           <button
@@ -366,7 +388,16 @@ const Editor: React.FC = () => {
           >
             Delete
           </button>
-          <button onClick={executeFile} className="button run button-spacing">
+          <button
+            onClick={() => {
+              const newFileName = (
+                document.getElementById("newFileName") as HTMLInputElement
+              ).value;
+              if (newFileName !== '' && newFileName !== null)
+                executeFile(newFileName);
+            }}
+            className="button run button-spacing"
+          >
             Run
             <div className="triangle-container">
               <span className="triangle"></span>
