@@ -39,7 +39,6 @@ const Editor: React.FC = () => {
   const [fontFamily, setFontFamily] = useState<string>("monospace");
   const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
   const [isParamOpen, setIsParamOpen] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [isCiphered, setIsCiphered] = useState(false);
   const [username, setUsername] = useState<string>("");
   const navigate = useNavigate();
@@ -47,7 +46,6 @@ const Editor: React.FC = () => {
   const openParamPopup = () => {
     setIsParamOpen(true);
   };
-
   const closeParamPopup = () => {
     setIsParamOpen(false);
   };
@@ -372,17 +370,15 @@ const Editor: React.FC = () => {
             </div>
           </button>
           <button onClick={toggleCipher} className="button cipher-decipher">
-            <FontAwesomeIcon icon={isCiphered ? faEyeSlash : faEye} style={{ marginRight: '10px' }} />
-            {/* {isCiphered ? 'Decipher' : 'Cipher'} */}
+            <FontAwesomeIcon icon={isCiphered ? faEyeSlash : faEye}/>
           </button>
-          <button onClick={openParamPopup} className="button cipher-decipher">
+          <button onClick={openParamPopup} className="button parameters">
             Parameters
           </button>
-          <BreakTimeSettings />
+            <PopupParam onClosePopup={closeParamPopup} isOpen={isParamOpen} />
           <button onClick={logout} className="button logout">
             Logout
           </button>
-          <PopupParam onClosePopup={closeParamPopup} isOpen={isParamOpen} />
         </div>
         <div className="settings-bar">
           <div>
@@ -408,6 +404,7 @@ const Editor: React.FC = () => {
               ))}
             </select>
           </div>
+          <BreakTimeSettings/>
         </div>
         <div className="code-editor">
           <CodeMirrorEditor
