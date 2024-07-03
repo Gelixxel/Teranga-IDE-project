@@ -160,12 +160,23 @@
 }
 
 .button .triangle {
-  width: 10;
-  height: 10;
-  border-left: 10px solid green;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  margin-left: 5px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid green;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  margin-left: 1px;
+}
+
+.button.cipher-decipher {
+  display: flex;
+  align-items: center;
+  background: #444;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .button:hover {

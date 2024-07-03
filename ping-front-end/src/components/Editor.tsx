@@ -7,6 +7,8 @@ import "./Editor.css";
 import { TreeNodeType, Treeview } from "./FileTree";
 import PasswordModal from "./PasswordModal";
 import PopupParam from "./PopupParam";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const emojiArray = ["🍆" ,"💦" ,"🍑" ,"😀" ,"😂" ,"😊" ,"😍" ,"🤩" ,"😎" ,"🤔" ,"🤗" ,"🥳" ,"😜" ,"🧐" ,"😇" ,"🥺" ,"🤯" ,"🤠" ,"🤓" ,"🤑" ,"🤡"
   ,"🥶" ,"💀" ,"🐶" ,"🐱" ,"🐭" ,"🐹" ,"🐰" ,"🦊" ,"🐻" ,"🐼" ,"🐨" ,"🐯" ,"🦁" ,"🐮" ,"🐷" ,"🐽" ,"🐸" ,"🐵" ,"🙈" ,"🙉" ,"🙊" ,"🐒" ,"🐔" ,"🐧" ,"🐦"
@@ -370,7 +372,8 @@ const Editor: React.FC = () => {
             </div>
           </button>
           <button onClick={toggleCipher} className="button cipher-decipher">
-            {isCiphered ? "Decipher" : "Cipher"}
+            <FontAwesomeIcon icon={isCiphered ? faEyeSlash : faEye} style={{ marginRight: '10px' }} />
+            {/* {isCiphered ? 'Decipher' : 'Cipher'} */}
           </button>
           <button onClick={openParamPopup} className="button cipher-decipher">
             Parameters
