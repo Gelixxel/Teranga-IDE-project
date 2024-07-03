@@ -304,7 +304,12 @@ const Editor: React.FC = () => {
           <button onClick={() => openFile(filePath)} className="button open">Open</button>
           <button onClick={saveFile} className="button save">Save</button>
           <button onClick={deleteFile} className="button delete button-lilspacing">Delete</button>
-          <button onClick={executeFile} className="button run button-spacing">Run</button>
+          <button onClick={executeFile} className="button run button-spacing">
+            Run
+            <div className="triangle-container">
+              <span className="triangle"></span>
+            </div>
+          </button>
           <button onClick={toggleCipher} className="button cipher-decipher">
             {isCiphered ? 'Decipher' : 'Cipher'}
           </button>

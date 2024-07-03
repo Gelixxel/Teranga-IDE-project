@@ -141,6 +141,7 @@
 }
 
 .button {
+  display: flex;
   padding: 6px 12px;
   margin-right: 8px;
   background: #444;
@@ -148,6 +149,23 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.triangle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  position: relative;
+}
+
+.button .triangle {
+  width: 10;
+  height: 10;
+  border-left: 10px solid green;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  margin-left: 5px;
 }
 
 .button:hover {
