@@ -4,16 +4,16 @@ import './PopupBreak.css';
 
 interface PopupBreakProps {
     onClosePopup: () => void;
-    trigger: JSX.Element;
+    isOpen: boolean;
 }
 
-const PopupBreak: React.FC<PopupBreakProps> = ({ onClosePopup, trigger }) => {
+const PopupBreak: React.FC<PopupBreakProps> = ({ onClosePopup, isOpen }) => {
     return (
         <Popup
-            trigger={trigger}
+            open={isOpen}
             modal
-            closeOnDocumentClick
-            onClose={onClosePopup}
+            closeOnDocumentClick={false}
+            closeOnEscape={false}
         >
             <div className="menu-container">
                 <div className="menu-header">

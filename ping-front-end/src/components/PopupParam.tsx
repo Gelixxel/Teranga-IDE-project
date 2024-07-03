@@ -4,21 +4,29 @@ import './PopupParam.css';
 import PopupPerm from './PopupPerm';
 import PopupBreak from './PopupBreak';
 import UserName from './Username';
+import UserEmail from './UserEmail';
+import UserPhone from './UserPhone';
 
 interface PopupParamProps {
     onClosePopup: () => void;
-    trigger: JSX.Element;
+    isOpen: boolean;
 }
 
-const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, trigger }) => {
+const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
     const [isPermOpen, setIsPermOpen] = useState(false);
     const [isBreakOpen, setIsBreakOpen] = useState(false);
     const [seen, setSeen] = useState(false)
+    const [isUserNameOpen, setIsUserNameOpen] = useState(false);
+    const [isUserEmailOpen, setIsUserEmailOpen] = useState(false);
+    const [isUserPhoneOpen, setIsUserPhoneOpen] = useState(false);
     const [username, setUsername] = useState('JAVArcanist'); // Initial username
+    const [email, setEmail] = useState('terribleCoder@epita.fr');
+    const [phone, setPhone] = useState('09 99 88 77 66');
 
-    function togglePop() {
+
+    /*function togglePop() {
         setSeen(!seen);
-    };
+    };*/
 
     const openPermPopup = () => {
         setIsPermOpen(true);
@@ -35,10 +43,10 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, trigger }) => {
 
     return (
         <Popup
-            trigger={trigger}
+            open={isOpen}
             modal
-            closeOnDocumentClick
-            onClose={onClosePopup}
+            closeOnDocumentClick={false}
+            closeOnEscape={false}
         >
             <div className="popup">
                 <div className="popup-header">
@@ -54,8 +62,10 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, trigger }) => {
                         </div>
                         <div className="info-section">
                             <div className="info-value">User name</div>
-                            <button onClick={togglePop} className="info-button">{username}</button>
-                            {seen ? <UserName toggle={togglePop} username={username} setUsername={setUsername}/> : null}
+                            <button onClick={() => setIsUserNameOpen(true)} className="info-button">{username}</button>
+                            {isUserNameOpen && (
+                                <UserName toggle={() => setIsUserNameOpen(false)} username={username} setUsername={setUsername} />
+                            )}
                         </div>
                         <div className="info-section">
                             <div className="info-value">Super Admin Account</div>
@@ -63,11 +73,17 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, trigger }) => {
                         </div>
                         <div className="info-section">
                             <div className="info-value">Email</div>
-                            <button className="info-button">terribleCoder@epita.fr</button>
+                            <button onClick={() => setIsUserEmailOpen(true)} className="info-button">{email}</button>
+                            {isUserEmailOpen && (
+                                <UserEmail toggle={() => setIsUserEmailOpen(false)} email={email} setEmail={setEmail} />
+                            )}
                         </div>
                         <div className="info-section">
                             <div className="info-value">Phone number</div>
-                            <button className="info-button">09 99 88 77 66</button>
+                            <button onClick={() => setIsUserPhoneOpen(true)} className="info-button">{phone}</button>
+                            {isUserPhoneOpen && (
+                                <UserPhone toggle={() => setIsUserPhoneOpen(false)} phone={phone} setPhone={setPhone} />
+                            )}
                         </div>
                         <button className="logout-button">Disconnect</button>
                     </div>
@@ -78,17 +94,19 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, trigger }) => {
                         <h2>Other</h2>
                         <button className="option-button">Documentation</button>
                         <h2>Administration</h2>
-                        <PopupBreak
-                            onClosePopup={closeBreakPopup}
-                            trigger={<button onClick={openBreakPopup} className="option-button">Break parameters</button>}
-                        />
-                        <PopupPerm
-                            onClosePopup={closePermPopup}
-                            trigger={<button onClick={openPermPopup} className="option-button">Change permissions</button>}
-                        />
+                        <button onClick={openBreakPopup} className="option-button">Break parameters</button>
+                        <button onClick={openPermPopup} className="option-button">Change permissions</button>
                         <button className="option-button">Name and logo of the IDE</button>
                     </div>
                 </div>
+                <PopupBreak
+                    onClosePopup={closeBreakPopup}
+                    isOpen={isBreakOpen}
+                />
+                <PopupPerm
+                    onClosePopup={closePermPopup}
+                    isOpen={isPermOpen}
+                />
             </div>
         </Popup>
     );

@@ -4,20 +4,20 @@ import './PopupPerm.css';
 
 interface PopupPermProps {
     onClosePopup: () => void;
-    trigger: JSX.Element;
+    isOpen: boolean;
 }
 
-const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, trigger }) => {
+const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
     return (
         <Popup
-            trigger={trigger}
+            open={isOpen}
             modal
-            closeOnDocumentClick
-            onClose={onClosePopup}
+            closeOnDocumentClick={false}
+            closeOnEscape={false}
         >
             <div className="menu-container">
                 <div className="menu-header">
-                    <button onClick={onClosePopup} className="back-button">←</button>
+                    <button className="back-button" onClick={onClosePopup}>←</button>
                     <h1>User Permissions</h1>
                 </div>
                 <div className="user-list">

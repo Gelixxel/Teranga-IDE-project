@@ -20,17 +20,17 @@ const Editor: React.FC = () => {
   const [selected, setSelected] = useState<string | null>(null);
   const [fontFamily, setFontFamily] = useState<string>("monospace");
   const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState(false);
+
+  const [isParamOpen, setIsParamOpen] = useState(false);
   const [isCiphered, setIsCiphered] = useState(false);
   const [username, setUsername] = useState<string>("");
   const navigate = useNavigate();
 
   const openParamPopup = () => {
-    setIsOpen(true);
+    setIsParamOpen(true);
   };
-
   const closeParamPopup = () => {
-    setIsOpen(false);
+    setIsParamOpen(false);
   };
 
   const checkBreakTimeAndRedirect = async () => {
@@ -278,14 +278,11 @@ const Editor: React.FC = () => {
           <button onClick={toggleCipher} className="button cipher-decipher">
             {isCiphered ? 'Decipher' : 'Cipher'}
           </button>
-          <button>
-            <PopupParam
-                onClosePopup={closeParamPopup}
-                trigger={<button onClick={openParamPopup} className="button cipher-decipher">Parameters</button>}
-            />
-          </button>
-          <BreakTimeSettings />
-          <button onClick={logout} className="button logout">Logout</button>
+          <button onClick={openParamPopup} className="button cipher-decipher">Parameters</button>
+          <PopupParam
+            onClosePopup={closeParamPopup}
+            isOpen={isParamOpen}
+          />
         </div>
         <div className="settings-bar">
           <div>
