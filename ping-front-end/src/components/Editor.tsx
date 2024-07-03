@@ -2,25 +2,28 @@ import axios from "axios";
 import React, { useCallback, useState, useEffect } from "react";
 import CodeMirrorEditor from "./CodeMirrorEditor";
 import { Treeview, TreeNodeType } from "./FileTree";
-import "./Editor.css"; // Ensure this line is present to import styles
+import "./Editor.css";
 import PopupParam from './PopupParam';
-import PasswordModal from "./PasswordModal"; // Import the PasswordModal component
+import PasswordModal from "./PasswordModal";
+import BreakTimeSettings from "./BreakTimeSettings";
+import { useNavigate } from 'react-router-dom';
 
-const emojiArray = ["😀", "😂", "🥲", "😊", "😍", "🤩", "😎", "🤔", "🤗", "🥳", "😜", "🧐", "😇", "🥺", "🤯", "🤠", "🤓", "🤑", "🤡", "🥶"];
+const emojiArray = ["😀😀😀😀😀😀😀😀😀😀", "😂😂😂😂😂😂😂😂😂😂", "🥲🥲🥲🥲🥲🥲🥲🥲🥲🥲", "😊😊😊😊😊😊😊😊😊😊", "😍😍😍😍😍😍😍😍😍😍", "🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩", "😎😎😎😎😎😎😎😎😎😎", "🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔", "🤗🤗🤗🤗🤗🤗🤗🤗🤗🤗", "🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳", "😜😜😜😜😜😜😜😜😜😜", "🧐🧐🧐🧐🧐🧐🧐🧐🧐🧐", "😇😇😇😇😇😇😇😇😇😇", "🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺", "🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯", "🤠🤠🤠🤠🤠🤠🤠🤠🤠🤠", "🤓🤓🤓🤓🤓🤓🤓🤓🤓🤓", "🤑🤑🤑🤑🤑🤑🤑🤑🤑🤑", "🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡", "🥶🥶🥶🥶🥶🥶🥶🥶🥶🥶"];
 
 const Editor: React.FC = () => {
   const [content, setContent] = useState<string>("");
-  const [originalContent, setOriginalContent] = useState<string>(""); // To store original content
+  const [originalContent, setOriginalContent] = useState<string>("");
   const [filePath, setFilePath] = useState<string>("");
   const [language, setLanguage] = useState<"python" | "java">("python");
   const [output, setOutput] = useState<string>("");
   const [treeData, setTreeData] = useState<TreeNodeType[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
-  const [fontFamily, setFontFamily] = useState<string>("monospace"); // Default font family
+  const [fontFamily, setFontFamily] = useState<string>("monospace");
   const [showPasswordModal, setShowPasswordModal] = useState<boolean>(false);
-
   const [isOpen, setIsOpen] = useState(false);
   const [isCiphered, setIsCiphered] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const navigate = useNavigate();
 
   const openParamPopup = () => {
     setIsOpen(true);
@@ -30,21 +33,45 @@ const Editor: React.FC = () => {
     setIsOpen(false);
   };
 
+  const checkBreakTimeAndRedirect = async () => {
+    try {
+      const response = await axios.get("/api/getBreakTime");
+      const { startTime, endTime } = response.data;
+      const now = new Date();
+      const currentTime = `${now.getHours()}:${now.getMinutes()}`;
+      if (currentTime >= startTime && currentTime <= endTime) {
+        navigate("/break");
+      }
+    } catch (error) {
+      console.error("Error fetching break time:", error);
+    }
+  };
 
   useEffect(() => {
-    // Load content, file path, selected node, and font family from localStorage
-    const savedContent = localStorage.getItem("content");
-    const savedFilePath = localStorage.getItem("filePath");
-    const savedSelected = localStorage.getItem("selected");
-    const savedFontFamily = localStorage.getItem("fontFamily");
-    if (savedContent) setContent(savedContent);
-    if (savedFilePath) setFilePath(savedFilePath);
-    if (savedSelected) setSelected(savedSelected);
-    if (savedFontFamily) setFontFamily(savedFontFamily);
-  }, []);
+    const checkAccessAndInitialize = async () => {
+      try {
+        const usernameResponse = await axios.get("/api/currentUsername");
+        setUsername(usernameResponse.data.username);
+
+        await checkBreakTimeAndRedirect();
+
+        const savedContent = localStorage.getItem("content");
+        const savedFilePath = localStorage.getItem("filePath");
+        const savedSelected = localStorage.getItem("selected");
+        const savedFontFamily = localStorage.getItem("fontFamily");
+        if (savedContent) setContent(savedContent);
+        if (savedFilePath) setFilePath(savedFilePath);
+        if (savedSelected) setSelected(savedSelected);
+        if (savedFontFamily) setFontFamily(savedFontFamily);
+      } catch (error) {
+        console.error("Error initializing editor:", error);
+      }
+    };
+
+    checkAccessAndInitialize();
+  }, [navigate]);
 
   useEffect(() => {
-    // Save content, file path, selected node, and font family to localStorage whenever they change
     localStorage.setItem("content", content);
     localStorage.setItem("filePath", filePath);
     localStorage.setItem("selected", selected || "");
@@ -58,10 +85,7 @@ const Editor: React.FC = () => {
 
   const fetchFiles = useCallback(async (directoryPath: string) => {
     try {
-      console.log(`Fetching files for directory: ${directoryPath}`);
       const response = await axios.post("/api/explore", { directoryPath });
-      console.log("Fetched files:", response.data);
-
       return response.data.map((file: { name: string; directory: boolean }) => ({
         id: directoryPath ? `${directoryPath}/${file.name}` : file.name,
         name: file.name,
@@ -92,7 +116,6 @@ const Editor: React.FC = () => {
     try {
       const response = await axios.post("/api/open", { filePath: path });
       if (response.data.startsWith("Error: Path is a directory")) {
-        // Handle directory case by expanding it in the tree
         const fetchedChildren = await fetchFiles(path);
         setTreeData((prevData) =>
           prevData.map((node) =>
@@ -100,11 +123,11 @@ const Editor: React.FC = () => {
           )
         );
       } else if (response.data.startsWith("Error")) {
-        alert(response.data); // Display backend error message
+        alert(response.data);
       } else {
         const fileContent = response.data;
         setContent(fileContent);
-        setOriginalContent(fileContent); // Store original content
+        setOriginalContent(fileContent);
         const detectedLanguage = fileExtensionToLanguage(path);
         setLanguage(detectedLanguage);
         setFilePath(path);
@@ -123,7 +146,7 @@ const Editor: React.FC = () => {
         content: content,
       });
       if (response.data.startsWith("Error")) {
-        alert(response.data); // Display backend error message
+        alert(response.data);
       } else {
         alert("File saved successfully!");
       }
@@ -141,7 +164,7 @@ const Editor: React.FC = () => {
         language: language,
       });
       if (response.data.startsWith("Error")) {
-        alert(response.data); // Display backend error message
+        alert(response.data);
       } else {
         setOutput(response.data);
       }
@@ -162,10 +185,10 @@ const Editor: React.FC = () => {
         isDirectory: false,
       });
       if (response.data.startsWith("Error")) {
-        alert(response.data); // Display backend error message
+        alert(response.data);
       } else {
         alert("File created successfully!");
-        setTreeData(await fetchFiles("")); // Refresh file tree
+        setTreeData(await fetchFiles(""));
       }
     } catch (error) {
       console.error("Error creating file:", error);
@@ -191,8 +214,27 @@ const Editor: React.FC = () => {
     setContent(originalContent);
   };
 
-  const validatePassword = (password: string) => {
-    return password === "superadminPass";
+  const validatePassword = async (password: string) => {
+    try {
+      const response = await axios.post("/api/validatePassword", {
+        username,
+        password,
+      });
+      return response.data.valid;
+    } catch (error) {
+      console.error("Error validating password:", error);
+      return false;
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await axios.post("/api/logout");
+      window.location.href = "/login";
+    } catch (error) {
+      console.error("Error logging out:", error);
+      alert("Error logging out: " + error);
+    }
   };
 
   return (
@@ -225,12 +267,14 @@ const Editor: React.FC = () => {
           <button onClick={toggleCipher} className="button cipher-decipher">
             {isCiphered ? 'Decipher' : 'Cipher'}
           </button>
-          {/* <button>
+          <button>
             <PopupParam
                 onClosePopup={closeParamPopup}
                 trigger={<button onClick={openParamPopup} className="button cipher-decipher">Parameters</button>}
             />
-          </button> */}
+          </button>
+          <BreakTimeSettings />
+          <button onClick={logout} className="button logout">Logout</button>
         </div>
         <div className="settings-bar">
           <div>
@@ -275,8 +319,8 @@ const Editor: React.FC = () => {
       </main>
       {showPasswordModal && (
         <PasswordModal
-          onSubmit={(password) => {
-            if (validatePassword(password)) {
+          onSubmit={async (password) => {
+            if (await validatePassword(password)) {
               decipherContent();
               setIsCiphered(false);
               setShowPasswordModal(false);
@@ -292,4 +336,3 @@ const Editor: React.FC = () => {
 };
 
 export default Editor;
-

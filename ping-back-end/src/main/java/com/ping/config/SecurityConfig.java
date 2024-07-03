@@ -9,9 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import com.ping.service.AccessTimeService;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.User;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
@@ -21,6 +20,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private AccessTimeService accessTimeService;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
@@ -29,12 +31,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .csrf().disable() // Disable CSRF for simplicity, enable in production
+            .csrf().disable()
             .authorizeRequests()
-                .antMatchers("/login", "/api/login").permitAll()
-                .antMatchers("/login", "/static/**").permitAll()
+                .antMatchers("/login", "/api/login", "/static/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/superadmin/**").hasRole("SUPER_ADMIN")
+                .antMatchers("/editor").access("@accessTimeService.isAccessAllowed(principal.username)")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -42,7 +44,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
             .logout()
-                .permitAll();
+                .permitAll()
+                .and()
+            .exceptionHandling()
+                .accessDeniedHandler((request, response, accessDeniedException) -> {
+                    response.sendRedirect("/break");
+                });
     }
 
     @Bean
