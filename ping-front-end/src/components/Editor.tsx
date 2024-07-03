@@ -9,6 +9,9 @@ import PasswordModal from "./PasswordModal";
 import PopupParam from "./PopupParam";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
+
 
 const emojiArray = ["🍆" ,"💦" ,"🍑" ,"😀" ,"😂" ,"😊" ,"😍" ,"🤩" ,"😎" ,"🤔" ,"🤗" ,"🥳" ,"😜" ,"🧐" ,"😇" ,"🥺" ,"🤯" ,"🤠" ,"🤓" ,"🤑" ,"🤡"
   ,"🥶" ,"💀" ,"🐶" ,"🐱" ,"🐭" ,"🐹" ,"🐰" ,"🦊" ,"🐻" ,"🐼" ,"🐨" ,"🐯" ,"🦁" ,"🐮" ,"🐷" ,"🐽" ,"🐸" ,"🐵" ,"🙈" ,"🙉" ,"🙊" ,"🐒" ,"🐔" ,"🐧" ,"🐦"
@@ -373,11 +376,11 @@ const Editor: React.FC = () => {
             <FontAwesomeIcon icon={isCiphered ? faEyeSlash : faEye}/>
           </button>
           <button onClick={openParamPopup} className="button parameters">
-            Parameters
+            <FontAwesomeIcon icon={faCog} />
           </button>
             <PopupParam onClosePopup={closeParamPopup} isOpen={isParamOpen} />
           <button onClick={logout} className="button logout">
-            Logout
+            <FontAwesomeIcon icon={faPowerOff} />
           </button>
         </div>
         <div className="settings-bar">
@@ -397,6 +400,10 @@ const Editor: React.FC = () => {
                 "Tahoma",
                 "Verdana",
                 "JetBrains Mono",
+                "Noto Sans Symbols 2",
+                "Pixelify Sans",
+                "Monofett",
+                "Noto Sans Anatolian Hieroglyphs",
               ].map((font) => (
                 <option key={font} value={font}>
                   {font}

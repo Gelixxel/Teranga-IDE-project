@@ -228,3 +228,7 @@
     margin-bottom: 10px;
   }
 }
+
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Monofett&family=Noto+Sans+Anatolian+Hieroglyphs&family=Noto+Sans+Symbols+2&family=Pixelify+Sans:wght@400..700&display=swap');
