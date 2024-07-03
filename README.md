@@ -60,7 +60,6 @@ java -jar ping-back-end/target/ping-back-end-1.0-SNAPSHOT.jar
 
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 - [Node.js](https://nodejs.org/en/) - JavaScript runtime built on Chrome's V8 JavaScript engine
-- [Express](https://expressjs.com/) - Web application framework for Node.js
 - [CodeMirror](https://codemirror.net/) - Versatile text editor implemented in JavaScript for the browser
 
 ## Authors
