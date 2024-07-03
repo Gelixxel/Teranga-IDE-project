@@ -155,9 +155,11 @@ public class IDEController {
                 throw new IOException("File or directory already exists: " + path);
             }
             if (filePathRequest.isDirectory()) {
-                Files.createDirectories(path);
+                Files.createDirectories(path.getParent());
                 logger.debug("Directory created at path: {}", path);
             } else {
+                if (Files.notExists(path.getParent()))
+                    Files.createDirectories(path.getParent());
                 Files.createFile(path);
                 logger.debug("File created at path: {}", path);
             }
@@ -178,8 +180,13 @@ public class IDEController {
             }
             Files.walk(path).sorted(Comparator.reverseOrder()).forEach(p -> {
                 try {
-                    Files.delete(p);
-                    logger.debug("Deleted path: {}", p);
+                    if (Files.isDirectory(p) && Files.list(p).findAny().isEmpty()) {
+                        Files.delete(p);
+                        logger.debug("Deleted empty directory at path: {}", p);
+                    } else {
+                        Files.delete(p);
+                        logger.debug("Deleted path: {}", p);
+                    }
                 } catch (IOException e) {
                     logger.error("Error deleting file or directory at path: {}", p, e);
                 }
