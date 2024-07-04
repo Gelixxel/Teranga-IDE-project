@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -14,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -78,6 +81,40 @@ public class UserController {
     @GetMapping("/currentUsername")
     public Map<String, String> currentUsername(Authentication authentication) {
         return Collections.singletonMap("username", authentication.getName());
+    }
+
+    @GetMapping("/userDetails")
+public ResponseEntity<Map<String, String>> getUserDetails(Authentication authentication) {
+    String username = authentication.getName();
+    User user = userRepository.findByUsername(username);
+    if (user == null) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonMap("error", "User not found"));
+    }
+    Map<String, String> userDetails = Map.of(
+        "username", user.getUsername(),
+        "email", user.getEmail(),
+        "phone", user.getPhone()
+    );
+    return ResponseEntity.ok(userDetails);
+}
+
+
+    @PutMapping("/updateUserDetails")
+    public ResponseEntity<?> updateUserDetails(@RequestBody Map<String, String> userDetails, Authentication authentication) {
+        String username = authentication.getName();
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonMap("error", "User not found"));
+        }
+
+        // Update user details
+        user.setUsername(userDetails.get("username"));
+        user.setEmail(userDetails.get("email"));
+        user.setPhone(userDetails.get("phone"));
+
+        userRepository.save(user);
+
+        return ResponseEntity.ok(Collections.singletonMap("success", true));
     }
 
 }

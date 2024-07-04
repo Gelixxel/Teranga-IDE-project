@@ -302,15 +302,6 @@ const Editor: React.FC = () => {
     }
   };
 
-  const logout = async () => {
-    try {
-      await axios.post("/api/logout");
-      window.location.href = "/login";
-    } catch (error) {
-      console.error("Error logging out:", error);
-      alert("Error logging out: " + error);
-    }
-  };
 
   const handleKeyPress = async () => {
     await checkBreakTimeAndRedirect();
@@ -410,9 +401,6 @@ const Editor: React.FC = () => {
             <FontAwesomeIcon icon={faCog} />
           </button>
             <PopupParam onClosePopup={closeParamPopup} isOpen={isParamOpen} />
-          <button onClick={logout} className="button logout">
-            <FontAwesomeIcon icon={faPowerOff} />
-          </button>
         </div>
         <div className="settings-bar">
           <div>
