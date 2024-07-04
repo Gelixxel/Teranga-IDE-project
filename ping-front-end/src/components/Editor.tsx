@@ -8,7 +8,8 @@ import { TreeNodeType, Treeview } from "./FileTree";
 import PasswordModal from "./PasswordModal";
 import PopupParam from "./PopupParam";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash, faCog, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { Console } from "console";
+//import { faEye, faEyeSlash, faCog, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 const emojiArray = ["🍆", "💦", "🍑", "😀", "😂", "😊", "😍", "🤩", "😎", "🤔", "🤗", "🥳", "😜", "🧐", "😇", "🥺", "🤯", "🤠", "🤓", "🤑", "🤡", "🥶", "💀", "🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊", "🐒", "🐔", "🐧", "🐦", "🐤", "🐣", "🐥", "🦆", "🦅", "🦉", "🦇", "🐺", "🐗", "🐴", "🦄", "🐝", "🐛", "🦋", "🐌", "🐞", "🐜", "🦟", "🦗", "🕷", "🕸", "🦂", "🐢", "🐍", "🦎", "🦖", "🦕", "🐙", "🦑", "🦐", "🦞", "🦀", "🐡", "🐠", "🐟", "🐬", "🐳", "🐋", "🦈", "🐊", "🐅", "🐆", "🦓", "🦍", "🦧", "🐘", "🦛", "🦏", "🐪", "🐫", "🦒", "🦘", "🐃", "🐂", "🐄", "🐎", "🐖", "🐏", "🐑", "🦙", "🐐", "🦌", "🐕", "🐩", "🦮", "🐕‍🦺", "🐈", "🐓", "🦃", "🦚", "🦜", "🦢", "🦩", "🕊", "🐇", "🦝", "🦨", "🦡", "🦦", "🦥", "🐁", "🐀", "🐿", "🦔", "🐾", "🐉", "🐲", "🌵", "🎄", "🌲", "🌳", "🌴", "🌱", "🌿", "☘️", "🍀", "🎍", "🎋", "🍃", "🍂", "🍁", "🍄", "🍄", "🐚", "🌾", "💐", "🌷", "🌹", "🥀", "🌺", "🌸", "🌼", "🌻", "🌞", "🌝", "🌛", "🌜", "🌚", "🌕", "🌖", "🌗", "🌘", "🌑", "🌒", "🌓", "🌔", "🌙", "🌎", "🌍", "🌏", "🪐", "💫", "⭐️", "🌟", "✨", "⚡️", "☄️", "💥", "🔥", "🌪", "🌈", "☀️", "🌤", "⛅️", "🌥", "☁️", "🌦", "🌧", "⛈", "🌩", "🌨", "❄️", "☃️", "⛄️", "🌬", "💨", "💧", "☔️", "☂️", "🌊", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "💎", "💰", "🎁", "🎈", "📈", "📉", "📐", "📏", "🧮", "📌", "📍", "✂️", "✒️", "📝", "✏️", "🔍", "🔎", "🔏", "🔐", "🔒", "🔓", "🔭", "🔬", "🎊", "🎉", "🌠", "🎇", "🎆", "🌇", "🌆", "🏙", "🌃", "🌌", "🌉", "🌁", "🗿", "⚽️", "🏀", "🏈", "⚾️", "🥎", "🎾", "🏐", "🏉", "🥏", "🎱", "🪀", "🏓", "🏸", "🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍈", "🍒", "🥭", "🍍", "🥥", "🥝", "🍅", "🥑", "🥦", "🥬", "🥒", "🌶", "🌽", "🥕", "🧄", "🧅", "🥔", "🍠", "🥐", "🥯", "🍞", "🥖", "🥨", "🧀", "🥚", "🍳", "🧈", "🥞", "🧇", "🥓", "🥩", "🍗", "🍖", "🦴", "🌭", "🍔", "🍟", "🍕", "🥪", "🥙", "🧆", "🌮", "🌯", "🥗", "🥘", "🥫", "🍝", "🍜", "🍲", "🍛", "🍣", "🍱", "🥟", "🦪", "🍤", "🍙", "🍚", "🍘", "🍥", "🥠", "🥮", "🍢", "🍡", "🍧", "🍨", "🍦", "🥧", "🧁", "🍰", "🎂", "🍮", "🍭", "🍬", "🍫", "🍿", "🍩", "🍪", "🌰", "🥜", "🍯", "🥛", "🍼", "☕️", "🍵", "🧃", "🥤", "🍶", "🍺", "🍻", "🥂", "🍷", "🥃", "🍸", "🍹", "🧉", "🍾", "🧊", "🥄", "🍴", "🍽", "🥣", "🥡", "🥢", "🧂"];
 
@@ -38,6 +39,7 @@ const Editor: React.FC = () => {
   const fetchBreakTime = async () => {
     try {
       const response = await axios.get("/api/getBreakTime");
+      console.log(response.data)
       setBreakTime(response.data);
     } catch (error) {
       console.error("Error fetching break time:", error);
@@ -45,9 +47,11 @@ const Editor: React.FC = () => {
   };
 
   const checkBreakTimeAndRedirect = useCallback(() => {
-    if (breakTime) {
+      console.log(breakTime);
+      if (breakTime) {
       const now = new Date();
       const currentTime = `${now.getHours()}:${now.getMinutes()}`;
+      console.log(breakTime.startTime, currentTime, breakTime.endTime);
       if (currentTime >= breakTime.startTime && currentTime <= breakTime.endTime) {
         navigate("/break");
       }
@@ -88,11 +92,13 @@ const Editor: React.FC = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
+      console.log("check break time!!!!!!!!!!!!!!!!!")
+      fetchBreakTime();
       checkBreakTimeAndRedirect();
-    }, 30000); // Check every minute
+    }, 1000); // Check every minute
 
     return () => clearInterval(intervalId);
-  }, [checkBreakTimeAndRedirect]);
+  }, []);
 
   const fileExtensionToLanguage = useCallback(
     (path: string): "python" | "java" => {
@@ -400,14 +406,14 @@ const Editor: React.FC = () => {
             </div>
           </button>
           <button onClick={toggleCipher} className="button cipher-decipher">
-            <FontAwesomeIcon icon={isCiphered ? faEyeSlash : faEye}/>
+            {/* <FontAwesomeIcon icon={isCiphered ? faEyeSlash : faEye}/> */}
           </button>
           <button onClick={openParamPopup} className="button parameters">
-            <FontAwesomeIcon icon={faCog} />
+            {/* <FontAwesomeIcon icon={faCog} /> */}
           </button>
             <PopupParam onClosePopup={closeParamPopup} isOpen={isParamOpen} />
           <button onClick={logout} className="button logout">
-            <FontAwesomeIcon icon={faPowerOff} />
+            {/* <FontAwesomeIcon icon={faPowerOff} /> */}
           </button>
         </div>
         <div className="settings-bar">

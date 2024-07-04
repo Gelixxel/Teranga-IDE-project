@@ -12,6 +12,9 @@
     "@codemirror/theme-one-dark": "^6.1.2",
     "@codemirror/view": "^6.27.0",
     "@fortawesome/fontawesome-free": "^6.5.2",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@minoru/react-dnd-treeview": "^3.4.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -70,6 +73,7 @@
   "devDependencies": {
     "@types/codemirror": "^5.60.15",
     "@types/is-hotkey": "^0.1.10",
+    "@types/react-sound": "^1.2.6",
     "@types/react-treeview": "^0.4.6"
   }
 }

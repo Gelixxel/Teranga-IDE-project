@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-// import Sound from 'react-sound';
-// import music from path_to_music;
+import Sound from 'react-sound';
 
 const BreakPage: React.FC = () => {
   const navigate = useNavigate();
   const [breakEnded, setBreakEnded] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const playMusic = () => {}
+ const [isPlaying, setIsPlaying] = useState(false);
 
   const checkBreakStatus = async () => {
     try {
@@ -31,7 +28,7 @@ const BreakPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(checkBreakStatus, 60000); // Check every 60 seconds
+    const intervalId = setInterval(checkBreakStatus, 10000); // Check every 60 seconds
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);
 
@@ -53,13 +50,14 @@ const BreakPage: React.FC = () => {
       <h1>Break Time</h1>
       <p>The IDE is currently unavailable. Please come back after the break time.</p>
       {breakEnded && <p>Press any key to resume</p>}
-      {/* {isPlaying && (
+      {isPlaying && (
         <Sound
-          url={music}
-          playStatus={Sound.status.PLAYING}
+          url="/beach_vacay.mp3"
+          playStatus="PLAYING"
           loop={true}
         />
-      )} */}
+      )}
+      
     </div>
   );
 };
