@@ -176,13 +176,12 @@ h2 {
 }
 
 .back-button {
+    font-size: 90px;
     background: none;
     border: none;
-    font-size: 24px;
     cursor: pointer;
     color: #666666;
     font-weight: 1000;
-    font-size: 70px;
 }
 
 h1 {
@@ -240,7 +239,7 @@ h2 {
     margin: 12px 0;
 }
 
-.info-button, .logout-button, .option-button {
+.info-button, .info-button-spaced, .logout-button, .option-button {
     background-color: #666666;
     color: white;
     border: none;
@@ -254,22 +253,37 @@ h2 {
     font-weight: 600;
 }
 
+.info-button-spaced {
+    margin-left: 10px;
+}
+
 .option-button {
     margin: 6px 0;
 }
 
-.info-value {
+.option-button:last-of-type {
+    margin-top: 30px 0;
+}
+
+.info-value, .info-value-spaced {
     flex-grow: 1;
     color: #ffffff;
     background-color: #999999;
     border: none;
     text-align: center;
     padding: 12px;
-    width: 100%;
     border-radius: 5px;
     font-size: 14px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
+}
+
+.info-value {
+    width: 100%;
+}
+
+.info-value-spaced {
+    width: calc(100% - 20px);
 }
 
 .logout-button {
@@ -282,7 +296,7 @@ h2 {
     background-color: #C9302C;
 }
 
-.option-button:hover, .info-button:hover {
+.option-button:hover, .info-button:hover, .info-button-spaced:hover{
     background-color: #555555;
 }
 

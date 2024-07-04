@@ -51,8 +51,8 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                             <button className="edit-button">✎</button>
                         </div>
                         <div className="info-section">
-                            <div className="info-value">Nom d'utilisateur</div>
-                            <button onClick={() => setIsUserNameOpen(true)} className="info-button">{username}</button>
+                            <div className="info-value-spaced">Nom d'utilisateur</div>
+                            <button onClick={() => setIsUserNameOpen(true)} className="info-button-spaced">{username}</button>
                             {isUserNameOpen && (
                                 <UserName toggle={() => setIsUserNameOpen(false)} username={username} setUsername={setUsername} />
                             )}
@@ -61,20 +61,23 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                             <div className="info-value">Compte Super Administrateur</div>
                         </div>
                         <div className="info-section">
-                            <div className="info-value">Email</div>
-                            <button onClick={() => setIsUserEmailOpen(true)} className="info-button">{email}</button>
+                            <div className="info-value-spaced">Email</div>
+                            <button onClick={() => setIsUserEmailOpen(true)} className="info-button-spaced">{email}</button>
                             {isUserEmailOpen && (
                                 <UserEmail toggle={() => setIsUserEmailOpen(false)} email={email} setEmail={setEmail} />
                             )}
                         </div>
                         <div className="info-section">
-                            <div className="info-value">Téléphone</div>
-                            <button onClick={() => setIsUserPhoneOpen(true)} className="info-button">{phone}</button>
+                            <div className="info-value-spaced">Téléphone</div>
+                            <button onClick={() => setIsUserPhoneOpen(true)} className="info-button-spaced">{phone}</button>
                             {isUserPhoneOpen && (
                                 <UserPhone toggle={() => setIsUserPhoneOpen(false)} phone={phone} setPhone={setPhone} />
                             )}
                         </div>
-                        <button className="logout-button">se déconnecter</button>
+                        <div className="info-section">
+                            <div className="info-button">Notifications</div>
+                        </div>
+                        <button className="logout-button">Se déconnecter</button>
                     </div>
                     <div className="right-column">
                         <h2>Personnalisation</h2>
