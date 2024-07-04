@@ -450,7 +450,6 @@ const Editor: React.FC = () => {
               ))}
             </select>
           </div>
-          <BreakTimeSettings/>
         </div>
         <div className="code-editor">
           <CodeMirrorEditor

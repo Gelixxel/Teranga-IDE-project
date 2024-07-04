@@ -147,7 +147,7 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                     </div>
                     <div className="right-column">
                         <h2>Administration</h2>
-                        {role === 'ROLE_ADMIN' || role === 'ROLE_SUPER_ADMIN' && (
+                        {(role === 'ROLE_ADMIN' || role === 'ROLE_SUPER_ADMIN') && (
                             <button onClick={openBreakPopup} className="option-button">Break parameters</button>
                         )}
                         <button onClick={openPermPopup} className="option-button">Change permissions</button>

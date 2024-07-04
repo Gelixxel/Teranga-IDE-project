@@ -34,7 +34,8 @@
       "src/**/*",
       "public/**/*",
       "node_modules/**/*",
-      "package.json"
+      "package.json",
+      "assets/icons/**"
     ],
     "extraResources": [
       {
@@ -47,20 +48,22 @@
       "target": [
         "dmg",
         "zip"
-      ]
+      ],
+      "icon": "assets/icons/lion_logo_3.png"
     },
     "win": {
       "target": [
         "nsis",
         "zip"
       ],
-      "artifactName": "Ping-Setup-${version}.exe"
+      "artifactName": "Ping-Setup-${version}.exe",
+      "icon": "assets/icons/lion_logo_3.png"
     },
     "linux": {
-      "target": [
-      ],
+      "target": [],
       "category": "Development",
-      "maintainer": "placeholder@example.com"
+      "maintainer": "placeholder@example.com",
+      "icon": "assets/icons/lion_logo_3.png"
     }
   }
 }
