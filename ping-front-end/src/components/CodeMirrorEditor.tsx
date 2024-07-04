@@ -71,6 +71,11 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
               setCursorPosition({ line, column });
             }
           }),
+          EditorView.theme({
+            ".cm-content": {
+              fontFamily: fontFamily,
+            },
+          }, { dark: true }),
         ],
       });
 
@@ -85,7 +90,7 @@ const CodeMirrorEditor: React.FC<CodeMirrorEditorProps> = ({
         viewRef.current = null;
       };
     }
-  }, [language, onChange, zoomPercentage]); // Initialize EditorView
+  }, [language, onChange, zoomPercentage, fontFamily]); // Initialize EditorView
 
   // Update the doc content without losing focus
   useEffect(() => {
