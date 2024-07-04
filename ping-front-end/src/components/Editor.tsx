@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import BreakTimeSettings from "./BreakTimeSettings";
 import CodeMirrorEditor from "./CodeMirrorEditor";
@@ -7,8 +7,8 @@ import "./Editor.css";
 import { TreeNodeType, Treeview } from "./FileTree";
 import PasswordModal from "./PasswordModal";
 import PopupParam from "./PopupParam";
+import Notification from "./Notification"; // Import the Notification component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Console } from "console";
 import { faEye, faEyeSlash, faCog, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 const emojiArray = ["🍆", "💦", "🍑", "😀", "😂", "😊", "😍", "🤩", "😎", "🤔", "🤗", "🥳", "😜", "🧐", "😇", "🥺", "🤯", "🤠", "🤓", "🤑", "🤡", "🥶", "💀", "🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐽", "🐸", "🐵", "🙈", "🙉", "🙊", "🐒", "🐔", "🐧", "🐦", "🐤", "🐣", "🐥", "🦆", "🦅", "🦉", "🦇", "🐺", "🐗", "🐴", "🦄", "🐝", "🐛", "🦋", "🐌", "🐞", "🐜", "🦟", "🦗", "🕷", "🕸", "🦂", "🐢", "🐍", "🦎", "🦖", "🦕", "🐙", "🦑", "🦐", "🦞", "🦀", "🐡", "🐠", "🐟", "🐬", "🐳", "🐋", "🦈", "🐊", "🐅", "🐆", "🦓", "🦍", "🦧", "🐘", "🦛", "🦏", "🐪", "🐫", "🦒", "🦘", "🐃", "🐂", "🐄", "🐎", "🐖", "🐏", "🐑", "🦙", "🐐", "🦌", "🐕", "🐩", "🦮", "🐕‍🦺", "🐈", "🐓", "🦃", "🦚", "🦜", "🦢", "🦩", "🕊", "🐇", "🦝", "🦨", "🦡", "🦦", "🦥", "🐁", "🐀", "🐿", "🦔", "🐾", "🐉", "🐲", "🌵", "🎄", "🌲", "🌳", "🌴", "🌱", "🌿", "☘️", "🍀", "🎍", "🎋", "🍃", "🍂", "🍁", "🍄", "🍄", "🐚", "🌾", "💐", "🌷", "🌹", "🥀", "🌺", "🌸", "🌼", "🌻", "🌞", "🌝", "🌛", "🌜", "🌚", "🌕", "🌖", "🌗", "🌘", "🌑", "🌒", "🌓", "🌔", "🌙", "🌎", "🌍", "🌏", "🪐", "💫", "⭐️", "🌟", "✨", "⚡️", "☄️", "💥", "🔥", "🌪", "🌈", "☀️", "🌤", "⛅️", "🌥", "☁️", "🌦", "🌧", "⛈", "🌩", "🌨", "❄️", "☃️", "⛄️", "🌬", "💨", "💧", "☔️", "☂️", "🌊", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "💎", "💰", "🎁", "🎈", "📈", "📉", "📐", "📏", "🧮", "📌", "📍", "✂️", "✒️", "📝", "✏️", "🔍", "🔎", "🔏", "🔐", "🔒", "🔓", "🔭", "🔬", "🎊", "🎉", "🌠", "🎇", "🎆", "🌇", "🌆", "🏙", "🌃", "🌌", "🌉", "🌁", "🗿", "⚽️", "🏀", "🏈", "⚾️", "🥎", "🎾", "🏐", "🏉", "🥏", "🎱", "🪀", "🏓", "🏸", "🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍈", "🍒", "🥭", "🍍", "🥥", "🥝", "🍅", "🥑", "🥦", "🥬", "🥒", "🌶", "🌽", "🥕", "🧄", "🧅", "🥔", "🍠", "🥐", "🥯", "🍞", "🥖", "🥨", "🧀", "🥚", "🍳", "🧈", "🥞", "🧇", "🥓", "🥩", "🍗", "🍖", "🦴", "🌭", "🍔", "🍟", "🍕", "🥪", "🥙", "🧆", "🌮", "🌯", "🥗", "🥘", "🥫", "🍝", "🍜", "🍲", "🍛", "🍣", "🍱", "🥟", "🦪", "🍤", "🍙", "🍚", "🍘", "🍥", "🥠", "🥮", "🍢", "🍡", "🍧", "🍨", "🍦", "🥧", "🧁", "🍰", "🎂", "🍮", "🍭", "🍬", "🍫", "🍿", "🍩", "🍪", "🌰", "🥜", "🍯", "🥛", "🍼", "☕️", "🍵", "🧃", "🥤", "🍶", "🍺", "🍻", "🥂", "🍷", "🥃", "🍸", "🍹", "🧉", "🍾", "🧊", "🥄", "🍴", "🍽", "🥣", "🥡", "🥢", "🧂"];
@@ -27,6 +27,7 @@ const Editor: React.FC = () => {
   const [isCiphered, setIsCiphered] = useState(false);
   const [username, setUsername] = useState<string>("");
   const [breakTime, setBreakTime] = useState<{ startTime: string, endTime: string } | null>(null);
+  const [showNotification, setShowNotification] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const openParamPopup = () => {
@@ -46,10 +47,10 @@ const Editor: React.FC = () => {
   };
 
   const checkBreakTimeAndRedirect = useCallback(() => {
-      console.log(breakTime);
-      if (breakTime) {
+    console.log(breakTime);
+    if (breakTime) {
       const now = new Date();
-      const currentTime = `${now.getHours()}:${now.getMinutes()}`;
+      const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
       console.log(breakTime.startTime, currentTime, breakTime.endTime);
       if (currentTime >= breakTime.startTime && currentTime <= breakTime.endTime) {
         navigate("/break");
@@ -57,14 +58,30 @@ const Editor: React.FC = () => {
     }
   }, [breakTime, navigate]);
 
+  const calculateNextBreakNotification = useCallback(() => {
+    if (breakTime) {
+      const now = new Date();
+      const [startHours, startMinutes] = breakTime.startTime.split(':').map(Number);
+      const nextBreakTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), startHours, startMinutes);
+      const timeUntilNextBreak = nextBreakTime.getTime() - now.getTime();
+      const notificationTime = timeUntilNextBreak - 5 * 60 * 1000; // 5 minutes before the break
+      if (notificationTime > 0) {
+        setTimeout(() => {
+          setShowNotification(true);
+        }, notificationTime);
+      }
+    }
+  }, [breakTime]);
+
   useEffect(() => {
     const checkAccessAndInitialize = async () => {
       try {
-        const usernameResponse = await axios.get("/api/currentUsername");
-        setUsername(usernameResponse.data.username);
+        // const usernameResponse = await axios.get("/api/currentUsername");
+        // setUsername(usernameResponse.data.username);
 
         await fetchBreakTime();
         checkBreakTimeAndRedirect();
+        calculateNextBreakNotification();
 
         const savedContent = localStorage.getItem("content");
         const savedFilePath = localStorage.getItem("filePath");
@@ -80,7 +97,7 @@ const Editor: React.FC = () => {
     };
 
     checkAccessAndInitialize();
-  }, [checkBreakTimeAndRedirect]);
+  }, [checkBreakTimeAndRedirect, calculateNextBreakNotification]);
 
   useEffect(() => {
     localStorage.setItem("content", content);
@@ -91,9 +108,9 @@ const Editor: React.FC = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      console.log("check break time!!!!!!!!!!!!!!!!!")
       fetchBreakTime();
       checkBreakTimeAndRedirect();
+      calculateNextBreakNotification();
     }, 20000); // Check every minute
 
     return () => clearInterval(intervalId);
@@ -459,6 +476,12 @@ const Editor: React.FC = () => {
           />
         </div>
         <pre className="output">{output}</pre>
+        {showNotification && (
+          <Notification
+            message="Break starts in 5 minutes!"
+            onClose={() => setShowNotification(false)}
+          />
+        )}
       </main>
       {showPasswordModal && (
         <PasswordModal
@@ -479,3 +502,4 @@ const Editor: React.FC = () => {
 };
 
 export default Editor;
+
