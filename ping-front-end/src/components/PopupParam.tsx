@@ -146,15 +146,11 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                         <button onClick={logout} className="logout-button">Logout</button>
                     </div>
                     <div className="right-column">
-                        <h2>Customization</h2>
-                        <button className="option-button">Background and theme</button>
-                        <button className="option-button">Fonts</button>
-                        <h2>Other</h2>
-                        <button className="option-button">Documentation</button>
                         <h2>Administration</h2>
                         <button onClick={openBreakPopup} className="option-button">Break parameters</button>
                         <button onClick={openPermPopup} className="option-button">Change permissions</button>
-                        <button className="option-button">Name and logo of the IDE</button>
+                        <h2>Other</h2>
+                        <button className="option-button">Documentation</button>
                     </div>
                 </div>
                 <PopupBreak

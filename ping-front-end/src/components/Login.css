@@ -46,7 +46,7 @@
 
 body
 {
-  background-image: url("../../public/savana_wallpaper_rogned.jpg");
+  background-image: url("../assets/savana_wallpaper_rogned.jpg");
   background-size : cover;
 }
 
@@ -55,15 +55,20 @@ body
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #B7B7B7;
+  /* background-color: #B7B7B7; */
+}
+
+.login-form {
+  padding-bottom: 50px;
+  margin-bottom: 75px;
 }
 
 .login-form h1 {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   color: #434343;
-  font-size: 90px;
+  font-size: 150px;
   font-family: 'Amatic SC';
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .login-form input {

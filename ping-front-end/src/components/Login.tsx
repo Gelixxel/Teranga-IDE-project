@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
+import lionLogo from '../assets/lion_logo_3.png';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -26,7 +27,7 @@ const Login: React.FC = () => {
   return (
     <div className="login-container">
       <div className="login-form">
-        <img src="../../public/lion_logo_3.png" alt="logo_lion"/>
+        <img src={lionLogo} alt="Lion Logo" className="logo"/>
         <h1>TERANGA</h1>
         <form onSubmit={handleLogin}>
           <input
