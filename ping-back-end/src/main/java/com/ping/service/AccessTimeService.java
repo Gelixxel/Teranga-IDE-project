@@ -9,6 +9,7 @@ import com.ping.repository.UserRepository;
 
 import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -48,7 +49,8 @@ public class AccessTimeService {
 
     // Method to set global break time
     public void setGlobalBreakTime(LocalTime startTime, LocalTime endTime) {
-        this.globalBreakTime = new TimeSlot(null, startTime, endTime);
+        globalBreakTime = new TimeSlot(null, startTime, endTime);
+        timeSlotRepository.save(globalBreakTime);
     }
 
     // Check if current time is within the break time
@@ -58,5 +60,13 @@ public class AccessTimeService {
 
     public TimeSlot getGlobalBreakTime() {
         return globalBreakTime;
+    }
+
+    public void setGlobalBreakTimes(List<TimeSlot> breakTimes) {
+        timeSlotRepository.saveAll(breakTimes);
+    }
+
+    public List<TimeSlot> getGlobalBreakTimes() {
+        return timeSlotRepository.findAll();
     }
 }
