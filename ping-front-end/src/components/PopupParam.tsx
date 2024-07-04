@@ -18,6 +18,7 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
     const [isUserNameOpen, setIsUserNameOpen] = useState(false);
     const [isUserEmailOpen, setIsUserEmailOpen] = useState(false);
     const [isUserPhoneOpen, setIsUserPhoneOpen] = useState(false);
+
     const [username, setUsername] = useState('JAVArcanist'); // Initial username
     const [email, setEmail] = useState('terribleCoder@epita.fr');
     const [phone, setPhone] = useState('09 99 88 77 66');
@@ -36,34 +37,28 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
     };
 
     return (
-        <Popup
-            open={isOpen}
-            modal
-            closeOnDocumentClick={false}
-            closeOnEscape={false}
-        >
+        <Popup open={isOpen} modal closeOnDocumentClick={false} closeOnEscape={false}>
             <div className="popup">
                 <div className="popup-header">
-                    <button className="back-button" onClick={onClosePopup}>←</button>
-                    <h1>Parameters</h1>
+                    <button className="back-button" onClick={onClosePopup}>&lt;</button>
+                    <h1>Paramètres</h1>
                 </div>
                 <div className="popup-content">
                     <div className="left-column">
-                        <h2>Account parameters</h2>
+                        <h2>Paramètres du compte</h2>
                         <div className="profile-section">
                             <img src="user-icon.png" alt="User Icon" className="profile-pic" />
                             <button className="edit-button">✎</button>
                         </div>
                         <div className="info-section">
-                            <div className="info-value">User name</div>
+                            <div className="info-value">Nom d'utilisateur</div>
                             <button onClick={() => setIsUserNameOpen(true)} className="info-button">{username}</button>
                             {isUserNameOpen && (
                                 <UserName toggle={() => setIsUserNameOpen(false)} username={username} setUsername={setUsername} />
                             )}
                         </div>
                         <div className="info-section">
-                            <div className="info-value">Super Admin Account</div>
-
+                            <div className="info-value">Compte Super Administrateur</div>
                         </div>
                         <div className="info-section">
                             <div className="info-value">Email</div>
@@ -73,24 +68,24 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                             )}
                         </div>
                         <div className="info-section">
-                            <div className="info-value">Phone number</div>
+                            <div className="info-value">Téléphone</div>
                             <button onClick={() => setIsUserPhoneOpen(true)} className="info-button">{phone}</button>
                             {isUserPhoneOpen && (
                                 <UserPhone toggle={() => setIsUserPhoneOpen(false)} phone={phone} setPhone={setPhone} />
                             )}
                         </div>
-                        <button className="logout-button">Disconnect</button>
+                        <button className="logout-button">se déconnecter</button>
                     </div>
                     <div className="right-column">
-                        <h2>Customization</h2>
-                        <button className="option-button">Background and theme</button>
-                        <button className="option-button">Fonts and Emojis</button>
-                        <h2>Other</h2>
+                        <h2>Personnalisation</h2>
+                        <button className="option-button">Fond d'écran et thème</button>
+                        <button className="option-button">Polices et Emojis</button>
+                        <h2>Autre</h2>
                         <button className="option-button">Documentation</button>
                         <h2>Administration</h2>
-                        <button onClick={openBreakPopup} className="option-button">Break parameters</button>
-                        <button onClick={openPermPopup} className="option-button">Change permissions</button>
-                        <button className="option-button">Name and logo of the IDE</button>
+                        <button onClick={openBreakPopup} className="option-button">Paramètres de la pause</button>
+                        <button onClick={openPermPopup} className="option-button">Changer les permissions</button>
+                        <button className="option-button">Nom et Logo de l'IDE</button>
                     </div>
                 </div>
                 <PopupBreak
