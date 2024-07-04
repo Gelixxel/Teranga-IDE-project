@@ -26,6 +26,7 @@ const Login: React.FC = () => {
   return (
     <div className="login-container">
       <div className="login-form">
+        <img src="../../public/lion_logo_3.png" alt="logo_lion"/>
         <h1>TERANGA</h1>
         <form onSubmit={handleLogin}>
           <input

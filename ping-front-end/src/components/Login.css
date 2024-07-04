@@ -44,6 +44,12 @@
   margin-top: 10px;
 } */
 
+body
+{
+  background-image: url("../../public/savana_wallpaper_rogned.jpg");
+  background-size : cover;
+}
+
 .login-container {
   display: flex;
   justify-content: center;
