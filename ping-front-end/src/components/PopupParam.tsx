@@ -40,7 +40,7 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
         <Popup open={isOpen} modal closeOnDocumentClick={false} closeOnEscape={false}>
             <div className="popup">
                 <div className="popup-header">
-                    <button className="back-button" onClick={onClosePopup}>&lt;</button>
+                    <button className="back-button" onClick={onClosePopup}>◀</button>
                     <h1>Paramètres</h1>
                 </div>
                 <div className="popup-content">
