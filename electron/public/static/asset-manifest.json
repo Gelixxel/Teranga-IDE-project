@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.acca6dc1.css",
-    "main.js": "/static/js/main.c60ca196.js",
+    "main.js": "/static/js/main.9c057070.js",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.bacd5de623fb563b961a.ttf",
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.60127e352b7a11f7f1bc.ttf",
     "static/media/savana_wallpaper_rogned.jpg": "/static/media/savana_wallpaper_rogned.fd78c45c18050d37f1e5.jpg",
@@ -14,10 +14,10 @@
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "index.html": "/index.html",
     "main.acca6dc1.css.map": "/static/css/main.acca6dc1.css.map",
-    "main.c60ca196.js.map": "/static/js/main.c60ca196.js.map"
+    "main.9c057070.js.map": "/static/js/main.9c057070.js.map"
   },
   "entrypoints": [
     "static/css/main.acca6dc1.css",
-    "static/js/main.c60ca196.js"
+    "static/js/main.9c057070.js"
   ]
 }

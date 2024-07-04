@@ -36,7 +36,6 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
-    "react-sound": "^1.2.0",
     "react-tabs": "^6.0.2",
     "react-treebeard": "^3.2.4",
     "react-treeview": "^0.4.7",
