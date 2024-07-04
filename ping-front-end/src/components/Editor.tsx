@@ -436,6 +436,7 @@ const Editor: React.FC = () => {
                 "Rye",
                 "Rubik Glitch Pop",
                 "Noto Sans Egyptian Hieroglyphs",
+                "Amatic SC"
               ].map((font) => (
                 <option key={font} value={font}>
                   {font}

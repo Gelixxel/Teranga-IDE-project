@@ -55,6 +55,9 @@
 .login-form h1 {
   margin-bottom: 30px;
   color: #434343;
+  font-size: 90px;
+  font-family: 'Amatic SC';
+  font-weight: 600;
 }
 
 .login-form input {
