@@ -156,7 +156,7 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #a8a8a8;
+    background-color: #B7B7B7;
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
@@ -164,6 +164,8 @@ h2 {
     max-width: 1176px;
     height: 100%;
     max-height: 700px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .popup-header {
@@ -178,7 +180,9 @@ h2 {
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #333;
+    color: #666666;
+    font-weight: 1000;
+    font-size: 70px;
 }
 
 h1 {
@@ -200,7 +204,7 @@ h1 {
 
 h2 {
     text-align: center;
-    background-color: #333;
+    background-color: #999999;
     color: white;
     padding: 16px;
     border-radius: 5px;
@@ -226,23 +230,28 @@ h2 {
     font-size: 20px;
     cursor: pointer;
     margin-left: -20px;
-    color: #555;
+    color: #666666;
 }
 
 .info-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 6px 0;
+    margin: 12px 0;
 }
 
 .info-button, .logout-button, .option-button {
-    background-color: #606060;
+    background-color: #666666;
     color: white;
+    border: none;
     padding: 12px;
     width: 100%;
     text-align: center;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
 }
 
 .option-button {
@@ -252,10 +261,15 @@ h2 {
 .info-value {
     flex-grow: 1;
     color: #ffffff;
-    background-color: #808080;
+    background-color: #999999;
+    border: none;
     text-align: center;
     padding: 12px;
     width: 100%;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
 }
 
 .logout-button {
@@ -269,11 +283,11 @@ h2 {
 }
 
 .option-button:hover, .info-button:hover {
-    background-color: #505050;
+    background-color: #555555;
 }
 
 .popup-inner {
-    background-color: #B0B0B0;
+    background-color: #B7B7B7;
     padding: 20px;
     border-radius: 10px;
     width: 300px;
@@ -284,10 +298,11 @@ h2 {
     transform: translate(-50%, -50%);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    font-weight: 600;
 }
 
 .popup-inner h2 {
-    background-color: #9E9E9E;
+    background-color: #999999;
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -298,12 +313,12 @@ h2 {
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-    border: 1px solid #8E8E8E;
+    border: 1px solid #666666;
 }
 
 .popup-inner button {
-    background-color: #606060;
-    border-color: #303030;
+    background-color: #666666;
+    border-color: #434343;
     border-radius: 5px;
     padding: 10px;
     margin: 5px 0;
@@ -313,8 +328,8 @@ h2 {
 }
 
 .popup-inner button:hover {
-    background-color: #505050;
-    border-color: #202020;
+    background-color: #555555;
+    border-color: #323232;
 }
 
 .popup-inner button:last-of-type {
