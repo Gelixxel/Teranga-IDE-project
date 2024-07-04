@@ -23,6 +23,7 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [role, setRole] = useState(''); // Add state for user role
 
     const openPermPopup = () => {
         setIsPermOpen(true);
@@ -39,11 +40,11 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
 
     const logout = async () => {
         try {
-          await axios.post("/api/logout");
-          window.location.href = "/login";
+            await axios.post("/api/logout");
+            window.location.href = "/login";
         } catch (error) {
-          console.error("Error logging out:", error);
-          alert("Error logging out: " + error);
+            console.error("Error logging out:", error);
+            alert("Error logging out: " + error);
         }
     };
 
@@ -51,17 +52,39 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
         const fetchUserDetails = async () => {
             try {
                 const response = await axios.get('/api/userDetails');
+                if (response.data.error) {
+                    console.error('Error:', response.data.error);
+                    alert('Error fetching user details: ' + response.data.error);
+                    return;
+                }
                 const { username, email, phone } = response.data;
                 setUsername(username);
                 setEmail(email);
                 setPhone(phone);
             } catch (error) {
                 console.error('Error fetching user details:', error);
+                alert('Error fetching user details');
+            }
+        };
+
+        const fetchUserRole = async () => {
+            try {
+                const response = await axios.get('/api/userRole');
+                if (response.data.error) {
+                    console.error('Error:', response.data.error);
+                    alert('Error fetching user role: ' + response.data.error);
+                    return;
+                }
+                setRole(response.data.role);
+            } catch (error) {
+                console.error('Error fetching user role:', error);
+                alert('Error fetching user role');
             }
         };
 
         if (isOpen) {
             fetchUserDetails();
+            fetchUserRole();
         }
     }, [isOpen]);
 
@@ -91,7 +114,7 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                         <h2>Paramètres du compte</h2>
                         <div className="profile-section">
                             <img src="user-icon.png" alt="User Icon" className="profile-pic" />
-                            <button className="edit-button" onClick={updateUserDetails}>✎</button>
+                            <button className="edit-button">✎</button>
                         </div>
                         <div className="info-section">
                             <div className="info-value-spaced">Nom d'utilisateur</div>
@@ -101,7 +124,7 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                             )}
                         </div>
                         <div className="info-section">
-                            <div className="info-value">Compte Super Administrateur</div>
+                            <div className="info-value">{role.replace("ROLE_", "")}</div> {/* Display the user role */}
                         </div>
                         <div className="info-section">
                             <div className="info-value-spaced">Email</div>

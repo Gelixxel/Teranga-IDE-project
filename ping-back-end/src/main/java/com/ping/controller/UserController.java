@@ -4,8 +4,6 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -57,9 +55,6 @@ public class UserController {
         boolean isAdmin = authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))
                 || authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_SUPER_ADMIN"));
 
-        System.out.println("Authentication: " + authentication); // Log the authentication object
-        System.out.println("Authorities: " + authentication.getAuthorities()); // Log the authorities
-
         return Collections.singletonMap("isAdmin", isAdmin);
     }
 
@@ -80,41 +75,71 @@ public class UserController {
 
     @GetMapping("/currentUsername")
     public Map<String, String> currentUsername(Authentication authentication) {
+        if (authentication == null) {
+            return Collections.singletonMap("username", "anonymous");
+        }
         return Collections.singletonMap("username", authentication.getName());
     }
 
     @GetMapping("/userDetails")
-public ResponseEntity<Map<String, String>> getUserDetails(Authentication authentication) {
-    String username = authentication.getName();
-    User user = userRepository.findByUsername(username);
-    if (user == null) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonMap("error", "User not found"));
-    }
-    Map<String, String> userDetails = Map.of(
-        "username", user.getUsername(),
-        "email", user.getEmail(),
-        "phone", user.getPhone()
-    );
-    return ResponseEntity.ok(userDetails);
-}
+    public Map<String, String> getUserDetails(Authentication authentication) {
+        if (authentication == null) {
+            return Collections.singletonMap("error", "Unauthorized");
+        }
 
+        String username = authentication.getName();
+        User user = userRepository.findByUsername(username);
+
+        if (user == null) {
+            return Collections.singletonMap("error", "User not found");
+        }
+
+        return Map.of(
+            "username", user.getUsername(),
+            "email", user.getEmail() != null ? user.getEmail() : "",
+            "phone", user.getPhone() != null ? user.getPhone() : ""
+        );
+    }
 
     @PutMapping("/updateUserDetails")
-    public ResponseEntity<?> updateUserDetails(@RequestBody Map<String, String> userDetails, Authentication authentication) {
+    public Map<String, Boolean> updateUserDetails(@RequestBody Map<String, String> userDetails, Authentication authentication) {
+        if (authentication == null) {
+            return Collections.singletonMap("error", true);
+        }
+
         String username = authentication.getName();
         User user = userRepository.findByUsername(username);
         if (user == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonMap("error", "User not found"));
+            return Collections.singletonMap("error", true);
         }
 
-        // Update user details
-        user.setUsername(userDetails.get("username"));
-        user.setEmail(userDetails.get("email"));
-        user.setPhone(userDetails.get("phone"));
+        if (userDetails.containsKey("username")) {
+            user.setUsername(userDetails.get("username"));
+        }
+        if (userDetails.containsKey("email")) {
+            user.setEmail(userDetails.get("email"));
+        }
+        if (userDetails.containsKey("phone")) {
+            user.setPhone(userDetails.get("phone"));
+        }
 
         userRepository.save(user);
 
-        return ResponseEntity.ok(Collections.singletonMap("success", true));
+        return Collections.singletonMap("success", true);
     }
 
+    @GetMapping("/userRole")
+    public Map<String, String> getUserRole(Authentication authentication) {
+        if (authentication == null) {
+            return Collections.singletonMap("error", "Unauthorized");
+        }
+
+        String role = authentication.getAuthorities().stream()
+            .map(authority -> authority.getAuthority())
+            .filter(authority -> authority.startsWith("ROLE_"))
+            .findFirst()
+            .orElse("ROLE_USER");
+
+        return Collections.singletonMap("role", role);
+    }
 }
