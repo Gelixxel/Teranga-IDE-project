@@ -107,17 +107,17 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
             <div className="popup">
                 <div className="popup-header">
                     <button className="back-button" onClick={onClosePopup}>◀</button>
-                    <h1>Paramètres</h1>
+                    <h1>Parameters</h1>
                 </div>
                 <div className="popup-content">
                     <div className="left-column">
-                        <h2>Paramètres du compte</h2>
+                        <h2>Account parameters</h2>
                         <div className="profile-section">
                             <img src="user-icon.png" alt="User Icon" className="profile-pic" />
                             <button className="edit-button">✎</button>
                         </div>
                         <div className="info-section">
-                            <div className="info-value-spaced">Nom d'utilisateur</div>
+                            <div className="info-value-spaced">Username</div>
                             <button onClick={() => setIsUserNameOpen(true)} className="info-button-spaced">{username}</button>
                             {isUserNameOpen && (
                                 <UserName toggle={() => setIsUserNameOpen(false)} username={username} setUsername={setUsername} />
@@ -134,7 +134,7 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                             )}
                         </div>
                         <div className="info-section">
-                            <div className="info-value-spaced">Téléphone</div>
+                            <div className="info-value-spaced">Phone number</div>
                             <button onClick={() => setIsUserPhoneOpen(true)} className="info-button-spaced">{phone}</button>
                             {isUserPhoneOpen && (
                                 <UserPhone toggle={() => setIsUserPhoneOpen(false)} phone={phone} setPhone={setPhone} />
@@ -143,18 +143,18 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                         <div className="info-section">
                             <div className="info-button">Notifications</div>
                         </div>
-                        <button onClick={logout} className="logout-button">Se déconnecter</button>
+                        <button onClick={logout} className="logout-button">Logout</button>
                     </div>
                     <div className="right-column">
-                        <h2>Personnalisation</h2>
-                        <button className="option-button">Fond d'écran et thème</button>
-                        <button className="option-button">Polices et Emojis</button>
-                        <h2>Autre</h2>
+                        <h2>Customization</h2>
+                        <button className="option-button">Background and theme</button>
+                        <button className="option-button">Fonts</button>
+                        <h2>Other</h2>
                         <button className="option-button">Documentation</button>
                         <h2>Administration</h2>
-                        <button onClick={openBreakPopup} className="option-button">Paramètres de la pause</button>
-                        <button onClick={openPermPopup} className="option-button">Changer les permissions</button>
-                        <button className="option-button">Nom et Logo de l'IDE</button>
+                        <button onClick={openBreakPopup} className="option-button">Break parameters</button>
+                        <button onClick={openPermPopup} className="option-button">Change permissions</button>
+                        <button className="option-button">Name and logo of the IDE</button>
                     </div>
                 </div>
                 <PopupBreak
