@@ -152,7 +152,7 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                         )}
                         <button onClick={openPermPopup} className="option-button">Change permissions</button>
                         <h2>Other</h2>
-                        <button className="option-button">Documentation</button>
+                        <button className="option-button" onClick={() => window.location.href = `${process.env.PUBLIC_URL}/Documentation_TERANGA.pdf`}>Documentation</button>
                     </div>
                 </div>
                 <PopupBreak
