@@ -39,7 +39,6 @@ const Editor: React.FC = () => {
   const fetchBreakTime = async () => {
     try {
       const response = await axios.get("/api/getBreakTime");
-      console.log(response.data)
       setBreakTime(response.data);
     } catch (error) {
       console.error("Error fetching break time:", error);
