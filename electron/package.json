@@ -61,6 +61,10 @@
     },
     "linux": {
       "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "snap"
       ],
       "category": "Development",
       "maintainer": "placeholder@example.com",
