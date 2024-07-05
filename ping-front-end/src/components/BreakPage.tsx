@@ -8,11 +8,11 @@ import breakMusic from '../music/Beach Vacay.mp3'
 import breakMusic2 from '../music/Coda - Tires On Fire.mp3';
 import breakMusic3 from '../music/Initial D - Deja Vu.mp3';
 import breakMusic4 from '../music/Initial D - Running in The 90s.mp3';
-import breakMusic5 from '../music/Kevin Grim - Prince Sidon [Remix].mp3';
+import breakMusic5 from '../music/Kevin Grim - Prince Sidon Remix.mp3';
 import breakMusic6 from '../music/Manuel - Gas Gas Gas.mp3';
 import breakMusic7 from '../music/Nintendo - Prince Sidon.mp3';
 import breakMusic8 from '../music/Persona 4 - Specialist.mp3';
-import breakMusic9 from '../music/Qumu - Prince Sidon [Remix].mp3';
+import breakMusic9 from '../music/Qumu - Prince Sidon Remix.mp3';
 import breakMusic10 from '../music/Rick Astley - Never Gonna Give You Up.mp3';
 import breakMusic11 from '../music/Sonic Colors - Reach for the Stars.mp3';
 import breakMusic12 from '../music/Undertale - Megalovania.mp3';
