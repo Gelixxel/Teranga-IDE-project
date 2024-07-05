@@ -10,5 +10,5 @@ cd ping-back-end/ && mvn clean package
 
 cd ../
 
-echo "===== ELECTRON ====="
-cd electron/ && npm run dist
+# echo "===== ELECTRON ====="
+# cd electron/ && npm run dist
