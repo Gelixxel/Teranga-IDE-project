@@ -3,6 +3,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Sound from 'react-sound';
 import breakMusic from '../music/beach_vacay.mp3';
+import breakMusic2 from '../music/Rick Astley - Never Gonna Give You Up (Official Music Video).mp3';
+import breakMusic3 from '../music/undertale-megalovania.mp3';
+// importer d'autres musiques
+import musicLogo from '../assets/music-icon.png';
+import "./BreakPage.css"
 
 const BreakPage: React.FC = () => {
   const navigate = useNavigate();
@@ -10,7 +15,12 @@ const BreakPage: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  const audio = new Audio(breakMusic);
+
+  const playlist = [breakMusic, breakMusic2, breakMusic3]; // les ajouter ici
+  const songTitles = ['Beach Vacay', 'Rick Astley - Never Gonna Give You Up', 'Undertale - Megalovania']; // ajouter les titres correspondants
+
+  let currentSongIndex = 0;
+  let audio = new Audio(playlist[currentSongIndex]);
 
   useEffect(() => {
     const timer = setInterval(async () => {
@@ -40,13 +50,13 @@ const BreakPage: React.FC = () => {
         console.log("break still going")
         setBreakEnded(false);
         if (!isPlaying) {
-          audio.play();
           setIsPlaying(true);
+          audio.play();
         }
       } else {
         console.log("break not going anymore")
-        setBreakEnded(true);
         audio.pause();
+        setBreakEnded(true);
         setIsPlaying(false);
       }
     } catch (error) {
@@ -72,20 +82,30 @@ const BreakPage: React.FC = () => {
     };
   }, [breakEnded, navigate]);
 
+  const handleSongFinishedPlaying = () => {
+    console.log("new song yay");
+    currentSongIndex = (currentSongIndex + 1) % playlist.length;
+    audio = new Audio(playlist[currentSongIndex]);
+  };
+
   return (
-    <div>
-      <h2>{currentTime}</h2>
-      <h1>Break Time</h1>
-      <p>Teranga is currently unavailable. Please come back after the break time.</p>
-      <p>End of the break: {endTime}</p>
-      {breakEnded && <p>Press any key to resume</p>}
-      {!isPlaying && (
+    <div className="break-page">
+      <div className="timer">{currentTime}</div>
+      <h1 className="break-title">Break Time !</h1>
+      {breakEnded && <p className="resume-message">Press any key to resume</p>}
+      <p className="break-message">Teranga is currently unavailable. Please come back after the break time.</p>
+      <p className="end-time">End of the break: {endTime}</p>
+      {!breakEnded && (
         <Sound
-          url="../music/beach_vacay.mp3"
+          url={playlist[currentSongIndex]}
           playStatus="PLAYING"
-          loop={true}
+          onFinishedPlaying={handleSongFinishedPlaying}
         />
       )}
+      <div className="music-info">
+        <img src={musicLogo} alt="Music icon"/>
+        <p>{songTitles[currentSongIndex]}</p>
+      </div>
     </div>
   );
 };
