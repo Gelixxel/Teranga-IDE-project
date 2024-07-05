@@ -1,67 +1,98 @@
 .menu-container {
-    background-color: #B0B0B0;
-    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #B7B7B7;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
     width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    height: 100%;
+    max-height: 600px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .menu-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    text-align: center;
+    background-color: #999999;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 
 .back-button {
+    font-size: 30px;
     background: none;
     border: none;
-    font-size: 24px;
     cursor: pointer;
+    color: #666666;
+    font-weight: 1000;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #555555;
 }
 
 h1 {
     flex-grow: 1;
     text-align: center;
     margin: 0;
+    font-size: 24px;
+    color: white;
 }
 
 .user-list {
-    margin-top: 20px;
+    width: 100%;
 }
 
 .user-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.user-info, .user-role, .action-button {
+    background-color: #999999;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 5px 0;
+    text-align: center;
+    color: white;
+    font-weight: bold;
 }
 
 .user-info, .user-role {
-    background-color: #9E9E9E;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 5px 0;
     flex-grow: 1;
-    text-align: center;
 }
 
-.user-role {
-    margin-left: 10px;
+.user-info {
+    width: 380px;
     margin-right: 10px;
 }
 
 .action-button {
-    background-color: #8E8E8E;
+    background-color: #666666;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
     cursor: pointer;
-    margin: 5px 0;
+    margin-left: 10px;
+}
+
+.action-button:hover {
+    background-color: #555555;
 }
 
 hr {
-    border: 1px solid #606060;
+    border: 1px solid #444444;
+    width: 100%;
     margin: 10px 0;
 }

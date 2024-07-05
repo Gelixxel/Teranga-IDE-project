@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.58586546.css",
-    "main.js": "/static/js/main.e1fe6fa4.js",
+    "main.css": "/static/css/main.87665024.css",
+    "main.js": "/static/js/main.a2ee29f3.js",
     "static/media/Initial D - Running in The 90s.mp3": "/static/media/Initial D - Running in The 90s.f02e1e93cd136ce6b0ef.mp3",
     "static/media/Manuel - Gas Gas Gas.mp3": "/static/media/Manuel - Gas Gas Gas.2df81b143a9d98836cb0.mp3",
     "static/media/Initial D - Deja Vu.mp3": "/static/media/Initial D - Deja Vu.b65c838c5ad1adc464e0.mp3",
@@ -26,11 +26,11 @@
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.c8e090db312b0bea2aa2.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "index.html": "/index.html",
-    "main.58586546.css.map": "/static/css/main.58586546.css.map",
-    "main.e1fe6fa4.js.map": "/static/js/main.e1fe6fa4.js.map"
+    "main.87665024.css.map": "/static/css/main.87665024.css.map",
+    "main.a2ee29f3.js.map": "/static/js/main.a2ee29f3.js.map"
   },
   "entrypoints": [
-    "static/css/main.58586546.css",
-    "static/js/main.e1fe6fa4.js"
+    "static/css/main.87665024.css",
+    "static/js/main.a2ee29f3.js"
   ]
 }

@@ -81,19 +81,19 @@ const Editor: React.FC = () => {
       const nextBreakTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), startHours, startMinutes);
       const timeUntilNextBreak = nextBreakTime.getTime() - now.getTime();
       const notificationTime5 = timeUntilNextBreak - 5 * 60 * 1000; // 5 minutes before the break
+      const notificationTime2 = timeUntilNextBreak - 2 * 60 * 1000; // 2 minutes before the break
+      const notificationTime1 = timeUntilNextBreak - 1 * 60 * 1000; // 1 minute before the break
       if (notificationTime5 > 0) {
         setTimeout(() => {
           setShowNotification5(true);
         }, notificationTime5);
       }
-      const notificationTime2 = timeUntilNextBreak - 2 * 60 * 1000; // 2 minutes before the break
-      if (notificationTime2 > 0) {
+      else if (notificationTime2 > 0) {
         setTimeout(() => {
           setShowNotification2(true);
         }, notificationTime2);
       }
-      const notificationTime1 = timeUntilNextBreak - 1 * 60 * 1000; // 1 minute before the break
-      if (notificationTime1 > 0) {
+      else if (notificationTime1 > 0) {
         setTimeout(() => {
           setShowNotification1(true);
         }, notificationTime1);
