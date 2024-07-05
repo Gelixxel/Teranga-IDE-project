@@ -106,19 +106,11 @@ const PopupBreak: React.FC<PopupBreakProps> = ({ onClosePopup, isOpen }) => {
                     <h3>Scheduled Break</h3>
                     {breakTime && (
                         <div className="break-entry">
-                            <label>
-                                Start:
-                                <input
-                                    type="time"
-                                    value={breakTime.start}
-                                />
+                            <label>  
+                                <p>Start:  {breakTime.start}</p>
                             </label>
-                            <label>
-                                End:
-                                <input
-                                    type="time"
-                                    value={breakTime.end}
-                                />
+                            <label> 
+                                <p>End:  {breakTime.end}</p>
                             </label>
                             <button onClick={deleteBreakTime}>🗑️</button>
                         </div>
