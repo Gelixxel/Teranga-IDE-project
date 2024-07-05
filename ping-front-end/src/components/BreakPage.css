@@ -37,12 +37,15 @@ body {
     margin: 20px 0;
   }
   
-  .break-message, .end-time, .resume-message {
+  .break-message, .resume-message {
+    font-weight: 600;
     font-size: 24px;
     margin: 10px 0;
   }
   
   .end-time {
+    font-size: 30px;
+    margin: 10px 0;
     font-weight: bold;
     margin-bottom: 60px;
   }
