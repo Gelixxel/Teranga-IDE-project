@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Popup from 'reactjs-popup';
-import './PopupPerm.css';
 
 interface PopupPermProps {
     onClosePopup: () => void;
@@ -8,46 +8,67 @@ interface PopupPermProps {
 }
 
 const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
-    return (
-        <Popup
-            open={isOpen}
-            modal
-            closeOnDocumentClick={false}
-            closeOnEscape={false}
-        >
-            <div className="menu-container">
-                <div className="menu-header">
-                    <button className="back-button" onClick={onClosePopup}>←</button>
-                    <h1>User Permissions</h1>
-                </div>
-                <div className="user-list">
-                    <div className="user-row">
-                        <div className="user-info">JAVA_Warrior42</div>
-                        <div className="user-role">Super Administrator</div>
-                    </div>
-                    <hr />
-                    <div className="user-row">
-                        <div className="user-info">Python_Monk37</div>
-                        <div className="user-role">User</div>
-                        <button className="action-button">Promote</button>
-                    </div>
-                    <hr />
-                    <div className="user-row">
-                        <div className="user-info">Python_Wizard51</div>
-                        <div className="user-role">Admin</div>
-                        <button className="action-button">Destitute</button>
-                    </div>
-                    <hr />
-                    <div className="user-row">
-                        <div className="user-info">MasterOfJava</div>
-                        <div className="user-role">User</div>
-                        <button className="action-button">Promote</button>
-                    </div>
-                </div>
-            </div>
+    const [users, setUsers] = useState<any[]>([]);
+    const [selectedUser, setSelectedUser] = useState<string>('');
 
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const response = await axios.get('/api/allUsers');
+                setUsers(response.data);
+            } catch (error) {
+                console.error('Error fetching users:', error);
+            }
+        };
+
+        fetchUsers();
+    }, []);
+
+    const promoteUser = async () => {
+        try {
+            const response = await axios.put('/api/promoteUser', { username: selectedUser });
+            if (response.data.success) {
+                alert('User promoted successfully');
+                // Optionally refetch users
+            } else {
+                alert('Failed to promote user');
+            }
+        } catch (error) {
+            console.error('Error promoting user:', error);
+            alert('Error promoting user');
+        }
+    };
+
+    const demoteUser = async () => {
+        try {
+            const response = await axios.put('/api/demoteUser', { username: selectedUser });
+            if (response.data.success) {
+                alert('User demoted successfully');
+                // Optionally refetch users
+            } else {
+                alert('Failed to demote user');
+            }
+        } catch (error) {
+            console.error('Error demoting user:', error);
+            alert('Error demoting user');
+        }
+    };
+
+    return (
+        <Popup open={isOpen} onClose={onClosePopup} modal closeOnDocumentClick>
+            <div>
+                <h1>User Management</h1>
+                <select onChange={(e) => setSelectedUser(e.target.value)}>
+                    <option value="">Select User</option>
+                    {users.map(user => (
+                        <option key={user.username} value={user.username}>{user.username}</option>
+                    ))}
+                </select>
+                <button onClick={promoteUser}>Promote to Admin</button>
+                <button onClick={demoteUser}>Demote to User</button>
+            </div>
         </Popup>
     );
-}
+};
 
 export default PopupPerm;
