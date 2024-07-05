@@ -3,9 +3,10 @@ import Popup from 'reactjs-popup';
 import './PopupParam.css';
 import PopupPerm from './PopupPerm';
 import PopupBreak from './PopupBreak';
-import UserName from './Username';
+import UserName from './Username'; // Ensure the correct import path
 import UserEmail from './UserEmail';
 import UserPhone from './UserPhone';
+import PasswordUpdate from './UserPass'; // Import PasswordUpdate
 import axios from 'axios';
 
 interface PopupParamProps {
@@ -19,11 +20,12 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
     const [isUserNameOpen, setIsUserNameOpen] = useState(false);
     const [isUserEmailOpen, setIsUserEmailOpen] = useState(false);
     const [isUserPhoneOpen, setIsUserPhoneOpen] = useState(false);
+    const [isPasswordUpdateOpen, setIsPasswordUpdateOpen] = useState(false); // State for password update
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [role, setRole] = useState(''); // Add state for user role
+    const [role, setRole] = useState(''); // State for user role
 
     const openPermPopup = () => {
         setIsPermOpen(true);
@@ -138,6 +140,13 @@ const PopupParam: React.FC<PopupParamProps> = ({ onClosePopup, isOpen }) => {
                             <button onClick={() => setIsUserPhoneOpen(true)} className="info-button-spaced">{phone}</button>
                             {isUserPhoneOpen && (
                                 <UserPhone toggle={() => setIsUserPhoneOpen(false)} phone={phone} setPhone={setPhone} />
+                            )}
+                        </div>
+                        <div className="info-section">
+                            <div className="info-value-spaced">Password</div>
+                            <button onClick={() => setIsPasswordUpdateOpen(true)} className="info-button-spaced">Update Password</button>
+                            {isPasswordUpdateOpen && (
+                                <PasswordUpdate toggle={() => setIsPasswordUpdateOpen(false)} />
                             )}
                         </div>
                         <div className="info-section">

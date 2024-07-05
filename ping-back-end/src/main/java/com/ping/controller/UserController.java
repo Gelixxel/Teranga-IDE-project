@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -141,6 +142,33 @@ public class UserController {
         return Collections.singletonMap("success", true);
     }
 
+    @PutMapping("/updatePassword")
+    public Map<String, Boolean> updatePassword(@RequestBody Map<String, String> request,
+            Authentication authentication) {
+        if (authentication == null) {
+            return Collections.singletonMap("error", true);
+        }
+
+        String username = authentication.getName();
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            return Collections.singletonMap("error", true);
+        }
+
+        String currentPassword = request.get("currentPassword");
+        String newPassword = request.get("newPassword");
+
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        if (!encoder.matches(currentPassword, user.getPassword())) {
+            return Collections.singletonMap("error", true);
+        }
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+
+        return Collections.singletonMap("success", true);
+    }
+
     @GetMapping("/userRole")
     public Map<String, String> getUserRole(Authentication authentication) {
         if (authentication == null) {
@@ -166,6 +194,12 @@ public class UserController {
         }
 
         String username = request.get("username");
+
+        // Check if the authenticated user is trying to change their own role
+        if (username.equals(authentication.getName())) {
+            return Collections.singletonMap("error", true);
+        }
+
         User user = userRepository.findByUsername(username);
         if (user == null) {
             return Collections.singletonMap("error", true);
@@ -174,7 +208,8 @@ public class UserController {
         try {
             Authority adminAuthority = authorityRepository.findByAuthority("ROLE_ADMIN");
             if (adminAuthority == null) {
-                adminAuthority = new Authority("ROLE_ADMIN");
+                adminAuthority = new Authority();
+                adminAuthority.setAuthority("ROLE_ADMIN");
                 authorityRepository.save(adminAuthority);
             }
             user.getAuthorities().add(adminAuthority);
