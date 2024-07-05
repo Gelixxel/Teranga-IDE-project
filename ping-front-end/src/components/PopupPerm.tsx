@@ -15,7 +15,6 @@ interface PopupPermProps {
 
 const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
     const [users, setUsers] = useState<User[]>([]);
-    const [selectedUser, setSelectedUser] = useState<string>('');
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -37,7 +36,7 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
             const response = await axios.put('/api/promoteUser', { username });
             if (response.data.success) {
                 alert('User promoted successfully');
-                setUsers(users.map(user => user.username === username ? { ...user, role: 'Admin' } : user));
+                setUsers(users.map(user => user.username === username ? { ...user, role: 'ROLE_ADMIN' } : user));
             } else {
                 alert('Failed to promote user');
             }
@@ -52,7 +51,7 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
             const response = await axios.put('/api/demoteUser', { username });
             if (response.data.success) {
                 alert('User demoted successfully');
-                setUsers(users.map(user => user.username === username ? { ...user, role: 'User' } : user));
+                setUsers(users.map(user => user.username === username ? { ...user, role: 'ROLE_USER' } : user));
             } else {
                 alert('Failed to demote user');
             }
@@ -71,7 +70,7 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
         >
             <div className="menu-container">
                 <div className="menu-header">
-                    <button className="back-button" onClick={onClosePopup}>←</button>
+                    <button className="back-button" onClick={onClosePopup}>◀</button>
                     <h1>Permissions des utilisateurs</h1>
                 </div>
                 <div className="user-list">
@@ -80,7 +79,7 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
                             <div className="user-row">
                                 <div className="user-info">{user.username}</div>
                                 <div className="user-role">{user.role}</div>
-                                {user.role === 'User' ? (
+                                {user.role === 'ROLE_USER' ? (
                                     <button className="action-button" onClick={() => promoteUser(user.username)}>Promouvoir</button>
                                 ) : (
                                     <button className="action-button" onClick={() => demoteUser(user.username)}>Destituer</button>
