@@ -79,9 +79,10 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
                             <div className="user-row">
                                 <div className="user-info">{user.username}</div>
                                 <div className="user-role">{user.role}</div>
-                                {user.role === 'ROLE_USER' ? (
+                                {user.role === 'ROLE_USER' && (
                                     <button className="action-button" onClick={() => promoteUser(user.username)}>Promote</button>
-                                ) : (
+                                )}
+                                {user.role === 'ROLE_ADMIN' && (
                                     <button className="action-button" onClick={() => demoteUser(user.username)}>Demote</button>
                                 )}
                             </div>
