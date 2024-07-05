@@ -60,7 +60,12 @@
       "icon": "assets/icons/lion_logo_3.png"
     },
     "linux": {
-      "target": [],
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "snap"
+      ],
       "category": "Development",
       "maintainer": "placeholder@example.com",
       "icon": "assets/icons/lion_logo_3.png"
