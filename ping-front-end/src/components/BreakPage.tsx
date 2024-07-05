@@ -48,7 +48,7 @@ const BreakPage: React.FC = () => {
       } catch (error) {
         console.error("Error fetching break time:", error);
       }
-    }, 500);
+    }, 1000);
     return () => clearInterval(timer);
   }, []);
 
@@ -75,7 +75,7 @@ const BreakPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(checkBreakStatus, 1000); // Check toutes les .5 secondes
+    const intervalId = setInterval(checkBreakStatus, 1000); // Check toutes les 1 secondes
     return () => clearInterval(intervalId);
   }, []);
 
@@ -100,10 +100,10 @@ const BreakPage: React.FC = () => {
   return (
     <div className="break-page">
       <div className="timer">{currentTime}</div>
-      <h1 className="break-title">Break Time !</h1>
-      {breakEnded && <p className="resume-message">Press any key to resume</p>}
-      <p className="break-message">Teranga is currently unavailable. Please come back after the break time.</p>
-      <p className="end-time">End of the break: {endTime}</p>
+      {!breakEnded && <h1 className="break-title">Break Time !</h1>}
+      {breakEnded && <p className="resume-message">PRESS ANY KEY TO RESUME</p>}
+      {!breakEnded && <p className="break-message">Teranga is currently unavailable. Please come back after the break time.</p>}
+      {!breakEnded && <p className="end-time">End of the break: {endTime}</p>}
       {isPlaying && (
         <Sound
           url={playlist[currentSongIndex]}
