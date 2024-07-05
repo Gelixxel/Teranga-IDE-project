@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Popup from 'reactjs-popup';
+import './PopupPerm.css';
+
+interface User {
+    username: string;
+    role: string;
+}
 
 interface PopupPermProps {
     onClosePopup: () => void;
@@ -8,7 +14,7 @@ interface PopupPermProps {
 }
 
 const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
-    const [users, setUsers] = useState<any[]>([]);
+    const [users, setUsers] = useState<User[]>([]);
     const [selectedUser, setSelectedUser] = useState<string>('');
 
     useEffect(() => {
@@ -21,15 +27,17 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
             }
         };
 
-        fetchUsers();
-    }, []);
+        if (isOpen) {
+            fetchUsers();
+        }
+    }, [isOpen]);
 
-    const promoteUser = async () => {
+    const promoteUser = async (username: string) => {
         try {
-            const response = await axios.put('/api/promoteUser', { username: selectedUser });
+            const response = await axios.put('/api/promoteUser', { username });
             if (response.data.success) {
                 alert('User promoted successfully');
-                // Optionally refetch users
+                setUsers(users.map(user => user.username === username ? { ...user, role: 'Admin' } : user));
             } else {
                 alert('Failed to promote user');
             }
@@ -39,12 +47,12 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
         }
     };
 
-    const demoteUser = async () => {
+    const demoteUser = async (username: string) => {
         try {
-            const response = await axios.put('/api/demoteUser', { username: selectedUser });
+            const response = await axios.put('/api/demoteUser', { username });
             if (response.data.success) {
                 alert('User demoted successfully');
-                // Optionally refetch users
+                setUsers(users.map(user => user.username === username ? { ...user, role: 'User' } : user));
             } else {
                 alert('Failed to demote user');
             }
@@ -55,20 +63,36 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
     };
 
     return (
-        <Popup open={isOpen} onClose={onClosePopup} modal closeOnDocumentClick>
-            <div>
-                <h1>User Management</h1>
-                <select onChange={(e) => setSelectedUser(e.target.value)}>
-                    <option value="">Select User</option>
+        <Popup
+            open={isOpen}
+            modal
+            closeOnDocumentClick={false}
+            closeOnEscape={false}
+        >
+            <div className="menu-container">
+                <div className="menu-header">
+                    <button className="back-button" onClick={onClosePopup}>←</button>
+                    <h1>Permissions des utilisateurs</h1>
+                </div>
+                <div className="user-list">
                     {users.map(user => (
-                        <option key={user.username} value={user.username}>{user.username}</option>
+                        <div key={user.username}>
+                            <div className="user-row">
+                                <div className="user-info">{user.username}</div>
+                                <div className="user-role">{user.role}</div>
+                                {user.role === 'User' ? (
+                                    <button className="action-button" onClick={() => promoteUser(user.username)}>Promouvoir</button>
+                                ) : (
+                                    <button className="action-button" onClick={() => demoteUser(user.username)}>Destituer</button>
+                                )}
+                            </div>
+                            <hr />
+                        </div>
                     ))}
-                </select>
-                <button onClick={promoteUser}>Promote to Admin</button>
-                <button onClick={demoteUser}>Demote to User</button>
+                </div>
             </div>
         </Popup>
     );
-};
+}
 
 export default PopupPerm;
