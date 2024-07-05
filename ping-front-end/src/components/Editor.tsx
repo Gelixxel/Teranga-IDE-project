@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import BreakTimeSettings from "./BreakTimeSettings";
@@ -32,6 +32,9 @@ const Editor: React.FC = () => {
   const [showNotification1, setShowNotification1] = useState<boolean>(false);
   const navigate = useNavigate();
 
+  const usernameRef = useRef<string | null>(null);
+  const breakTimeRef = useRef<{ startTime: string, endTime: string } | null>(null);
+
   const openParamPopup = () => {
     setIsParamOpen(true);
   };
@@ -39,31 +42,42 @@ const Editor: React.FC = () => {
     setIsParamOpen(false);
   };
 
-  const fetchBreakTime = async () => {
+  const fetchBreakTime = useCallback(async () => {
     try {
       const response = await axios.get("/api/getBreakTime");
       setBreakTime(response.data);
+      breakTimeRef.current = response.data;
     } catch (error) {
       console.error("Error fetching break time:", error);
     }
-  };
+  }, []);
+
+  const fetchUsername = useCallback(async () => {
+    try {
+      const response = await axios.get("/api/currentUsername");
+      setUsername(response.data.username);
+      usernameRef.current = response.data.username;
+    } catch (error) {
+      console.error("Error fetching username:", error);
+    }
+  }, []);
 
   const checkBreakTimeAndRedirect = useCallback(() => {
-    console.log(breakTime);
-    if (breakTime) {
+    const currentBreakTime = breakTimeRef.current;
+    if (currentBreakTime) {
       const now = new Date();
       const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
-      console.log(breakTime.startTime, currentTime, breakTime.endTime);
-      if (currentTime >= breakTime.startTime && currentTime <= breakTime.endTime) {
+      if (currentTime >= currentBreakTime.startTime && currentTime <= currentBreakTime.endTime) {
         navigate("/break");
       }
     }
-  }, [breakTime, navigate]);
+  }, [navigate]);
 
   const calculateNextBreakNotification = useCallback(() => {
-    if (breakTime) {
+    const currentBreakTime = breakTimeRef.current;
+    if (currentBreakTime) {
       const now = new Date();
-      const [startHours, startMinutes] = breakTime.startTime.split(':').map(Number);
+      const [startHours, startMinutes] = currentBreakTime.startTime.split(':').map(Number);
       const nextBreakTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), startHours, startMinutes);
       const timeUntilNextBreak = nextBreakTime.getTime() - now.getTime();
       const notificationTime5 = timeUntilNextBreak - 5 * 60 * 1000; // 5 minutes before the break
@@ -78,22 +92,24 @@ const Editor: React.FC = () => {
           setShowNotification2(true);
         }, notificationTime2);
       }
-      const notificationTime1 = timeUntilNextBreak - 1 * 60 * 1000; // 1 minutes before the break
+      const notificationTime1 = timeUntilNextBreak - 1 * 60 * 1000; // 1 minute before the break
       if (notificationTime1 > 0) {
         setTimeout(() => {
           setShowNotification1(true);
         }, notificationTime1);
       }
     }
-  }, [breakTime]);
+  }, []);
 
   useEffect(() => {
     const checkAccessAndInitialize = async () => {
       try {
-        // const usernameResponse = await axios.get("/api/currentUsername");
-        // setUsername(usernameResponse.data.username);
-
-        await fetchBreakTime();
+        if (!usernameRef.current) {
+          await fetchUsername();
+        }
+        if (!breakTimeRef.current) {
+          await fetchBreakTime();
+        }
         checkBreakTimeAndRedirect();
         calculateNextBreakNotification();
 
@@ -111,7 +127,7 @@ const Editor: React.FC = () => {
     };
 
     checkAccessAndInitialize();
-  }, [checkBreakTimeAndRedirect, calculateNextBreakNotification]);
+  }, [checkBreakTimeAndRedirect, calculateNextBreakNotification, fetchBreakTime, fetchUsername]);
 
   useEffect(() => {
     localStorage.setItem("content", content);
@@ -125,10 +141,10 @@ const Editor: React.FC = () => {
       fetchBreakTime();
       checkBreakTimeAndRedirect();
       calculateNextBreakNotification();
-    }, 20000); // Check every minute
+    }, 30000); // Check every minute
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [fetchBreakTime, checkBreakTimeAndRedirect, calculateNextBreakNotification]);
 
   const fileExtensionToLanguage = useCallback(
     (path: string): "python" | "java" => {
@@ -353,7 +369,7 @@ const Editor: React.FC = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
     };
-  }, []);
+  }, [handleKeyPress]);
 
   return (
     <div className="editor-container">
@@ -528,4 +544,3 @@ const Editor: React.FC = () => {
 };
 
 export default Editor;
-

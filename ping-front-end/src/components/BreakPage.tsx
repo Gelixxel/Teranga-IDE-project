@@ -75,7 +75,7 @@ const BreakPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(checkBreakStatus, 500); // Check toutes les .5 secondes
+    const intervalId = setInterval(checkBreakStatus, 1000); // Check toutes les .5 secondes
     return () => clearInterval(intervalId);
   }, []);
 

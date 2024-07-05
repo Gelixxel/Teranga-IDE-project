@@ -62,7 +62,11 @@ public class UserController {
     public Map<String, Boolean> validatePassword(@RequestBody Map<String, String> request) {
         String username = request.get("username");
         String password = request.get("password");
-
+    
+        // Log the received username and password (for debugging purposes, remove in production)
+        System.out.println("Received username: " + username);
+        System.out.println("Received password: " + password);
+    
         try {
             Authentication authentication = authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(username, password));
@@ -72,6 +76,7 @@ public class UserController {
             return Collections.singletonMap("valid", false);
         }
     }
+    
 
     @GetMapping("/currentUsername")
     public Map<String, String> currentUsername(Authentication authentication) {
