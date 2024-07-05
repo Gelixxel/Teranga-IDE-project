@@ -2,23 +2,39 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Sound from 'react-sound';
-import breakMusic from '../music/beach_vacay.mp3';
-import breakMusic2 from '../music/Rick Astley - Never Gonna Give You Up (Official Music Video).mp3';
-import breakMusic3 from '../music/undertale-megalovania.mp3';
-// importer d'autres musiques ici
+
+// MUSIQUES
+import breakMusic from '../music/Beach Vacay.mp3'
+import breakMusic2 from '../music/Coda - Tires On Fire.mp3';
+import breakMusic3 from '../music/Initial D - Deja Vu.mp3';
+import breakMusic4 from '../music/Initial D - Running in The 90s.mp3';
+import breakMusic5 from '../music/Kevin Grim - Prince Sidon [Remix].mp3';
+import breakMusic6 from '../music/Manuel - Gas Gas Gas.mp3';
+import breakMusic7 from '../music/Nintendo - Prince Sidon.mp3';
+import breakMusic8 from '../music/Persona 4 - Specialist.mp3';
+import breakMusic9 from '../music/Qumu - Prince Sidon [Remix].mp3';
+import breakMusic10 from '../music/Rick Astley - Never Gonna Give You Up.mp3';
+import breakMusic11 from '../music/Sonic Colors - Reach for the Stars.mp3';
+import breakMusic12 from '../music/Undertale - Megalovania.mp3';
+// Importer ici d'autres musiques
+
+
 import musicLogo from '../assets/music-icon.png';
 import "./BreakPage.css";
 
 const BreakPage: React.FC = () => {
+  const playlist = [breakMusic, breakMusic2, breakMusic3, breakMusic4, breakMusic5, breakMusic6, breakMusic7, breakMusic8
+    , breakMusic9, breakMusic10, breakMusic11, breakMusic12]; // Ajouter les audio files ici
+  const songTitles = ['Beach Vacay', 'Coda - Tires On Fire', 'Initial D - Deja Vu', 'Initial D - Running in The 90s', 'Kevin Grim - Prince Sidon [Remix]'
+    , 'Manuel - Gas Gas Gas', 'Nintendo - Prince Sidon', 'Persona 4 - Specialist', 'Qumu - Prince Sidon [Remix]', 'Rick Astley - Never Gonna Give You Up'
+    , 'Sonic Colors - Reach for the Stars', 'Undertale - Megalovania']; // Ajouter les titres correspondants là
+
   const navigate = useNavigate();
   const [breakEnded, setBreakEnded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
-
-  const playlist = [breakMusic, breakMusic2, breakMusic3]; // ajouter les audio files ici
-  const songTitles = ['Beach Vacay', 'Rick Astley - Never Gonna Give You Up', 'Undertale - Megalovania']; // et leur titre correspondant ici
+  const [currentSongIndex, setCurrentSongIndex] = useState(Math.floor(Math.random() * playlist.length));
 
   useEffect(() => {
     const timer = setInterval(async () => {
@@ -47,9 +63,7 @@ const BreakPage: React.FC = () => {
       if (currentTime >= startTime && currentTime <= endTime) {
         console.log("break still going");
         setBreakEnded(false);
-        if (!isPlaying) {
-          setIsPlaying(true);
-        }
+        setIsPlaying(true);
       } else {
         console.log("break not going anymore");
         setBreakEnded(true);
@@ -61,8 +75,8 @@ const BreakPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(checkBreakStatus, 500); // Check every .5 seconds
-    return () => clearInterval(intervalId); // Cleanup on unmount
+    const intervalId = setInterval(checkBreakStatus, 500); // Check toutes les .5 secondes
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {

@@ -1,10 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.4629b282.css",
-    "main.js": "/static/js/main.e6a26a4b.js",
-    "static/media/Rick Astley - Never Gonna Give You Up (Official Music Video).mp3": "/static/media/Rick Astley - Never Gonna Give You Up (Official Music Video).bb0aaacc3f28ac263b48.mp3",
-    "static/media/undertale-megalovania.mp3": "/static/media/undertale-megalovania.dab5b8237f88e3116643.mp3",
-    "static/media/beach_vacay.mp3": "/static/media/beach_vacay.700f0406d1bd62aada43.mp3",
+    "main.js": "/static/js/main.731172a0.js",
+    "static/media/Initial D - Running in The 90s.mp3": "/static/media/Initial D - Running in The 90s.f02e1e93cd136ce6b0ef.mp3",
+    "static/media/Manuel - Gas Gas Gas.mp3": "/static/media/Manuel - Gas Gas Gas.2df81b143a9d98836cb0.mp3",
+    "static/media/Initial D - Deja Vu.mp3": "/static/media/Initial D - Deja Vu.b65c838c5ad1adc464e0.mp3",
+    "static/media/Sonic Colors - Reach for the Stars.mp3": "/static/media/Sonic Colors - Reach for the Stars.33337cadd50a7d5579c2.mp3",
+    "static/media/Persona 4 - Specialist.mp3": "/static/media/Persona 4 - Specialist.5e61fbdc26691388de60.mp3",
+    "static/media/Rick Astley - Never Gonna Give You Up.mp3": "/static/media/Rick Astley - Never Gonna Give You Up.bb0aaacc3f28ac263b48.mp3",
+    "static/media/Undertale - Megalovania.mp3": "/static/media/Undertale - Megalovania.dab5b8237f88e3116643.mp3",
+    "static/media/Kevin Grim - Prince Sidon [Remix].mp3": "/static/media/Kevin Grim - Prince Sidon [Remix].c8fc10db5025ffff7931.mp3",
+    "static/media/Qumu - Prince Sidon [Remix].mp3": "/static/media/Qumu - Prince Sidon [Remix].4883bd816682f3269133.mp3",
+    "static/media/Beach Vacay.mp3": "/static/media/Beach Vacay.700f0406d1bd62aada43.mp3",
+    "static/media/Coda - Tires On Fire.mp3": "/static/media/Coda - Tires On Fire.d8acfa09da26b2a600fa.mp3",
+    "static/media/Nintendo - Prince Sidon.mp3": "/static/media/Nintendo - Prince Sidon.340d5b2bf093082c7234.mp3",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.bacd5de623fb563b961a.ttf",
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.60127e352b7a11f7f1bc.ttf",
     "static/media/savana_wallpaper_rogned.jpg": "/static/media/savana_wallpaper_rogned.fd78c45c18050d37f1e5.jpg",
@@ -18,10 +27,10 @@
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.cf7f5903d06b79ad60f1.woff2",
     "index.html": "/index.html",
     "main.4629b282.css.map": "/static/css/main.4629b282.css.map",
-    "main.e6a26a4b.js.map": "/static/js/main.e6a26a4b.js.map"
+    "main.731172a0.js.map": "/static/js/main.731172a0.js.map"
   },
   "entrypoints": [
     "static/css/main.4629b282.css",
-    "static/js/main.e6a26a4b.js"
+    "static/js/main.731172a0.js"
   ]
 }
