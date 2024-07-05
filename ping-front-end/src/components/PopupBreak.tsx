@@ -12,7 +12,7 @@ const PopupBreak: React.FC<PopupBreakProps> = ({ onClosePopup, isOpen }) => {
     const [startTime, setStartTime] = useState<string>('');
     const [endTime, setEndTime] = useState<string>('');
     const [breakTime, setBreakTime] = useState<{ start: string, end: string } | null>(null);
-    
+
     useEffect(() => {
         const fetchBreakTimes = async () => {
             try {
@@ -61,10 +61,21 @@ const PopupBreak: React.FC<PopupBreakProps> = ({ onClosePopup, isOpen }) => {
         setBreakTime(prev => prev ? { ...prev, [field]: value } : { start: startT, end: endT });
     };
 
-    const deleteBreakTime = () => {
-        setStartTime('');
-        setEndTime('');
-        setBreakTime(null);
+    const deleteBreakTime = async () => {
+        try {
+            const response = await axios.delete('/api/deleteBreakTime');
+            if (response.data.success) {
+                setStartTime('');
+                setEndTime('');
+                setBreakTime(null);
+                alert('Break time deleted successfully');
+            } else {
+                alert('Failed to delete break time');
+            }
+        } catch (error) {
+            console.error('Error deleting break time:', error);
+            alert('Error deleting break time');
+        }
     };
 
     return (

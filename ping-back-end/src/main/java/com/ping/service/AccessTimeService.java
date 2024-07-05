@@ -69,4 +69,8 @@ public class AccessTimeService {
     public List<TimeSlot> getGlobalBreakTimes() {
         return timeSlotRepository.findAll();
     }
+
+    public void deleteGlobalBreakTime() {
+        this.globalBreakTime = null;
+    }
 }

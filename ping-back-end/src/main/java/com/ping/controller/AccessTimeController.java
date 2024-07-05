@@ -51,4 +51,10 @@ public class AccessTimeController {
                 ))
                 .collect(Collectors.toList());
     }
+
+    @DeleteMapping("/deleteBreakTime")
+    public Map<String, Boolean> deleteBreakTime() {
+        accessTimeService.deleteGlobalBreakTime();
+        return Map.of("success", true);
+    }
 }
