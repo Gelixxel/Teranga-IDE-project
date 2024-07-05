@@ -34,7 +34,7 @@ const UserName: React.FC<UserNameProps> = ({ toggle, username, setUsername }) =>
     return (
         <div className="popup">
             <div className="popup-inner">
-                <h2>User name</h2>
+                <h2>Username</h2>
                 <input 
                     type="text"
                     value={newUsername}

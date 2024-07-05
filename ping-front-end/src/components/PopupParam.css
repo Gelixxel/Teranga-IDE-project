@@ -181,12 +181,13 @@ h2 {
 }
 
 .back-button {
-    font-size: 90px;
+    font-size: 30px;
     background: none;
     border: none;
     cursor: pointer;
     color: #666666;
     font-weight: 1000;
+    transition: color 0.3s ease;
 }
 
 h1 {

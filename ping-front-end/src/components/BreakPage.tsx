@@ -19,7 +19,7 @@ const BreakPage: React.FC = () => {
         const { startTime, endTime } = response.data;
         setEndTime(endTime);
         const now = new Date();
-        const newTime = `${now.getHours()}:${now.getMinutes()}`;
+        const newTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
         setCurrentTime(newTime);
       } catch (error) {
         console.error("Error fetching break time:", error);
@@ -39,11 +39,15 @@ const BreakPage: React.FC = () => {
       if (currentTime >= startTime && currentTime <= endTime) {
         console.log("break still going")
         setBreakEnded(false);
-        audio.play();
+        if (!isPlaying) {
+          audio.play();
+          setIsPlaying(true);
+        }
       } else {
         console.log("break not going anymore")
         setBreakEnded(true);
         audio.pause();
+        setIsPlaying(false);
       }
     } catch (error) {
       console.error("Error fetching break time:", error);
@@ -51,7 +55,7 @@ const BreakPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(checkBreakStatus, 500); // Check every 10 seconds
+    const intervalId = setInterval(checkBreakStatus, 500); // Check every .5 seconds
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);
 
@@ -68,13 +72,6 @@ const BreakPage: React.FC = () => {
     };
   }, [breakEnded, navigate]);
 
-  useEffect(() => {
-      if (isPlaying) {
-        audio.play();
-      }
-      else {audio.pause()};
-  },[isPlaying]);
-
   return (
     <div>
       <h2>{currentTime}</h2>
@@ -82,7 +79,7 @@ const BreakPage: React.FC = () => {
       <p>Teranga is currently unavailable. Please come back after the break time.</p>
       <p>End of the break: {endTime}</p>
       {breakEnded && <p>Press any key to resume</p>}
-      {isPlaying && (
+      {!isPlaying && (
         <Sound
           url="../music/beach_vacay.mp3"
           playStatus="PLAYING"
