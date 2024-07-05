@@ -3,6 +3,7 @@ package com.ping.controller;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -238,6 +239,16 @@ public class UserController {
         userRepository.save(user);
 
         return Collections.singletonMap("success", true);
+    }
+
+    @GetMapping("/allUsers2")
+    public List<Map<String, String>> getAllUsers2() {
+        List<User> users = customUserDetailsService.getAllUsers();
+        return users.stream().map(user -> {
+            String role = user.getAuthorities().stream().map(Authority::getAuthority)
+                    .filter(auth -> auth.startsWith("ROLE_")).findFirst().orElse("ROLE_USER");
+            return Map.of("username", user.getUsername(), "role", role);
+        }).collect(Collectors.toList());
     }
 
 }

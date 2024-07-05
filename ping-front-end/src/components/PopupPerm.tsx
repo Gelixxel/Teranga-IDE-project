@@ -19,7 +19,7 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('/api/allUsers');
+                const response = await axios.get('/api/allUsers2');
                 setUsers(response.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -71,7 +71,7 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
             <div className="menu-container">
                 <div className="menu-header">
                     <button className="back-button" onClick={onClosePopup}>◀</button>
-                    <h1>Permissions des utilisateurs</h1>
+                    <h1>User Permissions</h1>
                 </div>
                 <div className="user-list">
                     {users.map(user => (
@@ -80,9 +80,9 @@ const PopupPerm: React.FC<PopupPermProps> = ({ onClosePopup, isOpen }) => {
                                 <div className="user-info">{user.username}</div>
                                 <div className="user-role">{user.role}</div>
                                 {user.role === 'ROLE_USER' ? (
-                                    <button className="action-button" onClick={() => promoteUser(user.username)}>Promouvoir</button>
+                                    <button className="action-button" onClick={() => promoteUser(user.username)}>Promote</button>
                                 ) : (
-                                    <button className="action-button" onClick={() => demoteUser(user.username)}>Destituer</button>
+                                    <button className="action-button" onClick={() => demoteUser(user.username)}>Demote</button>
                                 )}
                             </div>
                             <hr />
