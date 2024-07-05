@@ -7,21 +7,43 @@ import breakMusic from '../music/beach_vacay.mp3';
 const BreakPage: React.FC = () => {
   const navigate = useNavigate();
   const [breakEnded, setBreakEnded] = useState(false);
- //const [isPlaying, setIsPlaying] = useState(false);
- const audio = new Audio(breakMusic);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
+  const [endTime, setEndTime] = useState('');
+  const audio = new Audio(breakMusic);
+
+  useEffect(() => {
+    const timer = setInterval(async () => {
+      try {
+        const response = await axios.get("/api/getBreakTime");
+        const { startTime, endTime } = response.data;
+        setEndTime(endTime);
+        const now = new Date();
+        const newTime = `${now.getHours()}:${now.getMinutes()}`;
+        setCurrentTime(newTime);
+      } catch (error) {
+        console.error("Error fetching break time:", error);
+      }
+    }, 500);
+    return () => clearInterval(timer);
+  }, []);
 
   const checkBreakStatus = async () => {
     try {
       const response = await axios.get("/api/getBreakTime");
       const { startTime, endTime } = response.data;
+      setEndTime(endTime);
       const now = new Date();
-      const currentTime = `${now.getHours()}:${now.getMinutes()}`;
-      if (currentTime < startTime || currentTime > endTime) {
-        setBreakEnded(true);
-        audio.pause();
-      } else {
+      const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+      console.log("currentTime: %s | startTime: %s | endTime: %s", currentTime, startTime, endTime);
+      if (currentTime >= startTime && currentTime <= endTime) {
+        console.log("break still going")
         setBreakEnded(false);
         audio.play();
+      } else {
+        console.log("break not going anymore")
+        setBreakEnded(true);
+        audio.pause();
       }
     } catch (error) {
       console.error("Error fetching break time:", error);
@@ -29,7 +51,7 @@ const BreakPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const intervalId = setInterval(checkBreakStatus, 10000); // Check every 60 seconds
+    const intervalId = setInterval(checkBreakStatus, 500); // Check every 10 seconds
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);
 
@@ -46,25 +68,27 @@ const BreakPage: React.FC = () => {
     };
   }, [breakEnded, navigate]);
 
-  /*useEffect(() => {
+  useEffect(() => {
       if (isPlaying) {
         audio.play();
       }
       else {audio.pause()};
-  },[isPlaying]);*/
+  },[isPlaying]);
 
   return (
     <div>
+      <h2>{currentTime}</h2>
       <h1>Break Time</h1>
-      <p>The IDE is currently unavailable. Please come back after the break time.</p>
+      <p>Teranga is currently unavailable. Please come back after the break time.</p>
+      <p>End of the break: {endTime}</p>
       {breakEnded && <p>Press any key to resume</p>}
-      {/* {isPlaying && (
+      {isPlaying && (
         <Sound
-          url="/beach_vacay.mp3"
+          url="../music/beach_vacay.mp3"
           playStatus="PLAYING"
           loop={true}
         />
-      )} */}
+      )}
     </div>
   );
 };

@@ -27,7 +27,9 @@ const Editor: React.FC = () => {
   const [isCiphered, setIsCiphered] = useState(false);
   const [username, setUsername] = useState<string>("");
   const [breakTime, setBreakTime] = useState<{ startTime: string, endTime: string } | null>(null);
-  const [showNotification, setShowNotification] = useState<boolean>(false);
+  const [showNotification5, setShowNotification5] = useState<boolean>(false);
+  const [showNotification2, setShowNotification2] = useState<boolean>(false);
+  const [showNotification1, setShowNotification1] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const openParamPopup = () => {
@@ -50,7 +52,7 @@ const Editor: React.FC = () => {
     console.log(breakTime);
     if (breakTime) {
       const now = new Date();
-      const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      const currentTime = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
       console.log(breakTime.startTime, currentTime, breakTime.endTime);
       if (currentTime >= breakTime.startTime && currentTime <= breakTime.endTime) {
         navigate("/break");
@@ -64,11 +66,23 @@ const Editor: React.FC = () => {
       const [startHours, startMinutes] = breakTime.startTime.split(':').map(Number);
       const nextBreakTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), startHours, startMinutes);
       const timeUntilNextBreak = nextBreakTime.getTime() - now.getTime();
-      const notificationTime = timeUntilNextBreak - 5 * 60 * 1000; // 5 minutes before the break
-      if (notificationTime > 0) {
+      const notificationTime5 = timeUntilNextBreak - 5 * 60 * 1000; // 5 minutes before the break
+      if (notificationTime5 > 0) {
         setTimeout(() => {
-          setShowNotification(true);
-        }, notificationTime);
+          setShowNotification5(true);
+        }, notificationTime5);
+      }
+      const notificationTime2 = timeUntilNextBreak - 2 * 60 * 1000; // 2 minutes before the break
+      if (notificationTime2 > 0) {
+        setTimeout(() => {
+          setShowNotification2(true);
+        }, notificationTime2);
+      }
+      const notificationTime1 = timeUntilNextBreak - 1 * 60 * 1000; // 1 minutes before the break
+      if (notificationTime1 > 0) {
+        setTimeout(() => {
+          setShowNotification1(true);
+        }, notificationTime1);
       }
     }
   }, [breakTime]);
@@ -476,10 +490,22 @@ const Editor: React.FC = () => {
           />
         </div>
         <pre className="output">{output}</pre>
-        {showNotification && (
+        {showNotification5 && (
           <Notification
             message="Break starts in 5 minutes!"
-            onClose={() => setShowNotification(false)}
+            onClose={() => setShowNotification5(false)}
+          />
+        )}
+        {showNotification2 && (
+          <Notification
+            message="Break starts in 2 minutes!"
+            onClose={() => setShowNotification2(false)}
+          />
+        )}
+        {showNotification1 && (
+          <Notification
+            message="Break starts in 1 minute!"
+            onClose={() => setShowNotification1(false)}
           />
         )}
       </main>
